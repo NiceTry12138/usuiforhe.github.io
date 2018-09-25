@@ -88,10 +88,14 @@
 <meta property="og:site_name" content="lc_love_myh">
 <meta property="og:description" content="Git的起源linux内核源代码一直在 bitkeep 上托管，但是bitkeep 突然收回对linux的授权，因为bitkeep说开源社区中的一个成员对bitkeep的协议进行逆向工程。因此，自己写了git。 SVN-&amp;gt;集中式版本控制系统：只有中央服务器有版本的数据库，其他电脑没有，所有版本控制都要通过中央服务器进行交互。（要是中央服务器当机离线，则就出大问题了）git-&amp;gt;分布式版本">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-25T07:47:22.217Z">
+<meta property="og:image" content="https://i.imgur.com/InyuRGB.png">
+<meta property="og:image" content="https://i.imgur.com/tAGY09M.png">
+<meta property="og:image" content="https://i.imgur.com/qDXMcAv.png">
+<meta property="og:updated_time" content="2018-09-25T08:15:03.585Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git">
 <meta name="twitter:description" content="Git的起源linux内核源代码一直在 bitkeep 上托管，但是bitkeep 突然收回对linux的授权，因为bitkeep说开源社区中的一个成员对bitkeep的协议进行逆向工程。因此，自己写了git。 SVN-&amp;gt;集中式版本控制系统：只有中央服务器有版本的数据库，其他电脑没有，所有版本控制都要通过中央服务器进行交互。（要是中央服务器当机离线，则就出大问题了）git-&amp;gt;分布式版本">
+<meta name="twitter:image" content="https://i.imgur.com/InyuRGB.png">
 
 
 
@@ -321,7 +325,7 @@
 4. tag：指向固定的历史提交  
 (-&gt;）指向的意思  
 </code></pre><p><code>tag</code>  <code>-&gt;</code>  <code>commit</code>  <code>-&gt;</code>  <code>tree</code>  <code>-&gt;</code>  <code>多个tree对象或者多个blob对象</code><br>对工作区的这些内容进行SHA-1 Hash 之后，就可以得到唯一标识。<br>如果两个文件内容是相同的，则他们指向同一个blob对象。而文件名这种信息会存在tree对象中。  </p>
-<p>有了git对象之后，需要git仓库去存储对象，和操作对象。<br>git init   git clone  两种方法获取仓库。<br>cd 到.git 文件夹中 （GIT_DIR!）-&gt; git工作区间     用 ls 查看git需要的文件<br>再退出来<br>用init方法创建一个裸仓库。然后查看仓库中有什么。<br>git init –bare git_bare_repo<br>通过–bare 方法创建一个 git_bare_repo 文件夹。这个文件夹只有git工作需要的文件。<br>git clone 克隆出一个仓库 一般来说需要远程裸仓库的地址<br>git clone git_bare_repo/ git_clone_repo （复制之前创建的本地仓库，并创建在文件夹  git_clone_repo中）  </p>
+<p>有了git对象之后，需要git仓库去存储对象，和操作对象。<br>git init   git clone  两种方法获取仓库。<br><img src="https://i.imgur.com/InyuRGB.png" alt=""><br>cd 到.git 文件夹中 （GIT_DIR!）-&gt; git工作区间     用 ls 查看git需要的文件<br>再退出来<br>用init方法创建一个裸仓库。然后查看仓库中有什么。<br>git init –bare git_bare_repo<br>通过–bare 方法创建一个 git_bare_repo 文件夹。这个文件夹只有git工作需要的文件。<br>git clone 克隆出一个仓库 一般来说需要远程裸仓库的地址<br>git clone git_bare_repo/ git_clone_repo （复制之前创建的本地仓库，并创建在文件夹  git_clone_repo中）  </p>
 <h2 id="git分为三个区域："><a href="#git分为三个区域：" class="headerlink" title="git分为三个区域："></a>git分为三个区域：</h2><blockquote>
 <ol>
 <li>working directory（工作区，日常编辑代码的地方）  </li>
@@ -333,8 +337,7 @@
 <blockquote>
 <p>先 创建  a b 两个文件<br>    touch a<br>    touch b<br>然后添加到暂存区<br>    git add a b<br>查看一下<br>    git status<br>提交到历史纪录<br>    git commit -m “initial commit” （加入一个提交的历史信息）<br>修改一下a<br>    vim a（加入一些文字信息）<br>再看一下 git status<br>    提示 a 修改了 但是没有提交到暂存区<br>提交a到暂存区中<br>    git add a<br>再status 看一下<br>    git status<br>再提交 a 就行<br>    git commit -m “modify a”<br>删除a，会删除 工作区 ，暂存区中的a<br>    git rm a<br>还原一下a<br>    git checkout a<br>如何只删除暂存区的文件，不删除工作目录的文件<br>    git rm –cached a  </p>
 </blockquote>
-<hr>
-
+<p><hr><br><img src="https://i.imgur.com/tAGY09M.png" alt=""></p>
 <blockquote>
 <p>git status 看看就会提示有一个没有跟踪的文件<br>git mv a c （将a名字命名为c）（这个命令是一系列操作的总和）<br>    如果直接再工作区修改文件名<br>        mv a c （工作目录直接 修改名字）<br>    再 git status<br>        提示 a 被删除了 ， 有个c 的文件没有被跟踪<br>    再 git add a c（添加a c 到文件中）<br>        提示文件 a 被更改为 c<br>git add -A 添加整个工作区都暂存区<br>git .gitignore    在顶层目录下创建一个.gitignore文件<br><em>.[oa]通过通配符提示git，以 o 和 a 结尾的文件不要添加到git仓库中<br>例如：加入了  </em>.~, *.pyc ， 但是如果以.pyc为后缀的文件，有一个要加到仓库，这个时候就要在文件名上加  !test.pyc，告诉 test.pyc 不要被忽略。如果需要ingore文件名第一个字符就是“！”，就要加上”\”转义字符。<br>**/res 匹配 res，所有路径下的res，任何文件夹下的res。<br>git add .gitignore<br>git commit -m “add ingore”//添加到仓库中，用于整个仓库的共享  </p>
 </blockquote>
@@ -356,7 +359,7 @@ git tag -a &quot;INITAL_COMMIT&quot; a1abda30   标注tag，提示输出tag信�
 git tag 查看以有的设置过的tag  
 git config --global alias.lol &quot;log --oneline --decorate --graph --all&quot; 用 git lol 代替 log --oneline --decorate --graph --all  
 git show v0 （v0是一个tag的名字）  
-</code></pre><h2 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h2><p>提供个人或者企业的代码托管。可以查看其他的开源项目托管。  </p>
+</code></pre><h2 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h2><p>提供个人或者企业的代码托管。可以查看其他的开源项目托管。<br><img src="https://i.imgur.com/qDXMcAv.png" alt=""></p>
 
       
     </div>
