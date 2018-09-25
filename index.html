@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-cocos2dx_i wanna" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/25/cocos2dx_i wanna/" class="article-date">
+  <time datetime="2018-09-25T01:21:18.509Z" itemprop="datePublished">2018-09-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 style="text-align: center;">基于cocos-2dx的游戏制作——I wanna save the princess</h2>
+
+<p><b>在进行了两周的cocos学习之后，可以开始进行游戏的创作了。<br>I wanna主要复杂的地方在于地图的设计以及逻辑实现。下面依次进行介绍。（使用c++）</b></p>
+<p></p><h3 style="text-align: left">一．    瓦片地图——tile map</h3><p></p>
+<h4 style="text-align: left">1.    地图整体的大小。</h4>
+
+<p>配合电脑可以全屏显示，设置为1080X1920的大小。<br><img src="https://img-blog.csdn.net/20180916234733208?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<h4 style="text-align: left">2.    图块的大小。</h4><br><img src="https://img-blog.csdn.net/20180916234822527?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>使用Tile map制作地图，因为它非常方便，可以将图片素材直接放到图块中，并且大小可以随意调节。<br><img src="https://img-blog.csdn.net/20180916234858684?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br><br><br><br>比如：所有的地图图块设置为30X30像素，因此普通的土块和草地都是30X30的大小。<br><img src="https://img-blog.csdn.net/20180916234918607?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br><br>但是在下面的场景中，因为水是直接在tile map中显示的，所以设置为了1920X900的大小。<br><img src="https://img-blog.csdn.net/20180916234931956?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br><br><br><h4 style="text-align: left">3.    图层的设置。</h4>
+
+<p>在这个界面中，可以新建多个图层，将不同属性的图块放入。<br><img src="https://img-blog.csdn.net/20180916234958919?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>比如：土块和刺是分开的两个图层。<br><img src="https://img-blog.csdn.net/20180916235018278?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p><img src="https://img-blog.csdn.net/2018091623504424?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>每一个形状的刺分别的一个图层。<br>向上的刺。<br><img src="https://img-blog.csdn.net/2018091623514415?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>向左的刺。<br><img src="https://img-blog.csdn.net/20180916235151718?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>隐藏的刺与可以触发的刺也是不同的图层。<br>地图上直接可见的，向上的刺。<br><img src="https://img-blog.csdn.net/20180916235224447?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>并非直接可见，需要触发条件的，向上的刺。<br><img src="https://img-blog.csdn.net/20180916235232439?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>在图层的设置中，可以将同一属性的图层用一个新的图层覆盖，并且设置不可穿透的属性，这样在导入图层的时候会比较方便。</p>
+<p><img src="https://img-blog.csdn.net/20180916235313204?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>在所有不可穿透的图层中，覆盖了一层红色图层，在vs中导入的同时，设置为不可穿透。<br><img src="https://img-blog.csdn.net/20180916235319883?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>（不可穿透是利用下文中掩码的作用。）</p>
+<h4 style="text-align: left">4.    人物图层。</h4>
+
+<p>在建立图层的时候，选择添加对象层，然后选择建立矩形，在地图上的任一个地方画出任意大小的矩形，代表人物。<br><img src="https://img-blog.csdn.net/20180916235352705?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>（相应操作在图上用红色方框表示。）</p>
+<h4 style="text-align: left">5.    特殊图层。</h4>
+
+<p>因为I wanna游戏的特殊，经常有不同的隐藏刺。这个部分首先需要在不同的图层中实现，然后需要一个对应的触发图层。</p>
+<p>观察红色方框中图层的顺序，现在的位置是游戏地图中正常图层的位置，即土块将隐藏刺遮住了。<br><img src="https://img-blog.csdn.net/20180916235416295?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>调整顺序后可以看到隐藏刺。<br><img src="https://img-blog.csdn.net/20180916235435528?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>地图中红色图层的作用是，判断人物当前的位置x坐标是否与此图层中的某一个相同，相同则触发刺向上飞的事件。<br><img src="https://img-blog.csdn.net/20180916235450275?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>这个触发图层的作用是，在地图中，人物在触碰到这个图层的同时，触发对应tag中的事件，比如让刺飞出，或是在踩到触发图层时冒出。</p>
+<p><img src="https://img-blog.csdn.net/20180916235507874?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>导入的图层为上一张图片中的yincang图层，设置tag为4。<br><img src="https://img-blog.csdn.net/20180916235522161?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>人物的tag为1，当两个物体的tag分别为1和4的时候，触发事件。<br><img src="https://img-blog.csdn.net/2018091623553752?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>在导入隐藏刺的同时设置冒出的移动，当人物与刺所在的图块接触，刺冒出。<br><img src="https://img-blog.csdn.net/20180916235553553?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>触发刺飞出的事件。<br><img src="https://img-blog.csdn.net/20180916235609653?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p></p><h3 style="text-align: left">二．    物理引擎</h3><p></p>
+<h4 style="text-align: left">1．    建立物理世界。</h4>
+
+<p><img src="https://img-blog.csdn.net/20180916235628686?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<h4 style="text-align: left">2．    重力的添加以及改变。</h4>
+
+<p>添加在创建物理世界时写入。<br>在第三个场景的水中，需要更改重力的大小。<br><img src="https://img-blog.csdn.net/20180916235642364?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<h4 style="text-align: left">3．    添加不同的刚体。</h4>
+
+<p>普通的刚体，是矩形的。<br><img src="https://img-blog.csdn.net/20180916235656633?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>因为刺是三角形的，所以需要建立一个数组存储三角形的三个顶点坐标，然后再附给物体，这样就是一个三角形的刚体。<br><img src="https://img-blog.csdn.net/20180916235711359?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<h4 style="text-align: left">4．    介绍三种掩码。</h4>
+
+<p>类别掩码setCategoryBitMask，接触检测掩码setContactTestBitmask，碰撞掩码setCollisionBitmask。<br>分别将两个物体的类别掩码与接触检测掩码进行逻辑与运算，可以判断是否触发接触事件，类似的，可以判断是否穿透或者碰撞。</p>
+<p>人物的三种掩码。<br><img src="https://img-blog.csdn.net/201809162357336?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<h4 style="text-align: left">5．    重新开始。</h4>
+
+<p>将当前场景舍弃，重新生成一个新的场景，进行替换。<br><img src="https://img-blog.csdn.net/20180916235746615?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<h4 style="text-align: left">6．    键盘事件。</h4>
+
+<p>人物可以进行向左前进，向右前进，跳跃这三种动作，在此函数中，按下不同的键实现不同的事件。<br><img src="https://img-blog.csdn.net/20180916235802888?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p><img src="https://img-blog.csdn.net/20180916235817727?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<h4 style="text-align: left">7．    标签的添加。</h4>
+
+<p>在导入图层的时候就分别设置不同的tag，以便于在函数中进行相应的判断。<br><img src="https://img-blog.csdn.net/20180916235832131?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>人物与刺碰撞，触发游戏结束的事件，在界面中添加游戏结束的图片，并且取消键盘事件，但可以按R键重新开始。（所有的刺tag都为3）<br><img src="https://img-blog.csdn.net/20180916235845741?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>在最后切换场景时，有一个被隐藏了的触发图层，在人物接触到的同时进行tag的比较，从而可以切换场景。<br><img src="https://img-blog.csdn.net/2018091623590996?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p><img src="https://img-blog.csdn.net/20180916235915699?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br><img src="https://img-blog.csdn.net/20180916235933183?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<h4 style="text-align: left">8．    计时器函数</h4>
+
+<p>进行场景中物理引擎的手动更新。<br><img src="https://img-blog.csdn.net/20180916235945977?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<h4 style="text-align: left">9．    碰撞检测。</h4>
+
+<p>利用三种掩码进行判断。<br>人物与土块。（人物的掩码在上方，三个都是7）<br><img src="https://img-blog.csdn.net/20180917000002385?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br>（这个图层就是上方介绍过的覆盖图层）<br>进行判断后为不可穿透。</p>
+<p>人物与水。<br><img src="https://img-blog.csdn.net/20180917000014896?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzQxNjcxNDcy/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/25/cocos2dx_i wanna/" data-id="cjmh1dajm0000mou8e0g9wuuf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/25/hello-world-1/" class="article-date">
+  <time datetime="2018-09-25T01:20:50.000Z" itemprop="datePublished">2018-09-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/25/hello-world-1/">hello world</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/25/hello-world-1/" data-id="cjmh1daju0001mou8gs5xi530" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/25/hello-world/" class="article-date">
+  <time datetime="2018-09-25T00:51:53.263Z" itemprop="datePublished">2018-09-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/25/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/25/hello-world/" data-id="cjmh1dajx0002mou8lips3jm7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/09/25/cocos2dx_i wanna/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/25/hello-world-1/">hello world</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/25/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
