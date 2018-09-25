@@ -83,14 +83,14 @@
 
 <meta name="description" content="File 类构造函数有：传入相对路径（一个参数）   传入绝对路径（一个参数）   File类指定为当前文件的父级，当前文件的名称（两个参数）   文件删除读写改名File file = new File(&amp;quot;hello.txt&amp;quot;);//对于工程而言用相对路径，创建在根目录下。也可以用绝对路径指定文件夹   //File file = new File(&amp;quot;bin/hel">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java的文件操作">
+<meta property="og:title" content="java的文件和时间操作">
 <meta property="og:url" content="http://yoursite.com/2018/09/25/java的文件操作/index.html">
 <meta property="og:site_name" content="lc_love_myh">
 <meta property="og:description" content="File 类构造函数有：传入相对路径（一个参数）   传入绝对路径（一个参数）   File类指定为当前文件的父级，当前文件的名称（两个参数）   文件删除读写改名File file = new File(&amp;quot;hello.txt&amp;quot;);//对于工程而言用相对路径，创建在根目录下。也可以用绝对路径指定文件夹   //File file = new File(&amp;quot;bin/hel">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-25T14:45:33.809Z">
+<meta property="og:updated_time" content="2018-09-25T15:55:52.226Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java的文件操作">
+<meta name="twitter:title" content="java的文件和时间操作">
 <meta name="twitter:description" content="File 类构造函数有：传入相对路径（一个参数）   传入绝对路径（一个参数）   File类指定为当前文件的父级，当前文件的名称（两个参数）   文件删除读写改名File file = new File(&amp;quot;hello.txt&amp;quot;);//对于工程而言用相对路径，创建在根目录下。也可以用绝对路径指定文件夹   //File file = new File(&amp;quot;bin/hel">
 
 
@@ -143,7 +143,7 @@
       }
   </style>
 
-  <title>java的文件操作 | lc_love_myh</title>
+  <title>java的文件和时间操作 | lc_love_myh</title>
   
 
 
@@ -283,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java的文件操作</h1>
+          <h1 class="post-title" itemprop="name headline">java的文件和时间操作</h1>
         
 
         <div class="post-meta">
@@ -448,6 +448,21 @@ forlder.delete();//删除文件夹，但是只能删除空文件夹
         }
     }
 }
+</code></pre><h2 id="时间操作"><a href="#时间操作" class="headerlink" title="时间操作"></a>时间操作</h2><p>Date表示时间，日期。但是更新jdk之后就不推荐使用了。<br>官方解释是 使用Date类<code>不利于国际化</code>。所以jdk1.1版本后推荐使用Calendar类。使用DateFormat类进行时间日期的格式化。Long类型表示时间类型。String类型表示时间日期类的显示。 </p>
+<pre><code>Date.getTime();//获取Date对象的时间  
+Date.setTime(long time);//设置Date的时间  
+
+Calendar rightnow = Calendar.getInstance();//获取当前时间  
+long now = System.currentTimeMillis();//获得系统的当前时间，但是这个时间只有机器能读懂
+
+Date d1 = new Date(now);// 获取人能够读懂的时间  
+Calendar c1 = Calendar .getInstance();  
+System.out.print(c1.getTime().toString());//获得人能够读懂的时间  
+</code></pre><p><code>String -&gt; 时间  &amp;&amp; 时间 -&gt; String</code></p>
+<pre><code>SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);//指定日期的格式  
+sdf.format(date);//将Date类型转换为指定格式的String类型，返回的是一个String类型  
+sdf.parse(&quot;2015-06-01&quot;);//将String转换为Date类型，返回的是一个Date类型  
+//SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;); 时间格式为 年月日  时分秒  
 </code></pre>
       
     </div>
@@ -601,7 +616,7 @@ forlder.delete();//删除文件夹，但是只能删除空文件夹
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#File-类"><span class="nav-number">1.</span> <span class="nav-text">File 类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数有："><span class="nav-number">1.1.</span> <span class="nav-text">构造函数有：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件删除读写改名"><span class="nav-number">2.</span> <span class="nav-text">文件删除读写改名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试样例，用于文件的读取"><span class="nav-number">2.1.</span> <span class="nav-text">测试样例，用于文件的读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试样例，用于写入文件"><span class="nav-number">2.2.</span> <span class="nav-text">测试样例，用于写入文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件夹操作"><span class="nav-number">3.</span> <span class="nav-text">文件夹操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些判断获取语句"><span class="nav-number">4.</span> <span class="nav-text">一些判断获取语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置文件属性："><span class="nav-number">5.</span> <span class="nav-text">设置文件属性：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历文件夹"><span class="nav-number">6.</span> <span class="nav-text">遍历文件夹</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#File-类"><span class="nav-number">1.</span> <span class="nav-text">File 类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数有："><span class="nav-number">1.1.</span> <span class="nav-text">构造函数有：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件删除读写改名"><span class="nav-number">2.</span> <span class="nav-text">文件删除读写改名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试样例，用于文件的读取"><span class="nav-number">2.1.</span> <span class="nav-text">测试样例，用于文件的读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试样例，用于写入文件"><span class="nav-number">2.2.</span> <span class="nav-text">测试样例，用于写入文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件夹操作"><span class="nav-number">3.</span> <span class="nav-text">文件夹操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些判断获取语句"><span class="nav-number">4.</span> <span class="nav-text">一些判断获取语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置文件属性："><span class="nav-number">5.</span> <span class="nav-text">设置文件属性：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历文件夹"><span class="nav-number">6.</span> <span class="nav-text">遍历文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间操作"><span class="nav-number">7.</span> <span class="nav-text">时间操作</span></a></li></ol></div>
             
 
           </div>
@@ -840,7 +855,7 @@ forlder.delete();//删除文件夹，但是只能删除空文件夹
     </script>
     <div class="theme-info" style="float:left">
       <div class="powered-by"></div>
-      <span class="post-count">全站博客共6.5k字</span>
+      <span class="post-count">全站博客共6.8k字</span>
     </div>
 </footer>
 </html>
