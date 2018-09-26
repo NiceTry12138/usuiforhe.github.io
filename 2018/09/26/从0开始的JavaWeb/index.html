@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="lc_love_myh" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Html什么是Html？HyperText Markup Language：超文本标记语言 ** 超文本：超出文本的范畴，使用html可以轻松实现 ** 标记：html所有的操作都是通过标记实现的。标记，就是标签   ** 网页语言：超文本标记语言 第一个html程序：例如：创建Java文件 后缀名为.java **先编译，后运行（jvm） 同理：html文件后缀是.html **直接通过浏览器就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从0开始的JavaWeb———Html">
+<meta property="og:url" content="http://yoursite.com/2018/09/26/从0开始的JavaWeb/index.html">
+<meta property="og:site_name" content="lc_love_myh">
+<meta property="og:description" content="Html什么是Html？HyperText Markup Language：超文本标记语言 ** 超文本：超出文本的范畴，使用html可以轻松实现 ** 标记：html所有的操作都是通过标记实现的。标记，就是标签   ** 网页语言：超文本标记语言 第一个html程序：例如：创建Java文件 后缀名为.java **先编译，后运行（jvm） 同理：html文件后缀是.html **直接通过浏览器就">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-26T14:47:32.593Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从0开始的JavaWeb———Html">
+<meta name="twitter:description" content="Html什么是Html？HyperText Markup Language：超文本标记语言 ** 超文本：超出文本的范畴，使用html可以轻松实现 ** 标记：html所有的操作都是通过标记实现的。标记，就是标签   ** 网页语言：超文本标记语言 第一个html程序：例如：创建Java文件 后缀名为.java **先编译，后运行（jvm） 同理：html文件后缀是.html **直接通过浏览器就">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/26/从0开始的JavaWeb/"/>
+
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+  <style>
+      .pace .pace-progress {
+          background: #1E92FB; /*进度条颜色*/
+          height: 3px;
+      }
+      .pace .pace-progress-inner {
+           box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+      }
+      .pace .pace-activity {
+          border-top-color: #1E92FB;    /*上边框颜色*/
+          border-left-color: #1E92FB;    /*左边框颜色*/
+      }
+  </style>
+
+  <title>从0开始的JavaWeb———Html | lc_love_myh</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  
+  
+    
+  
+  <script type="text/javascript" src=" //cdn.bootcss.com/jquery/3.1.1/jquery.min.js">
+    var a_idx = 0;
+    jQuery(document).ready(function($) {
+      $("body").click(function(e) {
+        var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");
+        var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,y = e.pageY;
+        $i.css({"z-index": 999999999999999999999999999999999999999999999999999999999999999999999,"top": y - 20,"left": x,"position": "absolute","font-weight": "bold","color": "#ff6651"});
+        $("body").append($i);$i.animate({"top": y - 180,"opacity": 0},1500,function() {$i.remove();});
+      });
+    });
+  </script>
+  
+  <iframe  frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=38358277&auto=1&height=66"></iframe>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div> 
+      <!--git的主体设置-->
+      <a href="https://usuiforhe.github.io/" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lc_love_myh</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"><b style="background-color:white;" >往后余生 心底温柔是你，目光所至也是你。</b></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+  <style>
+      .pace .pace-progress {
+          background: #1E92FB; /*进度条颜色*/
+          height: 3px;
+      }
+      .pace .pace-progress-inner {
+           box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+      }
+      .pace .pace-activity {
+          border-top-color: #1E92FB;    /*上边框颜色*/
+          border-left-color: #1E92FB;    /*左边框颜色*/
+      }
+  </style>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/26/从0开始的JavaWeb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lc_love_myh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lc_love_myh">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">从0开始的JavaWeb———Html</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-26T20:37:38+08:00">
+                2018-09-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Html"><a href="#Html" class="headerlink" title="Html"></a>Html</h2><h3 id="什么是Html？"><a href="#什么是Html？" class="headerlink" title="什么是Html？"></a>什么是Html？</h3><pre><code>HyperText Markup Language：超文本标记语言
+** 超文本：超出文本的范畴，使用html可以轻松实现
+** 标记：html所有的操作都是通过标记实现的。标记，就是标签  
+** 网页语言：超文本标记语言
+</code></pre><h3 id="第一个html程序："><a href="#第一个html程序：" class="headerlink" title="第一个html程序："></a>第一个html程序：</h3><pre><code>例如：创建Java文件 后缀名为.java
+**先编译，后运行（jvm）
+同理：html文件后缀是.html
+**直接通过浏览器就可以运行
+</code></pre><h3 id="html规范："><a href="#html规范：" class="headerlink" title="html规范："></a>html规范：</h3><pre><code>1. 一个html文件开始标签和结束的标签&lt;html&gt;&lt;/html&gt;
+2. html包含两个部分内容：
+    &lt;head&gt;&lt;/head&gt; 
+    &lt;body&gt;&lt;/body&gt; 
+3. html的标签有开始标签，也要有结束标签 
+4. html的代码不区分大小写&lt;font&gt; == &lt;FONT&gt; 
+5. 部分标签没有结束标签：
+    例如：&lt;br /&gt;//内部加个&quot;/&quot;，标签内结束
+</code></pre><h3 id="html的操作思想："><a href="#html的操作思想：" class="headerlink" title="*html的操作思想："></a>*html的操作思想：</h3><pre><code>网页中有很多的数据，不同的数据可能需要不同的显示效果，这个时候需要使用标签把要操作的数据封装起来，通过修改标签的属性值实现标签内数据样式的变化。
+一个标签就像等于一个容器，想要修改容器内数据的样式，只需要改变容器的属性值，就可以实现容器内的数据样式的变化。
+</code></pre><h3 id="html中常用的标签"><a href="#html中常用的标签" class="headerlink" title="html中常用的标签"></a>html中常用的标签</h3><h4 id="文字标签和注释标签"><a href="#文字标签和注释标签" class="headerlink" title="文字标签和注释标签"></a>文字标签和注释标签</h4><h5 id="文字标签：修改文字的样式"><a href="#文字标签：修改文字的样式" class="headerlink" title="*文字标签：修改文字的样式"></a>*文字标签：修改文字的样式</h5><pre><code>例如：&lt;font&gt; &lt;/font&gt;
+属性：color : 文字颜色(颜色的英文单词，或者十六进制rgb)
+     size : 文字大小（1~7）
+</code></pre><h5 id="注释标签"><a href="#注释标签" class="headerlink" title="注释标签"></a>注释标签</h5><pre><code>Java的注释有三种：&quot;//&quot; , &quot;/* */&quot; &quot;/*****/&quot;
+html的注释: &lt;!--  注释内容 --&gt;(源文件可以查看的注释)
+</code></pre><h4 id="标题标签，水平线标签和特殊字符"><a href="#标题标签，水平线标签和特殊字符" class="headerlink" title="标题标签，水平线标签和特殊字符"></a>标题标签，水平线标签和特殊字符</h4><h5 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h5><pre><code>&lt;h1&gt;&lt;/h1&gt;&lt;h2&gt;&lt;/h2&gt; ~~~~  &lt;h6&gt;&lt;/h6&gt;
+文字大小 从h1 到 h6 以此变小，并且每个标签都会自动换行
+</code></pre><h5 id="水平线标签"><a href="#水平线标签" class="headerlink" title="水平线标签"></a>水平线标签</h5><pre><code>&lt;hr /&gt; 标签内结束
+属性：
+    **size：水平线的粗细
+    **color：水平线的颜色
+</code></pre><h5 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h5><pre><code>想在网页中显示 &quot;&lt;html&gt;是一个特殊标签&quot;
+如果直接写 &quot;&lt;html&gt;是一个特殊标签&quot;，则只会显示 &quot;是一个特殊标签&quot;
+需要转义&quot;&lt;html&gt;&quot;：
+    &amp;lt;       ---&gt;     &quot;&lt;&quot;   小于符号
+    &amp;gt;      ---&gt;     &quot;&gt;&quot;   大于符号
+    &amp;amp;      ---&gt;     &quot;&amp;&quot;   and符号 &amp;
+    &amp;apos;    ---&gt;     &quot;&apos;&quot;   英文单引号
+    &amp;quot;    ---&gt;     &quot;&quot;&quot;   英文双引号
+    &amp;nbsp;  ---&gt;     &quot; &quot;   空格转义
+</code></pre><h4 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h4><pre><code>如果想在网页显示 列表的效果。
+</code></pre><h5 id="lt-dl-gt-lt-dl-gt-：表示列表的范围"><a href="#lt-dl-gt-lt-dl-gt-：表示列表的范围" class="headerlink" title="&lt;dl&gt;&lt;/dl&gt;：表示列表的范围"></a>&lt;dl&gt;&lt;/dl&gt;：表示列表的范围</h5><pre><code>    在&lt;dl&gt;里面  &lt;dt&gt;&lt;/dt&gt;：上层内容
+    在&lt;dl&gt;里面  &lt;dd&gt;&lt;/dd&gt;：下层内容
+例如：
+    &lt;dl&gt;
+        &lt;dt&gt;学习内容&lt;/dt&gt;
+            &lt;dd&gt;java&lt;/dd&gt;
+            &lt;dd&gt;C++&lt;/dd&gt;
+            &lt;dd&gt;Python&lt;/dd&gt;
+        &lt;dt&gt;学习进度&lt;/dt&gt;
+            &lt;dd&gt;没学&lt;/dd&gt;
+            &lt;dd&gt;没学&lt;/dd&gt;
+            &lt;dd&gt;没学&lt;/dd&gt;
+    &lt;/dl&gt;
+</code></pre><dl><br><dt>学习内容</dt><br><dd>java</dd><br><dd>C++</dd><br><dd>Python</dd><br><dt>学习进度</dt><br><dd>没学</dd><br><dd>没学</dd><br><dd>没学</dd><br></dl>
+
+<h5 id="lt-ol-gt-lt-ol-gt-：有序列表的范围"><a href="#lt-ol-gt-lt-ol-gt-：有序列表的范围" class="headerlink" title="&lt;ol&gt;&lt;ol&gt;：有序列表的范围"></a>&lt;ol&gt;&lt;ol&gt;：有序列表的范围</h5><pre><code>    在&lt;ol&gt;&lt;/ol&gt;标签内部：&lt;li&gt;
+    属性：
+        type：这是排序方式 默认（缺省）为 1. 2. 3....
+            type = &quot;a&quot;
+            type = &quot;i&quot;
+
+例如：
+    &lt;ol type=&quot;a&quot;&gt;
+    &lt;li&gt;java&lt;/li&gt;
+    &lt;li&gt;C++&lt;/li&gt;
+    &lt;li&gt;Python&lt;/li&gt;
+    &lt;/ol&gt;
+</code></pre><ol type="a"><br><li>java</li><br><li>C++</li><br><li>Python</li><br></ol>
+
+<h5 id="lt-ul-gt-lt-ul-gt-：无序列表的范围"><a href="#lt-ul-gt-lt-ul-gt-：无序列表的范围" class="headerlink" title="&lt;ul&gt;&lt;/ul&gt;：无序列表的范围"></a>&lt;ul&gt;&lt;/ul&gt;：无序列表的范围</h5><pre><code>属性：
+    type：
+        circle    空心圆    
+        disc    实心圆（默认）
+        square    实心方块
+&lt;ol type=&quot;a&quot;&gt;
+&lt;li&gt;java&lt;/li&gt;
+&lt;li&gt;C++&lt;/li&gt;
+&lt;li&gt;Python&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre><p><ul type="circle"></ul></p>
+<p><li>java</li></p>
+<p><li>C++</li></p>
+<p><li>Python</li><br></p>
+<h4 id="lt-img-gt-图像标签（重点）"><a href="#lt-img-gt-图像标签（重点）" class="headerlink" title="&lt;img&gt;图像标签（重点）"></a>&lt;img&gt;图像标签（重点）</h4><pre><code>&lt;img src=&quot;a.jpg&quot; width=&quot;宽像素&quot; height=&quot;高像素&quot; alt=&quot;显示的文字&quot;/&gt;
+--src：图片的路径
+--width：图片的宽度
+--height：图片的高度
+--alt：图片上显示的文字，把鼠标移动到图片上面，停留片刻显示内容
+</code></pre><h4 id="路径的介绍"><a href="#路径的介绍" class="headerlink" title="路径的介绍"></a>路径的介绍</h4><p>#####第一类：绝对路径<br>        D:\blog\lc_love_hehe\source_posts\p.jpg<br>        <a href="http://www.baidu.com/b.jag" target="_blank" rel="noopener">http://www.baidu.com/b.jag</a></p>
+<p>#####第二类：相对路径<br>        一个文件相对于另外一个文件的位置<br>        三种写法：<br>            当图片与html在同一个文件夹内，直接使用 b.jpg<br>            当图片在html的同级文件夹img中，使用img/b.jpg<br>            当图片在html的上级文件夹中，../b.jpg</p>
+<h4 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h4><h5 id="连接资源"><a href="#连接资源" class="headerlink" title="连接资源"></a>连接资源</h5><pre><code>&lt;a href=&quot;连接到资源的路径&quot;&gt;显示在页面上的内容&lt;/a&gt;
+    href：连接的资源的地址
+    target：设置打开的方式，默认是当前页打开。
+        _blank：在新窗口打开
+        _self：当前页打开
+    当超链接不需要到任何地址的时候，href=&quot;#&quot;
+</code></pre><p><a href="https://usuiforhe.github.io/" target="_blank">test</a></p>
+<h5 id="定位资源"><a href="#定位资源" class="headerlink" title="定位资源"></a>定位资源</h5><pre><code>&lt;a name=&quot;top&quot;&gt;顶部&lt;/a&gt;//定义顶部的位置
+&lt;a name=&quot;#top&quot;&gt;回到顶部&lt;/a&gt;//定位到网页中name为top的位置，记得加上#
+
+&lt;pre&gt;原样输出
+例如：
+public static void main(String[] args){
+    Syste.out.println(&quot;hello world&quot;);
+}
+&amp;lt;pre&amp;gt;
+public static void main(String[] args){
+    Syste.out.println(&quot;hello world&quot;);
+}
+&amp;lt;/pre&amp;gt;
+</code></pre><p>public static void main(String[] args){<br>    Syste.out.println(“hello world”);<br>}</p>
+<p><pre><br>public static void main(String[] args){<br>    Syste.out.println(“hello world”);<br>}<br></pre><br>    加上了 <pre> 标签后，原本一行的代码，变成了我们要的换行的效果</pre></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/26/MySQL命令/" rel="next" title="MySQL命令">
+                <i class="fa fa-chevron-left"></i> MySQL命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/26/xml/" rel="prev" title="xml">
+                xml <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">lc_love_myh</p>
+              <p class="site-description motion-element" itemprop="description">好好学习 天天向上</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Html"><span class="nav-number">1.</span> <span class="nav-text">Html</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Html？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Html？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个html程序："><span class="nav-number">1.2.</span> <span class="nav-text">第一个html程序：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html规范："><span class="nav-number">1.3.</span> <span class="nav-text">html规范：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html的操作思想："><span class="nav-number">1.4.</span> <span class="nav-text">*html的操作思想：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html中常用的标签"><span class="nav-number">1.5.</span> <span class="nav-text">html中常用的标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文字标签和注释标签"><span class="nav-number">1.5.1.</span> <span class="nav-text">文字标签和注释标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#文字标签：修改文字的样式"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">*文字标签：修改文字的样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注释标签"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">注释标签</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标题标签，水平线标签和特殊字符"><span class="nav-number">1.5.2.</span> <span class="nav-text">标题标签，水平线标签和特殊字符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#标题标签"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">标题标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#水平线标签"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">水平线标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#特殊字符"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">特殊字符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表标签"><span class="nav-number">1.5.3.</span> <span class="nav-text">列表标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-dl-gt-lt-dl-gt-：表示列表的范围"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">&lt;dl&gt;&lt;/dl&gt;：表示列表的范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-ol-gt-lt-ol-gt-：有序列表的范围"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">&lt;ol&gt;&lt;ol&gt;：有序列表的范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-ul-gt-lt-ul-gt-：无序列表的范围"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">&lt;ul&gt;&lt;/ul&gt;：无序列表的范围</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-img-gt-图像标签（重点）"><span class="nav-number">1.5.4.</span> <span class="nav-text">&lt;img&gt;图像标签（重点）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路径的介绍"><span class="nav-number">1.5.5.</span> <span class="nav-text">路径的介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#超链接"><span class="nav-number">1.5.6.</span> <span class="nav-text">超链接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#连接资源"><span class="nav-number">1.5.6.1.</span> <span class="nav-text">连接资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#定位资源"><span class="nav-number">1.5.6.2.</span> <span class="nav-text">定位资源</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lc_love_myh</span>
+
+  
+</div>
+
+
+  <div class="powered-by"></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info"></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<footer>
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+    <script>
+        var now = new Date(); 
+        function createtime() { 
+            var grt= new Date("09/25/2018 12:00:00");//此处修改你的建站时间或者网站上线时间 
+            now.setTime(now.getTime()+250); 
+            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+            document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+        } 
+    setInterval("createtime()",250);
+    </script>
+    <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
+      <div class="powered-by"></div>
+      <span class="post-count">全站博客共9.9k字</span>
+    </div>
+</footer>
+</html>

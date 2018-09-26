@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-26T08:37:54.316Z</updated>
+  <updated>2018-09-26T13:02:49.042Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>xml</title>
+    <link href="http://yoursite.com/2018/09/26/xml/"/>
+    <id>http://yoursite.com/2018/09/26/xml/</id>
+    <published>2018-09-26T12:59:29.000Z</published>
+    <updated>2018-09-26T13:02:49.042Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="xml概述："><a href="#xml概述：" class="headerlink" title="xml概述："></a>xml概述：</h2><pre><code>可扩展标记语言。(Extensible Markup Language)  允许开发者自由定义标签，可以将标签和内容有效分离。  xml不再侧重于数据如何展示，二十更过的关注数据如何存储和传输。  </code></pre><h2 id="xml应用场景："><a href="#xml应用场景：" class="headerlink" title="xml应用场景："></a>xml应用场景：</h2><pre><code>1. xml把数据从HTML分离出来。那温度距离，用html注重于显示而无关数据，用xml改变数据，让html读取。  2. 简化数据共享。提供了独立于软件和硬件的存储方式。  3. 简化数据的传输。通过xml，可以在不兼容的系统之间传输数据。  4. 简化平台的变更。  </code></pre><h2 id="xml的优势："><a href="#xml的优势：" class="headerlink" title="xml的优势："></a>xml的优势：</h2><pre><code>1. 简单易用的标记预语言。xml标签可以自己自由定义。2. 严格的格式。比html标签控制更严格。3. 数据逻辑和显示逻辑分离。html注重于显示，xml注重于数据存储。</code></pre><h2 id="xml文档规则："><a href="#xml文档规则：" class="headerlink" title="xml文档规则："></a>xml文档规则：</h2><pre><code>1. 有且只有一个根元素2. 元素必须合理结束3. 元素之间必须合理嵌套4. 元素的属性必须有值</code></pre><h2 id="xml存储信息："><a href="#xml存储信息：" class="headerlink" title="xml存储信息："></a>xml存储信息：</h2><pre><code>例如：书名    作者    价格         java思想    小王    79.00          Spring指南    小李    89.00  </code></pre><h2 id="xml的写法"><a href="#xml的写法" class="headerlink" title="xml的写法"></a>xml的写法</h2><h3 id="字符集："><a href="#字符集：" class="headerlink" title="字符集："></a>字符集：</h3><pre><code>1. 简体中文：GBK 或 GB23122. 繁体中文：BIG53. 西欧字符：ISO8859-14. 通用的国际编码：Unicode5. 针对Unicode的可变长度字符编码UTF8</code></pre><h3 id="合法标签名："><a href="#合法标签名：" class="headerlink" title="合法标签名："></a>合法标签名：</h3><pre><code>xml元素由开始标签和结束标签组合，结束标签比开始标签多一条斜线xml文档区分大小写。所以，开始标签和结束标签必须绝对相同，大小写也要完全一致标签名可以字母（包括非西欧字符），数字，下划线，中划线，冒号，点号组成，但是不能以数字，中划线和点号开头不能包括 ‘&lt; &gt; , $’标签名尽量不要出现英文冒号“:”, 除非是在使用名空间标签名不能以字符“xml”等任意大小写组合开始标签名不能包含空格</code></pre><h3 id="空元素："><a href="#空元素：" class="headerlink" title="空元素："></a>空元素：</h3><pre><code>例：&lt;元素名 属性名=&quot;  &quot; /&gt;空元素不是内容为空的元素，空元素不接受子元素，也不接受字符内容&lt;?xml version=&quot;1.0&quot; encoding=&quot;GB2312&quot; standalone = &quot;yes&quot; ?&gt;&lt;书籍列表&gt;    &lt;书名&gt; java思想&lt;/书名&gt;    &lt;价格&gt;79.00&lt;/价格&gt;    &lt;作者&gt;小王&lt;/作者&gt;    &lt;书名&gt;Spring指南&lt;/书名&gt;    &lt;价格&gt;89.00&lt;/价格&gt;    &lt;作者&gt;小李&lt;/作者&gt;&lt;/书籍列表&gt;那么 &lt;书籍列表&gt; 就是根元素</code></pre><h2 id="字符数据："><a href="#字符数据：" class="headerlink" title="字符数据："></a>字符数据：</h2><pre><code>开始标签和结束标签之间的文本可以是任何Unicode字符，并且其间的任何字符都重视的传递给xml处理程序但是如果中间由 &lt; 或者 &amp; 字符，容易导致辨认错误。例如： &lt;test&gt; 1 + 1 &lt; 3&lt;/test&gt;， 这样用浏览器打开就会显示错误。解决方法：    1. 使用实体应用（xml定义了五种实体引用）（记得后面要加分号）：        &amp;lt;       ---&gt;     &quot;&lt;&quot;   小于符号        &amp;gt;      ---&gt;     &quot;&gt;&quot;   大于符号        &amp;amp;      ---&gt;     &quot;&amp;&quot;   and符号 &amp;        &amp;apos;    ---&gt;     &quot;&apos;&quot;     英文单引号        &amp;quot;    ---&gt;     &quot;&quot;&quot;     英文双引号    2. 使用CDATA标记        在特殊标记CDATA下，所有的特殊字符，甚至是有效元素都将被当成简单字符处理        实体引用也会失去作用，变成纯文本        语法：        &lt;![CDATA[文本内容]]&gt;</code></pre><h2 id="换行处理："><a href="#换行处理：" class="headerlink" title="换行处理："></a>换行处理：</h2><pre><code>目前主流的操作系统，主要由3种换行符：    1. Windows平台：回车符（CR） 和 换行符 （LF） 的组合存储换行    2. Unix和Linux平台：以换行符（LF）存储换行    3. Macintosh平台：以回车符（CR）存储换行xml同一换行符（LF） 存储换行</code></pre><h2 id="命名空间："><a href="#命名空间：" class="headerlink" title="命名空间："></a>命名空间：</h2><pre><code>同一份xml文档中可能出现多个同名的元素和属性。必须添加标记判断语法：    xmlns[:prefix]= &quot;命名空间字符串&quot;    xmlns -&gt; xml namespace例如：    xmlns:hehe = &quot;http://www.***.com&quot;    &lt;hehe:name&gt;java思想&lt;/hehe:name&gt;</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;xml概述：&quot;&gt;&lt;a href=&quot;#xml概述：&quot; class=&quot;headerlink&quot; title=&quot;xml概述：&quot;&gt;&lt;/a&gt;xml概述：&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;可扩展标记语言。(Extensible Markup Language)  
+允许开发者自由
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>从0开始的JavaWeb———Html</title>
+    <link href="http://yoursite.com/2018/09/26/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84JavaWeb/"/>
+    <id>http://yoursite.com/2018/09/26/从0开始的JavaWeb/</id>
+    <published>2018-09-26T12:37:38.000Z</published>
+    <updated>2018-09-26T14:47:32.593Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Html"><a href="#Html" class="headerlink" title="Html"></a>Html</h2><h3 id="什么是Html？"><a href="#什么是Html？" class="headerlink" title="什么是Html？"></a>什么是Html？</h3><pre><code>HyperText Markup Language：超文本标记语言** 超文本：超出文本的范畴，使用html可以轻松实现** 标记：html所有的操作都是通过标记实现的。标记，就是标签  ** 网页语言：超文本标记语言</code></pre><h3 id="第一个html程序："><a href="#第一个html程序：" class="headerlink" title="第一个html程序："></a>第一个html程序：</h3><pre><code>例如：创建Java文件 后缀名为.java**先编译，后运行（jvm）同理：html文件后缀是.html**直接通过浏览器就可以运行</code></pre><h3 id="html规范："><a href="#html规范：" class="headerlink" title="html规范："></a>html规范：</h3><pre><code>1. 一个html文件开始标签和结束的标签&lt;html&gt;&lt;/html&gt;2. html包含两个部分内容：    &lt;head&gt;&lt;/head&gt;     &lt;body&gt;&lt;/body&gt; 3. html的标签有开始标签，也要有结束标签 4. html的代码不区分大小写&lt;font&gt; == &lt;FONT&gt; 5. 部分标签没有结束标签：    例如：&lt;br /&gt;//内部加个&quot;/&quot;，标签内结束</code></pre><h3 id="html的操作思想："><a href="#html的操作思想：" class="headerlink" title="*html的操作思想："></a>*html的操作思想：</h3><pre><code>网页中有很多的数据，不同的数据可能需要不同的显示效果，这个时候需要使用标签把要操作的数据封装起来，通过修改标签的属性值实现标签内数据样式的变化。一个标签就像等于一个容器，想要修改容器内数据的样式，只需要改变容器的属性值，就可以实现容器内的数据样式的变化。</code></pre><h3 id="html中常用的标签"><a href="#html中常用的标签" class="headerlink" title="html中常用的标签"></a>html中常用的标签</h3><h4 id="文字标签和注释标签"><a href="#文字标签和注释标签" class="headerlink" title="文字标签和注释标签"></a>文字标签和注释标签</h4><h5 id="文字标签：修改文字的样式"><a href="#文字标签：修改文字的样式" class="headerlink" title="*文字标签：修改文字的样式"></a>*文字标签：修改文字的样式</h5><pre><code>例如：&lt;font&gt; &lt;/font&gt;属性：color : 文字颜色(颜色的英文单词，或者十六进制rgb)     size : 文字大小（1~7）</code></pre><h5 id="注释标签"><a href="#注释标签" class="headerlink" title="注释标签"></a>注释标签</h5><pre><code>Java的注释有三种：&quot;//&quot; , &quot;/* */&quot; &quot;/*****/&quot;html的注释: &lt;!--  注释内容 --&gt;(源文件可以查看的注释)</code></pre><h4 id="标题标签，水平线标签和特殊字符"><a href="#标题标签，水平线标签和特殊字符" class="headerlink" title="标题标签，水平线标签和特殊字符"></a>标题标签，水平线标签和特殊字符</h4><h5 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h5><pre><code>&lt;h1&gt;&lt;/h1&gt;&lt;h2&gt;&lt;/h2&gt; ~~~~  &lt;h6&gt;&lt;/h6&gt;文字大小 从h1 到 h6 以此变小，并且每个标签都会自动换行</code></pre><h5 id="水平线标签"><a href="#水平线标签" class="headerlink" title="水平线标签"></a>水平线标签</h5><pre><code>&lt;hr /&gt; 标签内结束属性：    **size：水平线的粗细    **color：水平线的颜色</code></pre><h5 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h5><pre><code>想在网页中显示 &quot;&lt;html&gt;是一个特殊标签&quot;如果直接写 &quot;&lt;html&gt;是一个特殊标签&quot;，则只会显示 &quot;是一个特殊标签&quot;需要转义&quot;&lt;html&gt;&quot;：    &amp;lt;       ---&gt;     &quot;&lt;&quot;   小于符号    &amp;gt;      ---&gt;     &quot;&gt;&quot;   大于符号    &amp;amp;      ---&gt;     &quot;&amp;&quot;   and符号 &amp;    &amp;apos;    ---&gt;     &quot;&apos;&quot;   英文单引号    &amp;quot;    ---&gt;     &quot;&quot;&quot;   英文双引号    &amp;nbsp;  ---&gt;     &quot; &quot;   空格转义</code></pre><h4 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a>列表标签</h4><pre><code>如果想在网页显示 列表的效果。</code></pre><h5 id="lt-dl-gt-lt-dl-gt-：表示列表的范围"><a href="#lt-dl-gt-lt-dl-gt-：表示列表的范围" class="headerlink" title="&lt;dl&gt;&lt;/dl&gt;：表示列表的范围"></a>&lt;dl&gt;&lt;/dl&gt;：表示列表的范围</h5><pre><code>    在&lt;dl&gt;里面  &lt;dt&gt;&lt;/dt&gt;：上层内容    在&lt;dl&gt;里面  &lt;dd&gt;&lt;/dd&gt;：下层内容例如：    &lt;dl&gt;        &lt;dt&gt;学习内容&lt;/dt&gt;            &lt;dd&gt;java&lt;/dd&gt;            &lt;dd&gt;C++&lt;/dd&gt;            &lt;dd&gt;Python&lt;/dd&gt;        &lt;dt&gt;学习进度&lt;/dt&gt;            &lt;dd&gt;没学&lt;/dd&gt;            &lt;dd&gt;没学&lt;/dd&gt;            &lt;dd&gt;没学&lt;/dd&gt;    &lt;/dl&gt;</code></pre><dl><br><dt>学习内容</dt><br><dd>java</dd><br><dd>C++</dd><br><dd>Python</dd><br><dt>学习进度</dt><br><dd>没学</dd><br><dd>没学</dd><br><dd>没学</dd><br></dl><h5 id="lt-ol-gt-lt-ol-gt-：有序列表的范围"><a href="#lt-ol-gt-lt-ol-gt-：有序列表的范围" class="headerlink" title="&lt;ol&gt;&lt;ol&gt;：有序列表的范围"></a>&lt;ol&gt;&lt;ol&gt;：有序列表的范围</h5><pre><code>    在&lt;ol&gt;&lt;/ol&gt;标签内部：&lt;li&gt;    属性：        type：这是排序方式 默认（缺省）为 1. 2. 3....            type = &quot;a&quot;            type = &quot;i&quot;例如：    &lt;ol type=&quot;a&quot;&gt;    &lt;li&gt;java&lt;/li&gt;    &lt;li&gt;C++&lt;/li&gt;    &lt;li&gt;Python&lt;/li&gt;    &lt;/ol&gt;</code></pre><ol type="a"><br><li>java</li><br><li>C++</li><br><li>Python</li><br></ol><h5 id="lt-ul-gt-lt-ul-gt-：无序列表的范围"><a href="#lt-ul-gt-lt-ul-gt-：无序列表的范围" class="headerlink" title="&lt;ul&gt;&lt;/ul&gt;：无序列表的范围"></a>&lt;ul&gt;&lt;/ul&gt;：无序列表的范围</h5><pre><code>属性：    type：        circle    空心圆            disc    实心圆（默认）        square    实心方块&lt;ol type=&quot;a&quot;&gt;&lt;li&gt;java&lt;/li&gt;&lt;li&gt;C++&lt;/li&gt;&lt;li&gt;Python&lt;/li&gt;&lt;/ol&gt;</code></pre><p><ul type="circle"></ul></p><p><li>java</li></p><p><li>C++</li></p><p><li>Python</li><br></p><h4 id="lt-img-gt-图像标签（重点）"><a href="#lt-img-gt-图像标签（重点）" class="headerlink" title="&lt;img&gt;图像标签（重点）"></a>&lt;img&gt;图像标签（重点）</h4><pre><code>&lt;img src=&quot;a.jpg&quot; width=&quot;宽像素&quot; height=&quot;高像素&quot; alt=&quot;显示的文字&quot;/&gt;--src：图片的路径--width：图片的宽度--height：图片的高度--alt：图片上显示的文字，把鼠标移动到图片上面，停留片刻显示内容</code></pre><h4 id="路径的介绍"><a href="#路径的介绍" class="headerlink" title="路径的介绍"></a>路径的介绍</h4><p>#####第一类：绝对路径<br>        D:\blog\lc_love_hehe\source_posts\p.jpg<br>        <a href="http://www.baidu.com/b.jag" target="_blank" rel="noopener">http://www.baidu.com/b.jag</a></p><p>#####第二类：相对路径<br>        一个文件相对于另外一个文件的位置<br>        三种写法：<br>            当图片与html在同一个文件夹内，直接使用 b.jpg<br>            当图片在html的同级文件夹img中，使用img/b.jpg<br>            当图片在html的上级文件夹中，../b.jpg</p><h4 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h4><h5 id="连接资源"><a href="#连接资源" class="headerlink" title="连接资源"></a>连接资源</h5><pre><code>&lt;a href=&quot;连接到资源的路径&quot;&gt;显示在页面上的内容&lt;/a&gt;    href：连接的资源的地址    target：设置打开的方式，默认是当前页打开。        _blank：在新窗口打开        _self：当前页打开    当超链接不需要到任何地址的时候，href=&quot;#&quot;</code></pre><p><a href="https://usuiforhe.github.io/" target="_blank">test</a></p><h5 id="定位资源"><a href="#定位资源" class="headerlink" title="定位资源"></a>定位资源</h5><pre><code>&lt;a name=&quot;top&quot;&gt;顶部&lt;/a&gt;//定义顶部的位置&lt;a name=&quot;#top&quot;&gt;回到顶部&lt;/a&gt;//定位到网页中name为top的位置，记得加上#&lt;pre&gt;原样输出例如：public static void main(String[] args){    Syste.out.println(&quot;hello world&quot;);}&amp;lt;pre&amp;gt;public static void main(String[] args){    Syste.out.println(&quot;hello world&quot;);}&amp;lt;/pre&amp;gt;</code></pre><p>public static void main(String[] args){<br>    Syste.out.println(“hello world”);<br>}</p><p><pre><br>public static void main(String[] args){<br>    Syste.out.println(“hello world”);<br>}<br></pre><br>    加上了 <pre> 标签后，原本一行的代码，变成了我们要的换行的效果</pre></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Html&quot;&gt;&lt;a href=&quot;#Html&quot; class=&quot;headerlink&quot; title=&quot;Html&quot;&gt;&lt;/a&gt;Html&lt;/h2&gt;&lt;h3 id=&quot;什么是Html？&quot;&gt;&lt;a href=&quot;#什么是Html？&quot; class=&quot;headerlink&quot; title=&quot;什
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>MySQL命令</title>
