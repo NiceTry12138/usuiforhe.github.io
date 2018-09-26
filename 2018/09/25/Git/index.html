@@ -165,6 +165,20 @@
   
     
   
+  <script type="text/javascript" src=" //cdn.bootcss.com/jquery/3.1.1/jquery.min.js">
+    var a_idx = 0;
+    jQuery(document).ready(function($) {
+      $("body").click(function(e) {
+        var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");
+        var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,y = e.pageY;
+        $i.css({"z-index": 999999999999999999999999999999999999999999999999999999999999999999999,"top": y - 20,"left": x,"position": "absolute","font-weight": "bold","color": "#ff6651"});
+        $("body").append($i);$i.animate({"top": y - 180,"opacity": 0},1500,function() {$i.remove();});
+      });
+    });
+  </script>
+  
 
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div> 
@@ -783,7 +797,7 @@ git show v0 （v0是一个tag的名字）
         } 
     setInterval("createtime()",250);
     </script>
-    <div class="theme-info" style="float:left">
+    <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
       <div class="powered-by"></div>
       <span class="post-count">全站博客共7.5k字</span>
     </div>
