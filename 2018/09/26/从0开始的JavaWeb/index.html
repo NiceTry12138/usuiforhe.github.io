@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="lc_love_myh">
 <meta property="og:description" content="Html什么是Html？HyperText Markup Language：超文本标记语言 ** 超文本：超出文本的范畴，使用html可以轻松实现 ** 标记：html所有的操作都是通过标记实现的。标记，就是标签   ** 网页语言：超文本标记语言 第一个html程序：例如：创建Java文件 后缀名为.java **先编译，后运行（jvm） 同理：html文件后缀是.html **直接通过浏览器就">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-27T02:58:36.126Z">
+<meta property="og:updated_time" content="2018-09-27T08:10:49.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从0开始的JavaWeb———Html">
 <meta name="twitter:description" content="Html什么是Html？HyperText Markup Language：超文本标记语言 ** 超文本：超出文本的范畴，使用html可以轻松实现 ** 标记：html所有的操作都是通过标记实现的。标记，就是标签   ** 网页语言：超文本标记语言 第一个html程序：例如：创建Java文件 后缀名为.java **先编译，后运行（jvm） 同理：html文件后缀是.html **直接通过浏览器就">
@@ -480,10 +480,12 @@ public static void main(String[] args){
             &lt;tr&gt;
                 &lt;td&gt;学科&lt;/td&gt;
                 &lt;td&gt;学习进度&lt;/td&gt;
+                &lt;td&gt;梦想&lt;/td&gt;
             &lt;/tr&gt;
             &lt;tr&gt;
                 &lt;td&gt;python&lt;/td&gt;
                 &lt;td&gt;没学&lt;/td&gt;
+                &lt;td rowspan=&quot;3&quot;&gt;想学&lt;/td&gt;
             &lt;/tr&gt;
             &lt;tr&gt;
                 &lt;td&gt;C++&lt;/td&gt;
@@ -495,11 +497,97 @@ public static void main(String[] args){
             &lt;/tr&gt;
         &lt;/table&gt;
     属性：
+    &lt;table&gt;中：
         border：表格线的粗细
         bordercolor：表格线的颜色
         cellspacing：表格之间的距离
         align：left center right  框中文字的位置
-</code></pre><table><br>    <tr><br>        <td>学科</td><br>        <td>学习进度</td><br>    </tr><br>    <tr><br>        <td>python</td><br>        <td>没学</td><br>    </tr><br>    <tr><br>        <td>C++</td><br>        <td>没学</td><br>    </tr><br>    <tr><br>        <td>Java</td><br>        <td>没学</td><br>    </tr><br></table>
+    &lt;td&gt;中：
+        colspan：0~无穷大，跨列
+        rowspan：0~无穷大，跨行
+</code></pre><table><br>    <tr><br>        <td>学科</td><br>        <td>学习进度</td><br>        <td>梦想</td><br>    </tr><br>    <tr><br>        <td>python</td><br>        <td>没学</td><br>        <td rowspan="3">想学</td><br>    </tr><br>    <tr><br>        <td>C++</td><br>        <td>没学</td><br>    </tr><br>    <tr><br>        <td>Java</td><br>        <td>没学</td><br>    </tr><br></table>
+
+<h4 id="表单标签"><a href="#表单标签" class="headerlink" title="表单标签"></a>表单标签</h4><p><code>可以提交数据到服务器的标签，这个过程可以使用表单标签实现</code>  </p>
+<blockquote>
+<p>&lt;form&gt;&lt;/form&gt;：定义表单范围<br>输入项：可以输入内容或者选择内容的部分<br>    大部分的输入项 使用 &lt;input type = “输入类型” /&gt;  </p>
+</blockquote>
+<pre><code>Input  类型：type = &quot;email/url/number/range/date picker/search/color/tel&quot;      
+&lt;input type=&quot;password&quot;&gt;密码框
+&lt;input type=&quot;radio&quot; name=&quot;sex&quot;/&gt;女&lt;input type=&quot;radio&quot; name=&quot;sex&quot;/&gt;男  单选框
+&lt;input type=&quot;checkbox&quot; name=&quot;love&quot;/&gt;苹果&lt;input type=&quot;checkbox&quot; name=&quot;love&quot;/&gt;香蕉&lt;input type=&quot;checkbox&quot; name=&quot;love&quot;/&gt;栗子  多选框
+&lt;input type = &quot;url&quot; name = &quot;url&quot;&gt;    手机端弹出字母键盘，电脑端无差别  
+&lt;input type = &quot;email&quot; name = &quot;email&quot;&gt;    手机端弹出字母键盘，电脑端无差别  
+&lt;input type = &quot;tel&quot; name = &quot;tel&quot;&gt;    手机端弹出数字键盘，电脑端无差别  
+&lt;input type = &quot;number&quot; name = &quot;number&quot;&gt;    手机端弹出数字键盘，电脑端右边多处两个按钮控制加减，只能输入参与运算的内容“+ - . 1 2 3 4 5 6 7 9 e”  
+data picker input类型:  
+    date —— 选取 日， 月， 年  
+    month —— 选取月，年  
+    week ——    选取 周和年  
+    time ——     选取时间（小时和分钟）      
+    datetime    —— 选取时间，日，月，年（utc时间）  
+    datetime-local —— 选取时间，日，月， 年（本地时间）  使用方法一样 
+&lt;input type = &quot;date&quot; name = &quot;date&quot; &gt; 手机端显示的是 日期键盘  
+&lt;input type = &quot;range&quot; name = &quot;range&quot; min = &quot;最小值&quot; max = &quot;最大值&quot;&gt;  
+&lt;input type = &quot;image&quot; src=&quot;a.jpg&quot;/&gt;设置按钮为图片，作用是提交
+&lt;input type = &quot;search&quot; name = &quot;search&quot; &gt;  
+&lt;input type = &quot;color&quot; name = &quot;color&quot;&gt;弹出颜色选择  
+&lt;input type = &quot;hidden&quot;/&gt;     隐藏项，不会显示在页面中的
+&lt;input type = &quot;button&quot; /&gt;    普通按钮
+&lt;input type = &quot;submit&quot; /&gt;     提交按钮
+&lt;input type = &quot;reset&quot; value=&quot;你想显示的文字&quot;/&gt;    重置按钮
+&lt;selsect&gt;
+    &lt;option&gt;1&lt;/option&gt;
+    &lt;option&gt;2&lt;/option&gt;
+    &lt;option&gt;3&lt;/option&gt;
+&lt;/select&gt;下拉选项
+&lt;textarea cols=&quot;列数&quot; rows=&quot;行数&quot;&gt;&lt;/textarea&gt; 文本域
+</code></pre><p><code>最好每个输入项都有个name属性，方便后台提取数据。后台通过name属性获取对应输入的值</code></p>
+<pre><code>表单属性：  
+autocomplete/autofocus/multiple/placeholder/required/action/method  
+action    是提交数据到的那个页面
+method    常用的就两种“get”“post”，默认get
+enctype    关于文件上传的属性
+&lt;form autocomplete = &quot;on&quot;（#自动完成功能，存下之前提交过的字段#）action = &quot;****&quot;    ausofocous = &quot;&quot;&gt;  
+    &lt;input type = &quot;text&quot; name = &quot;text&quot;  autofocus = &quot;autofocus&quot;&gt;(#不写  autocomplete 默认开启存储  autofocus 光标自动确定该input#)  
+    &lt;input type = &quot;email&quot; name = &quot;email&quot; autocomplete = &quot;off&quot;&gt;（#关闭自动存储#）  
+    &lt;input type = &quot;file&quot; multiple = &quot;muliple&quot; / &gt;(#muliple 是乘法，代表多个的意思，同时上传多个文件#)  
+    ps. multiple 在类型为type的时候，也可以用，多个邮箱之间用 分号 隔开。 如果没有multiple ，email类型也可以传多个email，但是用了multiple 的 input，会传出一个数组到后台，而没有用的则会传出一整个字符串，难以操作。  
+    &lt;input type = &quot;text&quot; placeholder = &quot;用户名&quot; /&gt;(#提示输入用户名，开始输入时提示消失#)  
+    ps. placeholder 适用于： text, search, url, tel, email, password。  
+    &lt;input type = &quot;text&quot; required = &quot;required&quot; /&gt; （#required 规定必须在提交之前填写输入域（不能为空）#）  
+    &lt;input type = &quot;submit&quot;&gt;  
+&lt;/form&gt;`
+</code></pre><h4 id="其他标签"><a href="#其他标签" class="headerlink" title="其他标签"></a>其他标签</h4><pre><code>&lt;b&gt;        加粗
+&lt;s&gt;        删除线
+&lt;u&gt;        下划线
+&lt;i&gt;        斜体
+&lt;pre&gt;    原样输出
+&lt;sub&gt;    下标
+&lt;sup&gt;    上标
+&lt;div&gt;    盒子，自带换行
+&lt;span&gt;    盒子，不带换行
+</code></pre><h4 id="html的头标签"><a href="#html的头标签" class="headerlink" title="html的头标签"></a>html的头标签</h4><pre><code>html由两部分组成 head 和 body
+在head里面的标签就是头标签
+    title：显示在标签上显示的内容
+    base：为页面上的所有链接规标题栏显示的内容定默认地址或默认目标（target属性）
+    例如：
+        &lt;base target=&quot;_blank&quot;&gt;
+        //这是所有的超链接都是新窗口打开
+    meta：可以提供有关页面的基本信息
+    例如：
+        &lt;meta http-equiv=&quot;refresh&quot; content=&quot;3;url=01-hello.html&quot;&gt;
+        // refresh 模拟页面请求， 3 3秒后， url 跳转的目标页面
+    link：定义文档与外部资源的关系
+</code></pre><h4 id="框架标签（过时）"><a href="#框架标签（过时）" class="headerlink" title="框架标签（过时）"></a>框架标签（过时）</h4><pre><code>&lt;frameset&gt;
+    属性：
+        rows：按行进行划分
+        cols：按列进行划分
+    &lt;frameset rows=&quot;80,*&quot;&gt;划分为两行，第一行高80        
+&lt;frame&gt;
+    具体显示的页面
+    &lt;frame name = &quot;lower_left&quot; src=&quot;b.html&quot;&gt;
+使用框架标签时候，不能写在body里面，需要把body去掉。
+</code></pre>
       
     </div>
     
@@ -656,7 +744,7 @@ public static void main(String[] args){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Html"><span class="nav-number">1.</span> <span class="nav-text">Html</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Html？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Html？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个html程序："><span class="nav-number">1.2.</span> <span class="nav-text">第一个html程序：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html规范："><span class="nav-number">1.3.</span> <span class="nav-text">html规范：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html的操作思想："><span class="nav-number">1.4.</span> <span class="nav-text">*html的操作思想：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html中常用的标签"><span class="nav-number">1.5.</span> <span class="nav-text">html中常用的标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文字标签和注释标签"><span class="nav-number">1.5.1.</span> <span class="nav-text">文字标签和注释标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#文字标签：修改文字的样式"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">*文字标签：修改文字的样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注释标签"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">注释标签</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标题标签，水平线标签和特殊字符"><span class="nav-number">1.5.2.</span> <span class="nav-text">标题标签，水平线标签和特殊字符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#标题标签"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">标题标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#水平线标签"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">水平线标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#特殊字符"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">特殊字符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表标签"><span class="nav-number">1.5.3.</span> <span class="nav-text">列表标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-dl-gt-lt-dl-gt-：表示列表的范围"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">&lt;dl&gt;&lt;/dl&gt;：表示列表的范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-ol-gt-lt-ol-gt-：有序列表的范围"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">&lt;ol&gt;&lt;ol&gt;：有序列表的范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-ul-gt-lt-ul-gt-：无序列表的范围"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">&lt;ul&gt;&lt;/ul&gt;：无序列表的范围</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-img-gt-图像标签（重点）"><span class="nav-number">1.5.4.</span> <span class="nav-text">&lt;img&gt;图像标签（重点）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路径的介绍"><span class="nav-number">1.5.5.</span> <span class="nav-text">路径的介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一类：绝对路径"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">第一类：绝对路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二类：相对路径"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">第二类：相对路径</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#超链接"><span class="nav-number">1.5.6.</span> <span class="nav-text">超链接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#连接资源"><span class="nav-number">1.5.6.1.</span> <span class="nav-text">连接资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#定位资源"><span class="nav-number">1.5.6.2.</span> <span class="nav-text">定位资源</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表格标签"><span class="nav-number">1.5.7.</span> <span class="nav-text">表格标签</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Html"><span class="nav-number">1.</span> <span class="nav-text">Html</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Html？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Html？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个html程序："><span class="nav-number">1.2.</span> <span class="nav-text">第一个html程序：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html规范："><span class="nav-number">1.3.</span> <span class="nav-text">html规范：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html的操作思想："><span class="nav-number">1.4.</span> <span class="nav-text">*html的操作思想：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html中常用的标签"><span class="nav-number">1.5.</span> <span class="nav-text">html中常用的标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文字标签和注释标签"><span class="nav-number">1.5.1.</span> <span class="nav-text">文字标签和注释标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#文字标签：修改文字的样式"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">*文字标签：修改文字的样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注释标签"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">注释标签</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标题标签，水平线标签和特殊字符"><span class="nav-number">1.5.2.</span> <span class="nav-text">标题标签，水平线标签和特殊字符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#标题标签"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">标题标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#水平线标签"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">水平线标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#特殊字符"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">特殊字符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表标签"><span class="nav-number">1.5.3.</span> <span class="nav-text">列表标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-dl-gt-lt-dl-gt-：表示列表的范围"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">&lt;dl&gt;&lt;/dl&gt;：表示列表的范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-ol-gt-lt-ol-gt-：有序列表的范围"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">&lt;ol&gt;&lt;ol&gt;：有序列表的范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-ul-gt-lt-ul-gt-：无序列表的范围"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">&lt;ul&gt;&lt;/ul&gt;：无序列表的范围</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-img-gt-图像标签（重点）"><span class="nav-number">1.5.4.</span> <span class="nav-text">&lt;img&gt;图像标签（重点）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路径的介绍"><span class="nav-number">1.5.5.</span> <span class="nav-text">路径的介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一类：绝对路径"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">第一类：绝对路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二类：相对路径"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">第二类：相对路径</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#超链接"><span class="nav-number">1.5.6.</span> <span class="nav-text">超链接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#连接资源"><span class="nav-number">1.5.6.1.</span> <span class="nav-text">连接资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#定位资源"><span class="nav-number">1.5.6.2.</span> <span class="nav-text">定位资源</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表格标签"><span class="nav-number">1.5.7.</span> <span class="nav-text">表格标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单标签"><span class="nav-number">1.5.8.</span> <span class="nav-text">表单标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他标签"><span class="nav-number">1.5.9.</span> <span class="nav-text">其他标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html的头标签"><span class="nav-number">1.5.10.</span> <span class="nav-text">html的头标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#框架标签（过时）"><span class="nav-number">1.5.11.</span> <span class="nav-text">框架标签（过时）</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -895,7 +983,7 @@ public static void main(String[] args){
     </script>
     <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
       <div class="powered-by"></div>
-      <span class="post-count">全站博客共12k字</span>
+      <span class="post-count">全站博客共13.2k字</span>
     </div>
 </footer>
 </html>
