@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="CREATE_FUNC()函数源码分析/**   * define a create function for a specific type, such as CCLayer   * @__TYPE__ class type to add create(), such as CCLayer   */   #define CREATE_FUNC(__TYPE__) \   static __TYP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/09/25/hello-world/index.html">
+<meta property="og:title" content="Cocos 内存管理">
+<meta property="og:url" content="http://yoursite.com/2018/09/27/Cocos-内存管理/index.html">
 <meta property="og:site_name" content="lc_love_myh">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="CREATE_FUNC()函数源码分析/**   * define a create function for a specific type, such as CCLayer   * @__TYPE__ class type to add create(), such as CCLayer   */   #define CREATE_FUNC(__TYPE__) \   static __TYP">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-25T00:51:53.263Z">
+<meta property="og:updated_time" content="2018-09-27T02:56:42.555Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Cocos 内存管理">
+<meta name="twitter:description" content="CREATE_FUNC()函数源码分析/**   * define a create function for a specific type, such as CCLayer   * @__TYPE__ class type to add create(), such as CCLayer   */   #define CREATE_FUNC(__TYPE__) \   static __TYP">
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/25/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/27/Cocos-内存管理/"/>
 
 
 
@@ -143,7 +143,7 @@
       }
   </style>
 
-  <title>Hello World | lc_love_myh</title>
+  <title>Cocos 内存管理 | lc_love_myh</title>
   
 
 
@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/25/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/27/Cocos-内存管理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lc_love_myh">
@@ -297,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">Cocos 内存管理</h1>
         
 
         <div class="post-meta">
@@ -309,8 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T08:51:53+08:00">
-                2018-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-27T10:09:16+08:00">
+                2018-09-27
               </time>
             
 
@@ -347,16 +347,197 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="CREATE-FUNC-函数"><a href="#CREATE-FUNC-函数" class="headerlink" title="CREATE_FUNC()函数"></a>CREATE_FUNC()函数</h2><h3 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h3><pre><code>/** 
+ * define a create function for a specific type, such as CCLayer 
+ * @__TYPE__ class type to add create(), such as CCLayer 
+ */  
+#define CREATE_FUNC(__TYPE__) \  
+static __TYPE__* create() \  
+{ \  
+    __TYPE__ *pRet = new __TYPE__(); \
+  //创建传过来的东西
+    if (pRet &amp;&amp; pRet-&gt;init()) \  
+    { \  
+        pRet-&gt;autorelease(); \  
+        return pRet; \  
+    } \  
+    else \  
+    { \  
+        delete pRet; \  
+        pRet = NULL; \  
+        return NULL; \  
+    } \  
+}
+</code></pre><h3 id="什么是CREATE-FUNC"><a href="#什么是CREATE-FUNC" class="headerlink" title="什么是CREATE_FUNC()"></a>什么是CREATE_FUNC()</h3><pre><code>为类似CCLayer类的特定类增加一个create函数，我们也可以看到在宏的下面定义了一个create()函数返回到类型就是宏带入的参数&quot;__TYPE__&quot;指针类型
+</code></pre><h3 id="create（）函数做了什么？"><a href="#create（）函数做了什么？" class="headerlink" title="create（）函数做了什么？"></a>create（）函数做了什么？</h3><pre><code>他执行了类的构造函数，执行了init()初始化函数，最后又设置创建出的对象为自动释放内存，这样其他人在使用这个类的时候，只要是用create（）函数创建出来的对象就是不用费心区管理释放内存
+</code></pre><h2 id="Cocos2dx内存管理分为两块"><a href="#Cocos2dx内存管理分为两块" class="headerlink" title="Cocos2dx内存管理分为两块"></a>Cocos2dx内存管理分为两块</h2><pre><code>1. 通过加入 `autorelease` 来自动释放那些创建后未使用的对象
+1. 通过`节点管理`来保证对象在弃用后及时的删除
+</code></pre><h3 id="及时释放弃用的对象"><a href="#及时释放弃用的对象" class="headerlink" title="及时释放弃用的对象"></a>及时释放弃用的对象</h3><p><code>使用条件</code>：该对象是Node的子类对象<br><code>使用方法</code>：addChild，removeChild</p>
+<h4 id="内存管理过程："><a href="#内存管理过程：" class="headerlink" title="内存管理过程："></a>内存管理过程：</h4><pre><code>addChild  添加对象后，对象可以被使用
+removeChild 删除对象后，对象被立刻删除（通过 delete）
+</code></pre><h3 id="及时释放未使用的对象"><a href="#及时释放未使用的对象" class="headerlink" title="及时释放未使用的对象"></a>及时释放未使用的对象</h3><h4 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h4><pre><code>新创建的对象如果 一帧 内不使用，就会被自动释放。（所谓一针，即是一个gameloop）
+</code></pre><h4 id="使用条件"><a href="#使用条件" class="headerlink" title="使用条件"></a>使用条件</h4><pre><code>对象通过CREAT_FUNC()宏创建或者对象使用autorelease加入了自动释放池
+</code></pre><h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><pre><code>自动实现
+</code></pre><h4 id="管理过程"><a href="#管理过程" class="headerlink" title="管理过程"></a>管理过程</h4><h5 id="对象不使用的情况"><a href="#对象不使用的情况" class="headerlink" title="对象不使用的情况"></a>对象不使用的情况</h5><pre><code>对象创建        引用+1
+对象自动释放     引用-1
+</code></pre><h5 id="对象使用的情况"><a href="#对象使用的情况" class="headerlink" title="对象使用的情况"></a>对象使用的情况</h5><pre><code>对象创建        引用+1
+对象使用        引用+1//通过 addchild 使用对象
+对象自动释放    引用-1
+</code></pre><p>引用的初始值为0，如果一阵结束后对象的引用值还是0，那就会被delete掉</p>
+<h2 id="内存管理的实现原理"><a href="#内存管理的实现原理" class="headerlink" title="内存管理的实现原理"></a>内存管理的实现原理</h2><h3 id="第一部分"><a href="#第一部分" class="headerlink" title="第一部分"></a>第一部分</h3><p><code>Red</code>类：进行引用计数，提供加入自动释放池的接口。<br><code>AutoreleasePool</code>类：管理一个<code>vector</code>数组来存放自动释放池的对象。提供对释放池的清空操作<br><code>PoolManager</code>类：管理一个<code>vector</code>数组来存放自动释放池。默认情况下引擎只创建一个自动释放池，因此这个类是提供给开发者使用的，例如处于性能考虑添加自己的自动释放池<br><code>DisplayLinkDirector</code>类：只是一个导演类，提供游戏的主循环，实现每一帧的资源释放。这个类继承自<code>Director</code>类，也是唯一一个继承了<code>Director</code>的类，也就是说完全可以合并为一个类。</p>
+<h4 id="Ref源码"><a href="#Ref源码" class="headerlink" title="Ref源码"></a>Ref源码</h4><pre><code>// 引用计数变量
+unsigned int _referenceCount;
 
+// 对象被构造后，引用计数值为 1
+Ref::Ref()
+: _referenceCount(1) //当Ref对象被创建时，引用计数的值为 1
+{
+#if CC_ENABLE_SCRIPT_BINDING
+    static unsigned int uObjectCount = 0;
+    _luaID = 0;
+    _ID = ++uObjectCount;
+    _scriptObject = nullptr;
+#endif
+
+#if CC_USE_MEM_LEAK_DETECTION
+    trackRef(this);
+#endif
+}
+
+// 引用+1
+void Ref::retain()
+{
+    CCASSERT(_referenceCount &gt; 0, &quot;reference count should greater than 0&quot;);
+    ++_referenceCount;
+}
+
+// 引用-1 。如果引用为0则释放对象
+void Ref::release()
+{
+    CCASSERT(_referenceCount &gt; 0, &quot;reference count should greater than 0&quot;);
+    --_referenceCount;
+
+    if (_referenceCount == 0)
+    {
+
+#if CC_USE_MEM_LEAK_DETECTION
+        untrackRef(this);
+#endif
+        delete this; // 注意这里 把对象 delete 了
+    }
+}
+
+// 提供加入自动释放池的接口。对象调用此函数即可加入自动释放池的管理。
+Ref* Ref::autorelease()
+{
+    PoolManager::getInstance()-&gt;getCurrentPool()-&gt;addObject(this);
+    return this;
+}
+
+//获取引用计数值
+unsigned int Ref::getReferenceCount() const
+{
+    return _referenceCount;
+}
+</code></pre><h4 id="AutoreleasePool源码"><a href="#AutoreleasePool源码" class="headerlink" title="AutoreleasePool源码"></a>AutoreleasePool源码</h4><pre><code>// 存放释放池对象的数组
+std::vector&lt;Ref*&gt; _managedObjectArray;
+
+// 往释放池添加对象
+void AutoreleasePool::addObject(Ref* object)
+{
+    _managedObjectArray.push_back(object);
+}
+
+// 清空释放池，将其中的所有对象都 delete
+void AutoreleasePool::clear()
+{
+    // 释放所有对象
+    for (const auto &amp;obj : _managedObjectArray)
+    {
+        obj-&gt;release();
+    }
+    // 清空vector数组
+    _managedObjectArray.clear();
+}
+
+// 查看某个对象是否在释放池中
+bool AutoreleasePool::contains(Ref* object) const
+{
+    for (const auto&amp; obj : _managedObjectArray)
+    {
+        if (obj == object)
+            return true;
+    }
+    return false;
+}
+</code></pre><h4 id="PoolManager源码"><a href="#PoolManager源码" class="headerlink" title="PoolManager源码"></a>PoolManager源码</h4><pre><code>// 释放池管理器单例对象
+static PoolManager* s_singleInstance;
+
+// 释放池数组
+std::vector&lt;AutoreleasePool*&gt; _releasePoolStack;
+
+// 获取 释放池管理器的单例
+PoolManager* PoolManager::getInstance()
+{
+    if (s_singleInstance == nullptr)
+    {
+        // 新建一个管理器对象
+        s_singleInstance = new PoolManager(); 
+
+        // 添加一个自动释放池
+        new AutoreleasePool(&quot;cocos2d autorelease pool&quot;);// 内部使用了释放池管理器的push，这里的调用很微妙，读者可以动手看一看
+    }
+    return s_singleInstance;
+}
+
+// 获取当前的释放池
+AutoreleasePool* PoolManager::getCurrentPool() const
+{
+    return _releasePoolStack.back();
+}
+
+// 查看对象是否在某个释放池内
+bool PoolManager::isObjectInPools(Ref* obj) const
+{
+    for (const auto&amp; pool : _releasePoolStack)
+    {
+        if (pool-&gt;contains(obj))
+            return true;
+    }
+    return false;
+}
+
+// 添加释放池对象
+void PoolManager::push(AutoreleasePool *pool)
+{
+    _releasePoolStack.push_back(pool);
+}
+
+// 释放池对象出栈
+void PoolManager::pop()
+{
+    CC_ASSERT(!_releasePoolStack.empty());
+    _releasePoolStack.pop_back();
+}
+</code></pre><h4 id="DisplayLinkDirector源码"><a href="#DisplayLinkDirector源码" class="headerlink" title="DisplayLinkDirector源码"></a>DisplayLinkDirector源码</h4><pre><code>void DisplayLinkDirector::mainLoop()
+{
+    //第一次当导演
+    if (_purgeDirectorInNextLoop)
+    {
+        _purgeDirectorInNextLoop = false;
+        purgeDirector();//进行清理工作
+    }
+    else if (! _invalid)
+    {
+        // 绘制场景，游戏主要工作都在这里完成
+        drawScene();
+
+        // 清空资源池
+        PoolManager::getInstance()-&gt;getCurrentPool()-&gt;clear();
+    }
+}
+</code></pre><h3 id="过程分析"><a href="#过程分析" class="headerlink" title="过程分析"></a>过程分析</h3><pre><code>首先，创建了一个 Node 对象A，Node 继承Ref，因此 Ref 的引用计数为1；然后，A通过 autorelease 将自己放入自动释放池；drawScene() 完成后，一帧结束，Director 通过释放池将池中的对象 clear()，即对 Node 对象A进行 release() 操作。A的引用计数变为0，执行 delete 释放A对象。接下来我们继续介绍另外几个与内存管理有关的类。
+</code></pre>
       
     </div>
     
@@ -380,15 +561,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/09/26/xml/" rel="next" title="xml">
+                <i class="fa fa-chevron-left"></i> xml
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/25/cocos2dx/" rel="prev" title="cocos 2d游戏——I wanna save the princess">
-                cocos 2d游戏——I wanna save the princess <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -509,7 +690,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CREATE-FUNC-函数"><span class="nav-number">1.</span> <span class="nav-text">CREATE_FUNC()函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#源码分析"><span class="nav-number">1.1.</span> <span class="nav-text">源码分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是CREATE-FUNC"><span class="nav-number">1.2.</span> <span class="nav-text">什么是CREATE_FUNC()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#create（）函数做了什么？"><span class="nav-number">1.3.</span> <span class="nav-text">create（）函数做了什么？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cocos2dx内存管理分为两块"><span class="nav-number">2.</span> <span class="nav-text">Cocos2dx内存管理分为两块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#及时释放弃用的对象"><span class="nav-number">2.1.</span> <span class="nav-text">及时释放弃用的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内存管理过程："><span class="nav-number">2.1.1.</span> <span class="nav-text">内存管理过程：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#及时释放未使用的对象"><span class="nav-number">2.2.</span> <span class="nav-text">及时释放未使用的对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简述"><span class="nav-number">2.2.1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用条件"><span class="nav-number">2.2.2.</span> <span class="nav-text">使用条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法"><span class="nav-number">2.2.3.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#管理过程"><span class="nav-number">2.2.4.</span> <span class="nav-text">管理过程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#对象不使用的情况"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">对象不使用的情况</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对象使用的情况"><span class="nav-number">2.2.4.2.</span> <span class="nav-text">对象使用的情况</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存管理的实现原理"><span class="nav-number">3.</span> <span class="nav-text">内存管理的实现原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一部分"><span class="nav-number">3.1.</span> <span class="nav-text">第一部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Ref源码"><span class="nav-number">3.1.1.</span> <span class="nav-text">Ref源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AutoreleasePool源码"><span class="nav-number">3.1.2.</span> <span class="nav-text">AutoreleasePool源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PoolManager源码"><span class="nav-number">3.1.3.</span> <span class="nav-text">PoolManager源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DisplayLinkDirector源码"><span class="nav-number">3.1.4.</span> <span class="nav-text">DisplayLinkDirector源码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过程分析"><span class="nav-number">3.2.</span> <span class="nav-text">过程分析</span></a></li></ol></li></ol></div>
             
 
           </div>
