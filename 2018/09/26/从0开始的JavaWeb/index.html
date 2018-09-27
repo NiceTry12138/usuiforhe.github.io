@@ -83,14 +83,14 @@
 
 <meta name="description" content="Html什么是Html？HyperText Markup Language：超文本标记语言 ** 超文本：超出文本的范畴，使用html可以轻松实现 ** 标记：html所有的操作都是通过标记实现的。标记，就是标签   ** 网页语言：超文本标记语言 第一个html程序：例如：创建Java文件 后缀名为.java **先编译，后运行（jvm） 同理：html文件后缀是.html **直接通过浏览器就">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从0开始的JavaWeb———Html">
+<meta property="og:title" content="从0开始的JavaWeb">
 <meta property="og:url" content="http://yoursite.com/2018/09/26/从0开始的JavaWeb/index.html">
 <meta property="og:site_name" content="lc_love_myh">
 <meta property="og:description" content="Html什么是Html？HyperText Markup Language：超文本标记语言 ** 超文本：超出文本的范畴，使用html可以轻松实现 ** 标记：html所有的操作都是通过标记实现的。标记，就是标签   ** 网页语言：超文本标记语言 第一个html程序：例如：创建Java文件 后缀名为.java **先编译，后运行（jvm） 同理：html文件后缀是.html **直接通过浏览器就">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-27T08:10:49.925Z">
+<meta property="og:updated_time" content="2018-09-27T11:03:00.380Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从0开始的JavaWeb———Html">
+<meta name="twitter:title" content="从0开始的JavaWeb">
 <meta name="twitter:description" content="Html什么是Html？HyperText Markup Language：超文本标记语言 ** 超文本：超出文本的范畴，使用html可以轻松实现 ** 标记：html所有的操作都是通过标记实现的。标记，就是标签   ** 网页语言：超文本标记语言 第一个html程序：例如：创建Java文件 后缀名为.java **先编译，后运行（jvm） 同理：html文件后缀是.html **直接通过浏览器就">
 
 
@@ -143,7 +143,7 @@
       }
   </style>
 
-  <title>从0开始的JavaWeb———Html | lc_love_myh</title>
+  <title>从0开始的JavaWeb | lc_love_myh</title>
   
 
 
@@ -302,7 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">从0开始的JavaWeb———Html</h1>
+          <h1 class="post-title" itemprop="name headline">从0开始的JavaWeb</h1>
         
 
         <div class="post-meta">
@@ -592,7 +592,83 @@ enctype    关于文件上传的属性
     具体显示的页面
     &lt;frame name = &quot;lower_left&quot; src=&quot;b.html&quot;&gt;
 使用框架标签时候，不能写在body里面，需要把body去掉。
-</code></pre>
+</code></pre><h2 id="CSS-层叠样式表"><a href="#CSS-层叠样式表" class="headerlink" title="CSS-层叠样式表"></a>CSS-层叠样式表</h2><h3 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h3><h4 id="层叠"><a href="#层叠" class="headerlink" title="层叠"></a>层叠</h4><pre><code>一层一层的，与优先级有关
+</code></pre><h4 id="样式表"><a href="#样式表" class="headerlink" title="样式表"></a>样式表</h4><pre><code>有很多的属性和属性值，改变标签的属性值，是标签变换
+</code></pre><h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><pre><code>CSS将网页内容和显示样式进行分离，提高了显示功能，解决了html代码对样式定义的重复，提高了后期样式代码的可维护性。
+</code></pre><h3 id="CSS和Html的结合方式"><a href="#CSS和Html的结合方式" class="headerlink" title="CSS和Html的结合方式"></a>CSS和Html的结合方式</h3><pre><code>1. 在每个html标签上都有一个style属性。通过style属性修改标签样式
+    &lt;span style=&quot;background-color:red; color=green;&quot;&gt;测试&lt;/span&gt;
+2. 使用html的一个标签实现 &lt;style&gt; 标签，写在head里面
+    &lt;style type=&quot;text/css&quot;&gt;
+        div{
+            background-color:red;
+            color = green
+        }//所有div的样式都这样
+    &lt;/style&gt;
+3. 在&lt;style&gt;标签中使用语句 @import url (css文件的路径)
+    &lt;style type=&quot;text/css&quot;&gt;
+        @import url(div.css)
+    &lt;/style&gt;
+4. 使用头标签&lt;link&gt;,引入外部css文件
+    &lt;link rel=&quot;srtlesheet&quot; type=&quot;text/css&quot; href=&quot;css_3.css&quot; /&gt;
+Ps.第三种结合方式，缺点：在某些浏览器下不支持。一般来说，是用第四种结合方式。
+</code></pre><h3 id="CSS的优先级"><a href="#CSS的优先级" class="headerlink" title="CSS的优先级"></a>CSS的优先级</h3><pre><code>从上到下，从外到内，CSS的优先级从低到高。后加载的优先级高。
+</code></pre><h3 id="CSS书写规范"><a href="#CSS书写规范" class="headerlink" title="CSS书写规范"></a>CSS书写规范</h3><pre><code>1. 选择器名称{
+    属性名：属性值；
+    属性名：属性值；
+}
+2. 属性与属性之间用分号隔开
+3. 属性与属性值之间用冒号链接
+4. 如果一个属性有多个属性值的话，那么多个值用空格隔开
+</code></pre><h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><h4 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h4><pre><code>&lt;标签 id=&quot;test&quot;&gt;文字内容&lt;/标签&gt;
+在CSS文件中：
+    通过 #test{
+        background-color: red;
+    }来选择 id 为test的标签。也就是说 id 前面加上 &quot; # &quot;
+</code></pre><h4 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h4><pre><code>&lt;标签 class=&quot;test&quot;&gt;文字内容&lt;/标签&gt;
+在CSS文件中：
+    通过 .test{
+        background-color:red;
+    }来选择 class 为test的标签。也就是说 class 前面加上 &quot; . &quot;
+</code></pre><h4 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h4><pre><code>&lt;标签&gt;文字内容&lt;/标签&gt;
+在CSS文件中：
+    通过 标签{
+        background-color:red;
+    }来选择 标签
+</code></pre><p><code>class 选择器的优先级 &gt; 标签选择器的优先级</code><br><code>id选择器的优先级 &gt; class选择器的优先级</code><br><code>标签内部的style属性的优先级 &gt; id 选择器的优先级</code></p>
+<h4 id="关联选择器"><a href="#关联选择器" class="headerlink" title="关联选择器"></a>关联选择器</h4><pre><code>&lt;div&gt;&lt;p&gt;test&lt;/p&gt;&lt;/div&gt;
+要选中 p 标签 那么CSS这样写
+    div p{
+        background-color:red;
+    }两个中间一个空格，这样就选中 div 子标签中的 p 标签
+</code></pre><h4 id="组合选择器"><a href="#组合选择器" class="headerlink" title="组合选择器"></a>组合选择器</h4><pre><code>&lt;div&gt;test111&lt;/div&gt;
+&lt;p&gt;test222&lt;/p&gt;
+想把div和p设置成一样的样式，那么CSS中这么写
+    div,p{
+        background-color:red;
+    }中间用逗号连接，表示两个都选中
+</code></pre><h4 id="伪类元素选择器"><a href="#伪类元素选择器" class="headerlink" title="伪类元素选择器"></a>伪类元素选择器</h4><pre><code>CSS里面提供了一些定义好的样式，可以拿过来使用
+原始状态        鼠标放上去的状态        点击             点击之后
+：link        ：hover                ：active        visited
+例如CSS文件中：
+    a:link{
+        background-color: red;
+    }
+    a:hover{
+        background-color: blue;
+    }
+    a:active{
+        background-color: black;
+    }
+第一个字符        第一行            在文字标签前面加上
+:first-letter    :first-line        ：before
+例如CSS文件中：
+    p:before
+    {
+        content:&quot;台词：&quot;;
+    }那么 所有的 p 标签前面 都会加上 &quot;台词&quot; 这两个字
+</code></pre><table><br><tr> <td>选择符类型</td> <td>表达式</td> <td>描述</td></tr><br><tr><td>子串匹配的属性选择符</td><td> E[att^=”val”] </td><td>匹配具有att属性、且值以val开头的E元素 </td> </tr><br><tr> <td>子串匹配的属性选择符</td> <td>E[att$=”val”]</td> <td>匹配具有att属性、且值以val结尾的E元素 </td> </tr><br><tr> <td>子串匹配的属性选择符</td> <td>E[att*=”val”]</td> <td>匹配具有att属性、且值中含有val的E元素 </td> </tr><br><tr> <td>结构性伪类</td> <td> E:root</td> <td> 匹配文档的根元素。在HTML中，根元素永远是HTML </td> </tr><br><tr> <td>结构性伪类</td> <td> E:nth-child(n)</td> <td> 匹配父元素中的第n个子元素E </td> </tr><br><tr> <td>结构性伪类</td> <td> E:nth-last-child(n)</td> <td> 匹配父元素中的倒数第n个结构子元素E</td> </tr><br><tr> <td>结构性伪类 </td> <td>E:nth-of-type(n)</td> <td> 匹配同类型中的第n个同级兄弟元素E<br></td></tr><tr> <td>结构性伪类</td> <td> E:nth-last-of-type(n)</td> <td> 匹配同类型中的倒数第n个同级兄弟元素E </td> </tr><br><tr> <td>结构性伪类</td> <td> E:last-child</td> <td> 匹配父元素中最后一个E元素</td> </tr><br><tr> <td>结构性伪类 </td> <td>E:first-of-type </td> <td>匹配同级兄弟元素中的第一个E元素 </td> </tr><br><tr> <td>结构性伪类 </td> <td>E:only-child </td> <td>匹配属于父元素中唯一子元素的E</td> </tr><br><tr> <td>结构性伪类 </td> <td>E:only-of-type </td> <td>匹配属于同类型中唯一兄弟元素的E</td> </tr><br><tr> <td>结构性伪类</td> <td> E:empty</td> <td> 匹配没有任何子元素（包括text节点）的元素E</td> </tr><br><tr> <td>目标伪类</td> <td> :target</td> <td> 匹配相关URL指向的E元素</td> </tr><br><tr> <td>UI元素状态伪类</td> <td> E:enabled</td> <td> 匹配所有用户界面（form表单）中处于可用状态的E元素 </td> </tr><br><tr> <td>UI元素状态伪类 </td> <td>E:disabled </td> <td>匹配所有用户界面（form表单）中处于不可用状态的E元素 </td> </tr><br><tr> <td>UI元素状态伪类</td> <td> E:checked</td> <td> 匹配所有用户界面（form表单）中处于选中状态的元素E </td> </tr><br><tr> <td>UI元素状态伪类</td> <td> E::selection</td> <td> 匹配E元素中被用户选中或处于高亮状态的部分</td> </tr><br><tr> <td>否定伪类</td> <td> E:not(s)</td> <td> 匹配所有不匹配简单选择符s的元素E</td> </tr><br><tr><td>通用兄弟元素选择器</td> <td> E ~ F </td> <td>匹配E元素之后的F元素 </td> </tr><br></table>
+
+<h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3>
       
     </div>
     
@@ -749,7 +825,7 @@ enctype    关于文件上传的属性
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Html"><span class="nav-number">1.</span> <span class="nav-text">Html</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Html？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Html？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个html程序："><span class="nav-number">1.2.</span> <span class="nav-text">第一个html程序：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html规范："><span class="nav-number">1.3.</span> <span class="nav-text">html规范：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html的操作思想："><span class="nav-number">1.4.</span> <span class="nav-text">*html的操作思想：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html中常用的标签"><span class="nav-number">1.5.</span> <span class="nav-text">html中常用的标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文字标签和注释标签"><span class="nav-number">1.5.1.</span> <span class="nav-text">文字标签和注释标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#文字标签：修改文字的样式"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">*文字标签：修改文字的样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注释标签"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">注释标签</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标题标签，水平线标签和特殊字符"><span class="nav-number">1.5.2.</span> <span class="nav-text">标题标签，水平线标签和特殊字符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#标题标签"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">标题标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#水平线标签"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">水平线标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#特殊字符"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">特殊字符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表标签"><span class="nav-number">1.5.3.</span> <span class="nav-text">列表标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-dl-gt-lt-dl-gt-：表示列表的范围"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">&lt;dl&gt;&lt;/dl&gt;：表示列表的范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-ol-gt-lt-ol-gt-：有序列表的范围"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">&lt;ol&gt;&lt;ol&gt;：有序列表的范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-ul-gt-lt-ul-gt-：无序列表的范围"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">&lt;ul&gt;&lt;/ul&gt;：无序列表的范围</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-img-gt-图像标签（重点）"><span class="nav-number">1.5.4.</span> <span class="nav-text">&lt;img&gt;图像标签（重点）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路径的介绍"><span class="nav-number">1.5.5.</span> <span class="nav-text">路径的介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一类：绝对路径"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">第一类：绝对路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二类：相对路径"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">第二类：相对路径</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#超链接"><span class="nav-number">1.5.6.</span> <span class="nav-text">超链接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#连接资源"><span class="nav-number">1.5.6.1.</span> <span class="nav-text">连接资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#定位资源"><span class="nav-number">1.5.6.2.</span> <span class="nav-text">定位资源</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表格标签"><span class="nav-number">1.5.7.</span> <span class="nav-text">表格标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单标签"><span class="nav-number">1.5.8.</span> <span class="nav-text">表单标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他标签"><span class="nav-number">1.5.9.</span> <span class="nav-text">其他标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html的头标签"><span class="nav-number">1.5.10.</span> <span class="nav-text">html的头标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#框架标签（过时）"><span class="nav-number">1.5.11.</span> <span class="nav-text">框架标签（过时）</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Html"><span class="nav-number">1.</span> <span class="nav-text">Html</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Html？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Html？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个html程序："><span class="nav-number">1.2.</span> <span class="nav-text">第一个html程序：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html规范："><span class="nav-number">1.3.</span> <span class="nav-text">html规范：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html的操作思想："><span class="nav-number">1.4.</span> <span class="nav-text">*html的操作思想：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html中常用的标签"><span class="nav-number">1.5.</span> <span class="nav-text">html中常用的标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文字标签和注释标签"><span class="nav-number">1.5.1.</span> <span class="nav-text">文字标签和注释标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#文字标签：修改文字的样式"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">*文字标签：修改文字的样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注释标签"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">注释标签</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标题标签，水平线标签和特殊字符"><span class="nav-number">1.5.2.</span> <span class="nav-text">标题标签，水平线标签和特殊字符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#标题标签"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">标题标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#水平线标签"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">水平线标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#特殊字符"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">特殊字符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表标签"><span class="nav-number">1.5.3.</span> <span class="nav-text">列表标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-dl-gt-lt-dl-gt-：表示列表的范围"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">&lt;dl&gt;&lt;/dl&gt;：表示列表的范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-ol-gt-lt-ol-gt-：有序列表的范围"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">&lt;ol&gt;&lt;ol&gt;：有序列表的范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-ul-gt-lt-ul-gt-：无序列表的范围"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">&lt;ul&gt;&lt;/ul&gt;：无序列表的范围</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-img-gt-图像标签（重点）"><span class="nav-number">1.5.4.</span> <span class="nav-text">&lt;img&gt;图像标签（重点）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路径的介绍"><span class="nav-number">1.5.5.</span> <span class="nav-text">路径的介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一类：绝对路径"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">第一类：绝对路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二类：相对路径"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">第二类：相对路径</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#超链接"><span class="nav-number">1.5.6.</span> <span class="nav-text">超链接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#连接资源"><span class="nav-number">1.5.6.1.</span> <span class="nav-text">连接资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#定位资源"><span class="nav-number">1.5.6.2.</span> <span class="nav-text">定位资源</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表格标签"><span class="nav-number">1.5.7.</span> <span class="nav-text">表格标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单标签"><span class="nav-number">1.5.8.</span> <span class="nav-text">表单标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他标签"><span class="nav-number">1.5.9.</span> <span class="nav-text">其他标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html的头标签"><span class="nav-number">1.5.10.</span> <span class="nav-text">html的头标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#框架标签（过时）"><span class="nav-number">1.5.11.</span> <span class="nav-text">框架标签（过时）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-层叠样式表"><span class="nav-number">2.</span> <span class="nav-text">CSS-层叠样式表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解释"><span class="nav-number">2.1.</span> <span class="nav-text">解释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#层叠"><span class="nav-number">2.1.1.</span> <span class="nav-text">层叠</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样式表"><span class="nav-number">2.1.2.</span> <span class="nav-text">样式表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作用"><span class="nav-number">2.1.3.</span> <span class="nav-text">作用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS和Html的结合方式"><span class="nav-number">2.2.</span> <span class="nav-text">CSS和Html的结合方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS的优先级"><span class="nav-number">2.3.</span> <span class="nav-text">CSS的优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS书写规范"><span class="nav-number">2.4.</span> <span class="nav-text">CSS书写规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器"><span class="nav-number">2.5.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#id选择器"><span class="nav-number">2.5.1.</span> <span class="nav-text">id选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类选择器"><span class="nav-number">2.5.2.</span> <span class="nav-text">类选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标签选择器"><span class="nav-number">2.5.3.</span> <span class="nav-text">标签选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关联选择器"><span class="nav-number">2.5.4.</span> <span class="nav-text">关联选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合选择器"><span class="nav-number">2.5.5.</span> <span class="nav-text">组合选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类元素选择器"><span class="nav-number">2.5.6.</span> <span class="nav-text">伪类元素选择器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#盒子模型"><span class="nav-number">2.6.</span> <span class="nav-text">盒子模型</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -988,7 +1064,7 @@ enctype    关于文件上传的属性
     </script>
     <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
       <div class="powered-by"></div>
-      <span class="post-count">全站博客共13.2k字</span>
+      <span class="post-count">全站博客共14.6k字</span>
     </div>
 </footer>
 </html>
