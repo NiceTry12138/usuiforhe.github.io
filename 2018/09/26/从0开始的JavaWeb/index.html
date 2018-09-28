@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="lc_love_myh">
 <meta property="og:description" content="Html什么是Html？HyperText Markup Language：超文本标记语言 ** 超文本：超出文本的范畴，使用html可以轻松实现 ** 标记：html所有的操作都是通过标记实现的。标记，就是标签   ** 网页语言：超文本标记语言 第一个html程序：例如：创建Java文件 后缀名为.java **先编译，后运行（jvm） 同理：html文件后缀是.html **直接通过浏览器就">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-27T11:03:00.380Z">
+<meta property="og:updated_time" content="2018-09-28T15:34:02.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从0开始的JavaWeb">
 <meta name="twitter:description" content="Html什么是Html？HyperText Markup Language：超文本标记语言 ** 超文本：超出文本的范畴，使用html可以轻松实现 ** 标记：html所有的操作都是通过标记实现的。标记，就是标签   ** 网页语言：超文本标记语言 第一个html程序：例如：创建Java文件 后缀名为.java **先编译，后运行（jvm） 同理：html文件后缀是.html **直接通过浏览器就">
@@ -668,7 +668,121 @@ Ps.第三种结合方式，缺点：在某些浏览器下不支持。一般来�
     }那么 所有的 p 标签前面 都会加上 &quot;台词&quot; 这两个字
 </code></pre><table><br><tr> <td>选择符类型</td> <td>表达式</td> <td>描述</td></tr><br><tr><td>子串匹配的属性选择符</td><td> E[att^=”val”] </td><td>匹配具有att属性、且值以val开头的E元素 </td> </tr><br><tr> <td>子串匹配的属性选择符</td> <td>E[att$=”val”]</td> <td>匹配具有att属性、且值以val结尾的E元素 </td> </tr><br><tr> <td>子串匹配的属性选择符</td> <td>E[att*=”val”]</td> <td>匹配具有att属性、且值中含有val的E元素 </td> </tr><br><tr> <td>结构性伪类</td> <td> E:root</td> <td> 匹配文档的根元素。在HTML中，根元素永远是HTML </td> </tr><br><tr> <td>结构性伪类</td> <td> E:nth-child(n)</td> <td> 匹配父元素中的第n个子元素E </td> </tr><br><tr> <td>结构性伪类</td> <td> E:nth-last-child(n)</td> <td> 匹配父元素中的倒数第n个结构子元素E</td> </tr><br><tr> <td>结构性伪类 </td> <td>E:nth-of-type(n)</td> <td> 匹配同类型中的第n个同级兄弟元素E<br></td></tr><tr> <td>结构性伪类</td> <td> E:nth-last-of-type(n)</td> <td> 匹配同类型中的倒数第n个同级兄弟元素E </td> </tr><br><tr> <td>结构性伪类</td> <td> E:last-child</td> <td> 匹配父元素中最后一个E元素</td> </tr><br><tr> <td>结构性伪类 </td> <td>E:first-of-type </td> <td>匹配同级兄弟元素中的第一个E元素 </td> </tr><br><tr> <td>结构性伪类 </td> <td>E:only-child </td> <td>匹配属于父元素中唯一子元素的E</td> </tr><br><tr> <td>结构性伪类 </td> <td>E:only-of-type </td> <td>匹配属于同类型中唯一兄弟元素的E</td> </tr><br><tr> <td>结构性伪类</td> <td> E:empty</td> <td> 匹配没有任何子元素（包括text节点）的元素E</td> </tr><br><tr> <td>目标伪类</td> <td> :target</td> <td> 匹配相关URL指向的E元素</td> </tr><br><tr> <td>UI元素状态伪类</td> <td> E:enabled</td> <td> 匹配所有用户界面（form表单）中处于可用状态的E元素 </td> </tr><br><tr> <td>UI元素状态伪类 </td> <td>E:disabled </td> <td>匹配所有用户界面（form表单）中处于不可用状态的E元素 </td> </tr><br><tr> <td>UI元素状态伪类</td> <td> E:checked</td> <td> 匹配所有用户界面（form表单）中处于选中状态的元素E </td> </tr><br><tr> <td>UI元素状态伪类</td> <td> E::selection</td> <td> 匹配E元素中被用户选中或处于高亮状态的部分</td> </tr><br><tr> <td>否定伪类</td> <td> E:not(s)</td> <td> 匹配所有不匹配简单选择符s的元素E</td> </tr><br><tr><td>通用兄弟元素选择器</td> <td> E ~ F </td> <td>匹配E元素之后的F元素 </td> </tr><br></table>
 
-<h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3>
+<h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><pre><code>div+CSS，给div一个样式，设置它的位置以及外观。又因为这div就像一个盒子一样，所以也叫做盒子模型。
+</code></pre><p><code>在进行布局前需要把数据封装到一块一块的区域内</code></p>
+<h4 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h4><pre><code>属性：
+    border：统一设置
+        none | hidden | dotted | dashed | solid | double | groove | ridge | inset | outset
+        无边框| 隐藏边框|点线或实线|虚线或实线| 实线 |双线边框  | 3D凹槽 | 3D凸槽 |3D凹边 |3D凸边
+    border-top：上边框
+    border-bottom：下边框
+    border-left：左边框
+    border-right：右边框
+    border: 粗细（px） 样式（上述）颜色；
+</code></pre><h4 id="内边距"><a href="#内边距" class="headerlink" title="内边距"></a>内边距</h4><pre><code>padding：length（px）//统一设置
+padding-bottom    :    文字内容距离下边框的距离
+padding-left    :    文字内容距离左边框的距离
+padding-right    :    文字内容距离有边框的距离
+padding-top        :    文字内容距离上边框的距离
+</code></pre><h4 id="外边距"><a href="#外边距" class="headerlink" title="外边距"></a>外边距</h4><pre><code>margin：外边距，边框距离外边框的距离
+margin：length（px）//统一设置
+margin-top        :    边框距离上外边框的距离
+margin-bottom    :    边框距离下外边框的距离
+margin-right    :    边框距离右外边框的距离
+margin-left        :    边框距离左外边框的距离
+</code></pre><h3 id="CSS的布局的漂浮"><a href="#CSS的布局的漂浮" class="headerlink" title="CSS的布局的漂浮"></a>CSS的布局的漂浮</h3><pre><code>float：none | left | right
+none    ：默认值。对象不漂浮
+left    ：文本流向对象的右边
+right    ：文本流向对象的左边
+</code></pre><h3 id="CSS的布局的定位"><a href="#CSS的布局的定位" class="headerlink" title="CSS的布局的定位"></a>CSS的布局的定位</h3><pre><code>Position    属性：
+    static:默认值。无特殊定位，对象遵循HTML定位规则
+    absolute：将对象从文档流中脱出，使用left,right,top,bottom等属性相对于其进行绝对定位
+    ——————即，这个盒子独立出来，不由html自动按文档流分配位置，后面的盒子自动补齐该和自动空位
+    relative：对象不可层叠，但将依据left,right,top,bottom等属性在正常文档流中偏移位置。
+    ——————即，这个盒子没有从文档流中拖出，位置还在，但是可以移动而不影响其他的盒子的原有位置
+</code></pre><h2 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h2><h3 id="JavaScript简介"><a href="#JavaScript简介" class="headerlink" title="JavaScript简介"></a>JavaScript简介</h3><pre><code>JavaScript是基于对象和时间驱动的脚本语言，主要应用在客户端
+</code></pre><h4 id="基于对象"><a href="#基于对象" class="headerlink" title="基于对象"></a>基于对象</h4><pre><code>提供好了很多对象，可以直接拿过来使用
+</code></pre><h4 id="事件驱动"><a href="#事件驱动" class="headerlink" title="事件驱动"></a>事件驱动</h4><pre><code>html做网站是静态效果，加入了js后就可以完成动态的效果
+</code></pre><h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><pre><code>1. 交互性（信息的动态交互）
+2. 安全性（不可以直接访问本地磁盘）
+3. 跨平台性（只要是可以解析js的浏览器都可以执行，与平台无关）
+</code></pre><h3 id="JavaScript的组成"><a href="#JavaScript的组成" class="headerlink" title="JavaScript的组成"></a>JavaScript的组成</h3><pre><code>三部分：
+1. ECMAScript
+    ECMA：欧洲计算机协会
+    由ECMA组织指定的js语法，语句......
+2. BOM
+    broswer object model：浏览器对象模型
+3. DOM
+    document object model：文档对象模型
+</code></pre><h3 id="JavaScript与HTML的结合"><a href="#JavaScript与HTML的结合" class="headerlink" title="JavaScript与HTML的结合"></a>JavaScript与HTML的结合</h3><pre><code>1. 使用一个标签
+    &lt;script type=&quot;text/javascript&quot;&gt;JavaScript代码&lt;/script&gt;
+2. 使用script引入外部标签文件
+    创建一个js文件，写js代码
+        &lt;script type=&quot;text/javascript&quot; src=&quot;a.js&quot;&gt;&lt;/script&gt; 这样写的话 &lt;script&gt;&lt;/script&gt;中间的代码不会执行
+</code></pre><h3 id="JavaScript基本语法"><a href="#JavaScript基本语法" class="headerlink" title="JavaScript基本语法"></a>JavaScript基本语法</h3><h4 id="js的原始类型和声明变量"><a href="#js的原始类型和声明变量" class="headerlink" title="js的原始类型和声明变量"></a>js的原始类型和声明变量</h4><pre><code>1. string：字符串
+    var str=&quot;abc&quot;;
+2. number：数字类型
+    var m = 123;
+3. boolean：数字类型
+    var flag=true;
+4. null:对象引用为空
+5. undifined：定义了一个变量，但是这个变量没有赋值
+    var aa；
+用typeof（变量名）；查看当前变量的数据类型
+</code></pre><h4 id="js的语句"><a href="#js的语句" class="headerlink" title="js的语句"></a>js的语句</h4><pre><code>1.判断语句：
+     1. if语句
+    if(a == 5){
+        alert(&quot;5&quot;);
+    }else{
+        alert(&quot;不是5&quot;)    
+    }
+    2. switch语句（支持所有的数据类型）
+    switch(变量){
+        case 5:操作;break;
+        case 6:操作;break;
+        case 7:操作;breal;
+        default:操作;break;
+    }
+2. 循环语句
+    1. for循环
+        for(var i=0; i&lt;10; i++){
+            alert(i);
+        }
+    2. whilt循环
+        var i=4;
+        whilt(i--){
+            alert(i);
+        }
+</code></pre><h4 id="js的运算符"><a href="#js的运算符" class="headerlink" title="js的运算符"></a>js的运算符</h4><pre><code>1. -
+2. +
+3. *
+4. /
+5. &amp;
+6. ++
+7. --
+8. +=
+9. -=
+</code></pre><h5 id="字符串加减"><a href="#字符串加减" class="headerlink" title="字符串加减"></a>字符串加减</h5><pre><code>j=123
+alert(j/1000*1000)
+java中输出的 0； 但是JavaScript中输出的 123；
+js中不区分整形浮型点
+var str = &quot;457&quot;
+alert(str+1);
+Java和JavaScript中输出的都是4571; 加法做的是字符串相见
+alert(str-1);
+JavaScript输出的是 456，即进行了减法运算
+alert(&quot;abc&quot;-1);
+JavaScript输出NAN，提示错误，不是一个数字。 
+</code></pre><h5 id="Boolean的操作"><a href="#Boolean的操作" class="headerlink" title="Boolean的操作"></a>Boolean的操作</h5><pre><code>var flag=true;
+alert(flag+1);
+JavaScript中输出的是 2。也就是说 true = 1；
+反之，flase = 0。
+</code></pre><h5 id="和-的区别"><a href="#和-的区别" class="headerlink" title="=== 和 == 的区别"></a>=== 和 == 的区别</h5><pre><code>JavaScript中， == 用于判断两个参数的值是否相等 === 用于判断两个参数 类型和值是否都相等
+    例如：
+        var x = &quot;5&quot;, y = 5;
+        x == y 则为 true
+        x === y 则为false
+</code></pre>
       
     </div>
     
@@ -825,7 +939,7 @@ Ps.第三种结合方式，缺点：在某些浏览器下不支持。一般来�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Html"><span class="nav-number">1.</span> <span class="nav-text">Html</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Html？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Html？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个html程序："><span class="nav-number">1.2.</span> <span class="nav-text">第一个html程序：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html规范："><span class="nav-number">1.3.</span> <span class="nav-text">html规范：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html的操作思想："><span class="nav-number">1.4.</span> <span class="nav-text">*html的操作思想：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html中常用的标签"><span class="nav-number">1.5.</span> <span class="nav-text">html中常用的标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文字标签和注释标签"><span class="nav-number">1.5.1.</span> <span class="nav-text">文字标签和注释标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#文字标签：修改文字的样式"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">*文字标签：修改文字的样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注释标签"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">注释标签</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标题标签，水平线标签和特殊字符"><span class="nav-number">1.5.2.</span> <span class="nav-text">标题标签，水平线标签和特殊字符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#标题标签"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">标题标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#水平线标签"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">水平线标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#特殊字符"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">特殊字符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表标签"><span class="nav-number">1.5.3.</span> <span class="nav-text">列表标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-dl-gt-lt-dl-gt-：表示列表的范围"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">&lt;dl&gt;&lt;/dl&gt;：表示列表的范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-ol-gt-lt-ol-gt-：有序列表的范围"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">&lt;ol&gt;&lt;ol&gt;：有序列表的范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-ul-gt-lt-ul-gt-：无序列表的范围"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">&lt;ul&gt;&lt;/ul&gt;：无序列表的范围</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-img-gt-图像标签（重点）"><span class="nav-number">1.5.4.</span> <span class="nav-text">&lt;img&gt;图像标签（重点）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路径的介绍"><span class="nav-number">1.5.5.</span> <span class="nav-text">路径的介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一类：绝对路径"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">第一类：绝对路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二类：相对路径"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">第二类：相对路径</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#超链接"><span class="nav-number">1.5.6.</span> <span class="nav-text">超链接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#连接资源"><span class="nav-number">1.5.6.1.</span> <span class="nav-text">连接资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#定位资源"><span class="nav-number">1.5.6.2.</span> <span class="nav-text">定位资源</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表格标签"><span class="nav-number">1.5.7.</span> <span class="nav-text">表格标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单标签"><span class="nav-number">1.5.8.</span> <span class="nav-text">表单标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他标签"><span class="nav-number">1.5.9.</span> <span class="nav-text">其他标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html的头标签"><span class="nav-number">1.5.10.</span> <span class="nav-text">html的头标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#框架标签（过时）"><span class="nav-number">1.5.11.</span> <span class="nav-text">框架标签（过时）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-层叠样式表"><span class="nav-number">2.</span> <span class="nav-text">CSS-层叠样式表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解释"><span class="nav-number">2.1.</span> <span class="nav-text">解释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#层叠"><span class="nav-number">2.1.1.</span> <span class="nav-text">层叠</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样式表"><span class="nav-number">2.1.2.</span> <span class="nav-text">样式表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作用"><span class="nav-number">2.1.3.</span> <span class="nav-text">作用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS和Html的结合方式"><span class="nav-number">2.2.</span> <span class="nav-text">CSS和Html的结合方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS的优先级"><span class="nav-number">2.3.</span> <span class="nav-text">CSS的优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS书写规范"><span class="nav-number">2.4.</span> <span class="nav-text">CSS书写规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器"><span class="nav-number">2.5.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#id选择器"><span class="nav-number">2.5.1.</span> <span class="nav-text">id选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类选择器"><span class="nav-number">2.5.2.</span> <span class="nav-text">类选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标签选择器"><span class="nav-number">2.5.3.</span> <span class="nav-text">标签选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关联选择器"><span class="nav-number">2.5.4.</span> <span class="nav-text">关联选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合选择器"><span class="nav-number">2.5.5.</span> <span class="nav-text">组合选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类元素选择器"><span class="nav-number">2.5.6.</span> <span class="nav-text">伪类元素选择器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#盒子模型"><span class="nav-number">2.6.</span> <span class="nav-text">盒子模型</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Html"><span class="nav-number">1.</span> <span class="nav-text">Html</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Html？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Html？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个html程序："><span class="nav-number">1.2.</span> <span class="nav-text">第一个html程序：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html规范："><span class="nav-number">1.3.</span> <span class="nav-text">html规范：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html的操作思想："><span class="nav-number">1.4.</span> <span class="nav-text">*html的操作思想：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html中常用的标签"><span class="nav-number">1.5.</span> <span class="nav-text">html中常用的标签</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#文字标签和注释标签"><span class="nav-number">1.5.1.</span> <span class="nav-text">文字标签和注释标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#文字标签：修改文字的样式"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">*文字标签：修改文字的样式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注释标签"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">注释标签</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标题标签，水平线标签和特殊字符"><span class="nav-number">1.5.2.</span> <span class="nav-text">标题标签，水平线标签和特殊字符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#标题标签"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">标题标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#水平线标签"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">水平线标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#特殊字符"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">特殊字符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表标签"><span class="nav-number">1.5.3.</span> <span class="nav-text">列表标签</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-dl-gt-lt-dl-gt-：表示列表的范围"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">&lt;dl&gt;&lt;/dl&gt;：表示列表的范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-ol-gt-lt-ol-gt-：有序列表的范围"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">&lt;ol&gt;&lt;ol&gt;：有序列表的范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt-ul-gt-lt-ul-gt-：无序列表的范围"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">&lt;ul&gt;&lt;/ul&gt;：无序列表的范围</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-img-gt-图像标签（重点）"><span class="nav-number">1.5.4.</span> <span class="nav-text">&lt;img&gt;图像标签（重点）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路径的介绍"><span class="nav-number">1.5.5.</span> <span class="nav-text">路径的介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一类：绝对路径"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">第一类：绝对路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二类：相对路径"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">第二类：相对路径</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#超链接"><span class="nav-number">1.5.6.</span> <span class="nav-text">超链接</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#连接资源"><span class="nav-number">1.5.6.1.</span> <span class="nav-text">连接资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#定位资源"><span class="nav-number">1.5.6.2.</span> <span class="nav-text">定位资源</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表格标签"><span class="nav-number">1.5.7.</span> <span class="nav-text">表格标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表单标签"><span class="nav-number">1.5.8.</span> <span class="nav-text">表单标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他标签"><span class="nav-number">1.5.9.</span> <span class="nav-text">其他标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html的头标签"><span class="nav-number">1.5.10.</span> <span class="nav-text">html的头标签</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#框架标签（过时）"><span class="nav-number">1.5.11.</span> <span class="nav-text">框架标签（过时）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-层叠样式表"><span class="nav-number">2.</span> <span class="nav-text">CSS-层叠样式表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解释"><span class="nav-number">2.1.</span> <span class="nav-text">解释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#层叠"><span class="nav-number">2.1.1.</span> <span class="nav-text">层叠</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样式表"><span class="nav-number">2.1.2.</span> <span class="nav-text">样式表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作用"><span class="nav-number">2.1.3.</span> <span class="nav-text">作用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS和Html的结合方式"><span class="nav-number">2.2.</span> <span class="nav-text">CSS和Html的结合方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS的优先级"><span class="nav-number">2.3.</span> <span class="nav-text">CSS的优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS书写规范"><span class="nav-number">2.4.</span> <span class="nav-text">CSS书写规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择器"><span class="nav-number">2.5.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#id选择器"><span class="nav-number">2.5.1.</span> <span class="nav-text">id选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类选择器"><span class="nav-number">2.5.2.</span> <span class="nav-text">类选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标签选择器"><span class="nav-number">2.5.3.</span> <span class="nav-text">标签选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关联选择器"><span class="nav-number">2.5.4.</span> <span class="nav-text">关联选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合选择器"><span class="nav-number">2.5.5.</span> <span class="nav-text">组合选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#伪类元素选择器"><span class="nav-number">2.5.6.</span> <span class="nav-text">伪类元素选择器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#盒子模型"><span class="nav-number">2.6.</span> <span class="nav-text">盒子模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#边框"><span class="nav-number">2.6.1.</span> <span class="nav-text">边框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内边距"><span class="nav-number">2.6.2.</span> <span class="nav-text">内边距</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外边距"><span class="nav-number">2.6.3.</span> <span class="nav-text">外边距</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS的布局的漂浮"><span class="nav-number">2.7.</span> <span class="nav-text">CSS的布局的漂浮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS的布局的定位"><span class="nav-number">2.8.</span> <span class="nav-text">CSS的布局的定位</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript"><span class="nav-number">3.</span> <span class="nav-text">Javascript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript简介"><span class="nav-number">3.1.</span> <span class="nav-text">JavaScript简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基于对象"><span class="nav-number">3.1.1.</span> <span class="nav-text">基于对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件驱动"><span class="nav-number">3.1.2.</span> <span class="nav-text">事件驱动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点"><span class="nav-number">3.1.3.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript的组成"><span class="nav-number">3.2.</span> <span class="nav-text">JavaScript的组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript与HTML的结合"><span class="nav-number">3.3.</span> <span class="nav-text">JavaScript与HTML的结合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript基本语法"><span class="nav-number">3.4.</span> <span class="nav-text">JavaScript基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#js的原始类型和声明变量"><span class="nav-number">3.4.1.</span> <span class="nav-text">js的原始类型和声明变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js的语句"><span class="nav-number">3.4.2.</span> <span class="nav-text">js的语句</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js的运算符"><span class="nav-number">3.4.3.</span> <span class="nav-text">js的运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串加减"><span class="nav-number">3.4.3.1.</span> <span class="nav-text">字符串加减</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Boolean的操作"><span class="nav-number">3.4.3.2.</span> <span class="nav-text">Boolean的操作</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#和-的区别"><span class="nav-number">3.4.3.3.</span> <span class="nav-text">=== 和 == 的区别</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1064,7 +1178,7 @@ Ps.第三种结合方式，缺点：在某些浏览器下不支持。一般来�
     </script>
     <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
       <div class="powered-by"></div>
-      <span class="post-count">全站博客共14.6k字</span>
+      <span class="post-count">全站博客共15.7k字</span>
     </div>
 </footer>
 </html>
