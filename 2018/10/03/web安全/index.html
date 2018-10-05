@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="Web安全安全问题： 1. 用户身份被盗用 2. 用户密码泄露 3. 用户资料被盗取 4. 网站数据库是否泄露 5. 其他  攻击种类： 1. 跨站脚本攻击XSS 2. 跨站请求伪造攻击 3. 前端Cookies安全性 4. 点击劫持攻击 5. 传输过程安全问题 6. 用户密码安全问题 7. SQL注入攻击 8. 信息泄露和社会工程学  配置环境：     1. 安装npm     2. 安装no">
+<meta name="description" content="安全问题： 1. 用户身份被盗用 2. 用户密码泄露 3. 用户资料被盗取 4. 网站数据库是否泄露 5. 其他  攻击种类： 1. 跨站脚本攻击XSS 2. 跨站请求伪造攻击 3. 前端Cookies安全性 4. 点击劫持攻击 5. 传输过程安全问题 6. 用户密码安全问题 7. SQL注入攻击 8. 信息泄露和社会工程学  配置环境：     1. 安装npm     2. 安装node.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="web安全">
 <meta property="og:url" content="http://yoursite.com/2018/10/03/web安全/index.html">
 <meta property="og:site_name" content="lc_love_myh">
-<meta property="og:description" content="Web安全安全问题： 1. 用户身份被盗用 2. 用户密码泄露 3. 用户资料被盗取 4. 网站数据库是否泄露 5. 其他  攻击种类： 1. 跨站脚本攻击XSS 2. 跨站请求伪造攻击 3. 前端Cookies安全性 4. 点击劫持攻击 5. 传输过程安全问题 6. 用户密码安全问题 7. SQL注入攻击 8. 信息泄露和社会工程学  配置环境：     1. 安装npm     2. 安装no">
+<meta property="og:description" content="安全问题： 1. 用户身份被盗用 2. 用户密码泄露 3. 用户资料被盗取 4. 网站数据库是否泄露 5. 其他  攻击种类： 1. 跨站脚本攻击XSS 2. 跨站请求伪造攻击 3. 前端Cookies安全性 4. 点击劫持攻击 5. 传输过程安全问题 6. 用户密码安全问题 7. SQL注入攻击 8. 信息泄露和社会工程学  配置环境：     1. 安装npm     2. 安装node.js">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/7GoBQpj.png">
-<meta property="og:updated_time" content="2018-10-05T16:09:54.809Z">
+<meta property="og:updated_time" content="2018-10-05T16:12:47.465Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web安全">
-<meta name="twitter:description" content="Web安全安全问题： 1. 用户身份被盗用 2. 用户密码泄露 3. 用户资料被盗取 4. 网站数据库是否泄露 5. 其他  攻击种类： 1. 跨站脚本攻击XSS 2. 跨站请求伪造攻击 3. 前端Cookies安全性 4. 点击劫持攻击 5. 传输过程安全问题 6. 用户密码安全问题 7. SQL注入攻击 8. 信息泄露和社会工程学  配置环境：     1. 安装npm     2. 安装no">
+<meta name="twitter:description" content="安全问题： 1. 用户身份被盗用 2. 用户密码泄露 3. 用户资料被盗取 4. 网站数据库是否泄露 5. 其他  攻击种类： 1. 跨站脚本攻击XSS 2. 跨站请求伪造攻击 3. 前端Cookies安全性 4. 点击劫持攻击 5. 传输过程安全问题 6. 用户密码安全问题 7. SQL注入攻击 8. 信息泄露和社会工程学  配置环境：     1. 安装npm     2. 安装node.js">
 <meta name="twitter:image" content="https://i.imgur.com/7GoBQpj.png">
 
 
@@ -354,7 +354,7 @@
       
 
       
-        <h1 id="Web安全"><a href="#Web安全" class="headerlink" title="Web安全"></a>Web安全</h1><pre><code>安全问题：
+        <pre><code>安全问题：
 1. 用户身份被盗用
 2. 用户密码泄露
 3. 用户资料被盗取
@@ -516,6 +516,10 @@ Cookies没有删除方法，想删除Cookies只有设置Cookies的有效期为�
 2. 存储未登录时用户唯一标识
 3. 存储已登录用户的凭证
 4. 存储其他业务数据
+</code></pre><h4 id="Cookies-登陆用户凭证"><a href="#Cookies-登陆用户凭证" class="headerlink" title="Cookies-登陆用户凭证"></a>Cookies-登陆用户凭证</h4><pre><code>1. 前端提交用户名和密码
+2. 后端验证用户名和密码
+3. 后端设置http头，设置用户凭证
+    1. 用户ID
 </code></pre>
       
     </div>
@@ -669,7 +673,7 @@ Cookies没有删除方法，想删除Cookies只有设置Cookies的有效期为�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Web安全"><span class="nav-number">1.</span> <span class="nav-text">Web安全</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS"><span class="nav-number">1.1.</span> <span class="nav-text">XSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS攻击分类"><span class="nav-number">1.1.1.</span> <span class="nav-text">XSS攻击分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#反射型"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">反射型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储型"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">存储型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS攻击注入点"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">XSS攻击注入点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防御XSS"><span class="nav-number">1.1.2.</span> <span class="nav-text">防御XSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSP"><span class="nav-number">1.1.3.</span> <span class="nav-text">CSP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSRF"><span class="nav-number">1.2.</span> <span class="nav-text">CSRF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSRF的运行顺序"><span class="nav-number">1.2.1.</span> <span class="nav-text">CSRF的运行顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSRF的特征"><span class="nav-number">1.2.2.</span> <span class="nav-text">CSRF的特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSRF的危害"><span class="nav-number">1.2.3.</span> <span class="nav-text">CSRF的危害</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSRF的防御"><span class="nav-number">1.2.4.</span> <span class="nav-text">CSRF的防御</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#进制第三方网站带Cookies"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">进制第三方网站带Cookies</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在前端页面加入验证信息"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">在前端页面加入验证信息</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#验证码"><span class="nav-number">1.2.4.2.1.</span> <span class="nav-text">验证码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#token"><span class="nav-number">1.2.4.2.2.</span> <span class="nav-text">token</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是referer"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">什么是referer</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端Cookies问题"><span class="nav-number">1.3.</span> <span class="nav-text">前端Cookies问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookies-的特性"><span class="nav-number">1.3.1.</span> <span class="nav-text">Cookies 的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookies作用"><span class="nav-number">1.3.2.</span> <span class="nav-text">Cookies作用</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS"><span class="nav-number">1.</span> <span class="nav-text">XSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS攻击分类"><span class="nav-number">1.1.</span> <span class="nav-text">XSS攻击分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#反射型"><span class="nav-number">1.1.1.</span> <span class="nav-text">反射型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储型"><span class="nav-number">1.1.2.</span> <span class="nav-text">存储型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS攻击注入点"><span class="nav-number">1.1.3.</span> <span class="nav-text">XSS攻击注入点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防御XSS"><span class="nav-number">1.2.</span> <span class="nav-text">防御XSS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSP"><span class="nav-number">1.3.</span> <span class="nav-text">CSP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSRF"><span class="nav-number">2.</span> <span class="nav-text">CSRF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSRF的运行顺序"><span class="nav-number">2.1.</span> <span class="nav-text">CSRF的运行顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSRF的特征"><span class="nav-number">2.2.</span> <span class="nav-text">CSRF的特征</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSRF的危害"><span class="nav-number">2.3.</span> <span class="nav-text">CSRF的危害</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSRF的防御"><span class="nav-number">2.4.</span> <span class="nav-text">CSRF的防御</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#进制第三方网站带Cookies"><span class="nav-number">2.4.1.</span> <span class="nav-text">进制第三方网站带Cookies</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在前端页面加入验证信息"><span class="nav-number">2.4.2.</span> <span class="nav-text">在前端页面加入验证信息</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#验证码"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">验证码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#token"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">token</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是referer"><span class="nav-number">2.4.3.</span> <span class="nav-text">什么是referer</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端Cookies问题"><span class="nav-number">3.</span> <span class="nav-text">前端Cookies问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookies-的特性"><span class="nav-number">3.1.</span> <span class="nav-text">Cookies 的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookies作用"><span class="nav-number">3.2.</span> <span class="nav-text">Cookies作用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Cookies-登陆用户凭证"><span class="nav-number">3.2.1.</span> <span class="nav-text">Cookies-登陆用户凭证</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
