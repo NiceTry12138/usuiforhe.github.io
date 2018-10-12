@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="File 类构造函数有：传入相对路径（一个参数）   传入绝对路径（一个参数）   File类指定为当前文件的父级，当前文件的名称（两个参数）   文件删除读写改名File file = new File(&amp;quot;hello.txt&amp;quot;);//对于工程而言用相对路径，创建在根目录下。也可以用绝对路径指定文件夹   //File file = new File(&amp;quot;bin/hel">
+<meta name="description" content="好好学习 天天向上">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java的文件和时间操作">
-<meta property="og:url" content="http://yoursite.com/2018/09/25/java的文件操作/index.html">
+<meta property="og:title" content="算法入门 嘤嘤嘤">
+<meta property="og:url" content="http://yoursite.com/2018/10/12/算法入门-嘤嘤嘤/index.html">
 <meta property="og:site_name" content="lc_love_myh">
-<meta property="og:description" content="File 类构造函数有：传入相对路径（一个参数）   传入绝对路径（一个参数）   File类指定为当前文件的父级，当前文件的名称（两个参数）   文件删除读写改名File file = new File(&amp;quot;hello.txt&amp;quot;);//对于工程而言用相对路径，创建在根目录下。也可以用绝对路径指定文件夹   //File file = new File(&amp;quot;bin/hel">
+<meta property="og:description" content="好好学习 天天向上">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-25T15:55:52.226Z">
+<meta property="og:updated_time" content="2018-10-12T11:13:24.798Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java的文件和时间操作">
-<meta name="twitter:description" content="File 类构造函数有：传入相对路径（一个参数）   传入绝对路径（一个参数）   File类指定为当前文件的父级，当前文件的名称（两个参数）   文件删除读写改名File file = new File(&amp;quot;hello.txt&amp;quot;);//对于工程而言用相对路径，创建在根目录下。也可以用绝对路径指定文件夹   //File file = new File(&amp;quot;bin/hel">
+<meta name="twitter:title" content="算法入门 嘤嘤嘤">
+<meta name="twitter:description" content="好好学习 天天向上">
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/25/java的文件操作/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/12/算法入门-嘤嘤嘤/"/>
 
 
 
@@ -143,7 +143,7 @@
       }
   </style>
 
-  <title>java的文件和时间操作 | lc_love_myh</title>
+  <title>算法入门 嘤嘤嘤 | lc_love_myh</title>
   
 
 
@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/25/java的文件操作/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/算法入门-嘤嘤嘤/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lc_love_myh">
@@ -336,7 +336,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java的文件和时间操作</h1>
+          <h1 class="post-title" itemprop="name headline">算法入门 嘤嘤嘤</h1>
         
 
         <div class="post-meta">
@@ -348,8 +348,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-25T22:37:09+08:00">
-                2018-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-12T19:13:24+08:00">
+                2018-10-12
               </time>
             
 
@@ -386,137 +386,7 @@
       
 
       
-        <h2 id="File-类"><a href="#File-类" class="headerlink" title="File 类"></a>File 类</h2><h3 id="构造函数有："><a href="#构造函数有：" class="headerlink" title="构造函数有："></a>构造函数有：</h3><pre><code>传入相对路径（一个参数）  
-传入绝对路径（一个参数）  
-File类指定为当前文件的父级，当前文件的名称（两个参数）  
-</code></pre><h2 id="文件删除读写改名"><a href="#文件删除读写改名" class="headerlink" title="文件删除读写改名"></a>文件删除读写改名</h2><pre><code>File file = new File(&quot;hello.txt&quot;);//对于工程而言用相对路径，创建在根目录下。也可以用绝对路径指定文件夹  
-//File file = new File(&quot;bin/hello.txt&quot;);工程文件夹下的bin文件夹的hello.txt文件  
-//File file = new File(&quot;../hello.txt&quot;);工程文件夹的上一级文件中新建hello.txt文件  
-if(file.exists()){  
-    System.out.printlen(file.isFile());//判断文件是文件  
-    System.out.println(file.isDirectory());//判断文件是文件夹  
-    File nameto = new File(&quot;new name .txt&quot;);  
-    file.renameTo(nameto);//将file的名字改为nameti的名字  
-    File nameto1 = new File(&quot;src/new name.txt&quot;);  
-    file.renameTo(nameto1);//将文件移动到src目录下  
-    file.delete();//删除文件  
-}else{  
-    System.out.println(&quot;文件不存在&quot;);  
-    try{  
-        file.createNewFile();  
-        System  
-    }catch(IOException e){//抛出异常  
-        e.printStackTrace();  
-        System.out.println(&quot;文件无法创建&quot;);  
-    }  
-}  
-</code></pre><h3 id="测试样例，用于文件的读取"><a href="#测试样例，用于文件的读取" class="headerlink" title="测试样例，用于文件的读取"></a>测试样例，用于文件的读取</h3><p>新建一个test.txt文件，内容随意。</p>
-<pre><code>File file = new File(&quot;text.txt&quot;);
-if(file.exitst()){
-    try{
-        FileInputStream fis = new FileInputStream(file);//属于字节流
-        InputStreamReader isr = new InputStreamReader(fis. &quot;UTF-8&quot;);//属于字符流，在字节转换为字符的时候，需要指定编码，否则可能会出现乱码。
-        BufferedReader br = new BufferedReader(isr);//带有缓冲区的reader
-        String line;//用于存放临时数据
-        while ((line = br.readLine()) != null){
-            System.out.println(line);//输出读取的一行
-        }
-        关闭输入流，先打开的后关闭，后打开的先关闭。
-        br.close();
-        isr.close();
-        fis.close();
-    }catch (FileNotFoundException e){
-        该异常对应于 FileInputStream
-    }catch (UnsupportedEncodingException e){
-        该异常对应于 InputStreamReader
-    }catch (IOException e){
-        该异常对应于 ***.close()
-    }
-}
-</code></pre><h3 id="测试样例，用于写入文件"><a href="#测试样例，用于写入文件" class="headerlink" title="测试样例，用于写入文件"></a>测试样例，用于写入文件</h3><pre><code>File newfile = new File(&quot;newtest.txt&quot;);
-try{
-    FileOutPutStream fos = new FileOutputStream(newfile);
-    OutPutStreamWriter osw = new OutPutStream(fos, &quot;UTF-8&quot;);
-    BufferedWriter bw = new BufferedWriter(osw);
-    bw.write(&quot;你要写入的内容&quot;);
-    。。。。。。。
-    bw.close();
-    osw.close();
-    fos.close();
-    //同样，先打开的后关闭，后打开的先关闭。
-}
-</code></pre><h2 id="文件夹操作"><a href="#文件夹操作" class="headerlink" title="文件夹操作"></a>文件夹操作</h2><pre><code>File类可以表示文件或者文件夹，但是两者之间的是有区别的
-File folder = new File(&quot;my new folder&quot;);
-// folder.createNewFile()  使用该方法创建的是一个文件，只是文件没有后缀罢了
-folder.mkdir();//创建一个文件夹，返回值是一个bool类型，true为创建成功，false为失败
-//如果 已经存在 名为 “my new folder”的文件夹，则创建失败。也就是说不能出现同名的文件或者文件夹
-</code></pre><p><code>如果使用mkdir()，那么创建的文件夹必须是物理上存在的文件夹，也就是说，如果创建“one/two/test”这样的文件夹，但是 不存在one文件夹，那么是不会自动补全路径的。这时候我们就需要用 mkdirs()，也就是 file.mkdirs()这个语句。</code></p>
-<pre><code>//文件夹给名字的方法跟文件改名字的方法类似
-File folder = new File(&quot;my new folder&quot;);
-File newfolder = new File(&quot;new folder&quot;);
-folder.renameTo(newfolder);//返回的是一个bool类型的值，可以通过if判断是否修改成功
-//用这种方式修改文件夹的名字
-forlder.delete();//删除文件夹，但是只能删除空文件夹
-</code></pre><p><code>在windows中，千万注意移动文件夹不要跨盘移动，否则失败。因为Windows的文件系统是森林格式，而Linux和Mac系统是数状的</code></p>
-<h2 id="一些判断获取语句"><a href="#一些判断获取语句" class="headerlink" title="一些判断获取语句"></a>一些判断获取语句</h2><pre><code>File file = new File(&quot;test.txt&quot;);
-//判断文件是否存在
-    file.exists();
-//读取文件名称
-    file.getName();
-//读取文件相对路径
-    file.getPath();
-//读取文件的绝对路径
-    file.getAbsolutePath();
-//读取文件父级路径
-    file.getParent();
-//读取文件大小（字节）
-    file.length();
-//判断文件是否被隐藏（Linux和unix中，文件以 &quot; . &quot;开头代表隐藏）
-    file.isHidden();
-//判断文件是否可读
-    file.canRead();
-//判断文件是否可写
-    file.canWrite();
-//判断文件是否为文件夹
-    file.isDirectory();
-//当程序退出时将文件删除
-    file.deleteOnExit();
-</code></pre><h2 id="设置文件属性："><a href="#设置文件属性：" class="headerlink" title="设置文件属性："></a>设置文件属性：</h2><pre><code>File file = new File(&quot;test.file&quot;);
-//设置为可写
-    file.setWritable(true);//传入 true 则设置文件可写，否则设置为不可写
-//设置为可读
-    file.setReadable(true);//与上述相同。
-//设置为只读
-    file.setReadOnly();
-</code></pre><h2 id="遍历文件夹"><a href="#遍历文件夹" class="headerlink" title="遍历文件夹"></a>遍历文件夹</h2><pre><code>public static void printfFiles(File dir){
-{
-    if( dir.isDirectory() ){
-        File next[] = dir.listFiles();
-        for( int i = 0; i&lt;next.length; i++){
-            if( next[i].ifFile() ){//输出文件的名字
-                System.out.println(next[i].name);
-            }else{//递归的输出文件的名字
-                printfFiles(next[i]);
-            }
-        }
-    }
-}
-</code></pre><h2 id="时间操作"><a href="#时间操作" class="headerlink" title="时间操作"></a>时间操作</h2><p>Date表示时间，日期。但是更新jdk之后就不推荐使用了。<br>官方解释是 使用Date类<code>不利于国际化</code>。所以jdk1.1版本后推荐使用Calendar类。使用DateFormat类进行时间日期的格式化。Long类型表示时间类型。String类型表示时间日期类的显示。 </p>
-<pre><code>Date.getTime();//获取Date对象的时间  
-Date.setTime(long time);//设置Date的时间  
-
-Calendar rightnow = Calendar.getInstance();//获取当前时间  
-long now = System.currentTimeMillis();//获得系统的当前时间，但是这个时间只有机器能读懂
-
-Date d1 = new Date(now);// 获取人能够读懂的时间  
-Calendar c1 = Calendar .getInstance();  
-System.out.print(c1.getTime().toString());//获得人能够读懂的时间  
-</code></pre><p><code>String -&gt; 时间  &amp;&amp; 时间 -&gt; String</code></p>
-<pre><code>SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd&quot;);//指定日期的格式  
-sdf.format(date);//将Date类型转换为指定格式的String类型，返回的是一个String类型  
-sdf.parse(&quot;2015-06-01&quot;);//将String转换为Date类型，返回的是一个Date类型  
-//SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;); 时间格式为 年月日  时分秒  
-</code></pre>
+        
       
     </div>
     
@@ -540,8 +410,8 @@ sdf.parse(&quot;2015-06-01&quot;);//将String转换为Date类型，返回的是�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/25/Git/" rel="next" title="Git">
-                <i class="fa fa-chevron-left"></i> Git
+              <a href="/2018/10/08/python爬虫/" rel="next" title="python爬虫">
+                <i class="fa fa-chevron-left"></i> python爬虫
               </a>
             
           </div>
@@ -549,10 +419,6 @@ sdf.parse(&quot;2015-06-01&quot;);//将String转换为Date类型，返回的是�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/26/MySQL命令/" rel="prev" title="MySQL命令">
-                MySQL命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -604,17 +470,8 @@ sdf.parse(&quot;2015-06-01&quot;);//将String转换为Date类型，返回的是�
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -663,22 +520,6 @@ sdf.parse(&quot;2015-06-01&quot;);//将String转换为Date类型，返回的是�
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#File-类"><span class="nav-number">1.</span> <span class="nav-text">File 类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数有："><span class="nav-number">1.1.</span> <span class="nav-text">构造函数有：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件删除读写改名"><span class="nav-number">2.</span> <span class="nav-text">文件删除读写改名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试样例，用于文件的读取"><span class="nav-number">2.1.</span> <span class="nav-text">测试样例，用于文件的读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试样例，用于写入文件"><span class="nav-number">2.2.</span> <span class="nav-text">测试样例，用于写入文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件夹操作"><span class="nav-number">3.</span> <span class="nav-text">文件夹操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些判断获取语句"><span class="nav-number">4.</span> <span class="nav-text">一些判断获取语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置文件属性："><span class="nav-number">5.</span> <span class="nav-text">设置文件属性：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历文件夹"><span class="nav-number">6.</span> <span class="nav-text">遍历文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间操作"><span class="nav-number">7.</span> <span class="nav-text">时间操作</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://i.imgur.com/zC66TIe.png">
 <meta property="og:image" content="https://i.imgur.com/htxzlhU.png">
 <meta property="og:image" content="https://i.imgur.com/fvnOJFn.png">
-<meta property="og:updated_time" content="2018-10-08T14:31:31.140Z">
+<meta property="og:updated_time" content="2018-10-08T15:56:28.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python爬虫">
 <meta name="twitter:description" content="爬虫的实际例子：1. 搜索引擎（百度、谷歌、360搜索等）。 2. 伯乐在线。 3. 惠惠购物助手。 4. 数据分析与研究（数据冰山知乎专栏）。 5. 抢票软件等。 什么是网络爬虫：通俗理解爬虫是一个模拟人类请求网站行为的程序。可以自动请求网页、并数据抓取下来 然后使用一定的规则提取有价值的数据。 专业介绍：百度百科。 通用爬虫和聚焦爬虫：  通用爬虫：通用爬虫是搜索引擎抓取系统（百度、谷歌、搜狗">
@@ -434,9 +434,11 @@ anchor：锚点，后台一般不用管，前端用来做页面定位的。
 </code></pre><h3 id="常用的请求方法："><a href="#常用的请求方法：" class="headerlink" title="常用的请求方法："></a>常用的请求方法：</h3><pre><code>在Http协议中，定义了八种请求方法。这里介绍两种常用的请求方法，分别是get请求和post请求。
 
 get请求：一般情况下，只从服务器获取数据下来，并不会对服务器资源产生任何影响的时候会使用get请求。
-post请求：向服务器发送数据（登录）、上传文件等，会对服务器资源产生影响的时候会使用post请求。 以上是在网站开发中常用的两种方法。
-        并且一般情况下都会遵循使用的原则。但是有的网站和服务器为了做反爬虫机制，也经常会不按常理出牌，有可能一个应该使用get方法的请求就一定要改成post请求，这个要视情况而定。
-</code></pre><h3 id="请求头常见参数："><a href="#请求头常见参数：" class="headerlink" title="请求头常见参数："></a>请求头常见参数：</h3><pre><code>在http协议中，向服务器发送一个请求，数据分为三部分，第一个是把数据放在url中，第二个是把数据放在body中（在post请求中），第三个就是把数据放在head中。
+post请求：向服务器发送数据（登录）、上传文件等，会对服务器资源产生影响的时候会使用post请求。 
+以上是在网站开发中常用的两种方法。
+并且一般情况下都会遵循使用的原则。但是有的网站和服务器为了做反爬虫机制，也经常会不按常理出牌，
+</code></pre><p>有可能一个应该使用get方法的请求就一定要改成post请求，这个要视情况而定。</p>
+<h3 id="请求头常见参数："><a href="#请求头常见参数：" class="headerlink" title="请求头常见参数："></a>请求头常见参数：</h3><pre><code>在http协议中，向服务器发送一个请求，数据分为三部分，第一个是把数据放在url中，第二个是把数据放在body中（在post请求中），第三个就是把数据放在head中。
 
 这里介绍在网络爬虫中经常会用到的一些请求头参数：
 
@@ -781,6 +783,10 @@ print(resp.content.decode(&apos;utf-8&apos;))
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/10/12/算法入门-嘤嘤嘤/" rel="prev" title="算法入门 嘤嘤嘤">
+                算法入门 嘤嘤嘤 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -856,7 +862,7 @@ print(resp.content.decode(&apos;utf-8&apos;))
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
