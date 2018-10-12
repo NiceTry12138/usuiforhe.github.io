@@ -88,10 +88,12 @@
 <meta property="og:site_name" content="lc_love_myh">
 <meta property="og:description" content="学习算法的建议必备条件1. 数理基础，着力加强 2. 兴趣爱好，能否持久的喜欢它 3. 做事有系统，规范，着眼于大的方面 C++或Java熟练掌握C++或者Java，语言作为基础，即使算法能理解，也无法表示出来 数理基础对于数学定理，公式推导等，要熟悉 数据结构对于数据结构，吃透了能够受益终身。不要指望数据结构，这个东西方面太广，不要只去看你有什么没学，你更要看你学了什么 计算思维思维方式在前人的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-12T12:49:55.216Z">
+<meta property="og:image" content="https://i.imgur.com/QSoeHA5.png">
+<meta property="og:updated_time" content="2018-10-12T13:15:14.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法入门 嘤嘤嘤">
 <meta name="twitter:description" content="学习算法的建议必备条件1. 数理基础，着力加强 2. 兴趣爱好，能否持久的喜欢它 3. 做事有系统，规范，着眼于大的方面 C++或Java熟练掌握C++或者Java，语言作为基础，即使算法能理解，也无法表示出来 数理基础对于数学定理，公式推导等，要熟悉 数据结构对于数据结构，吃透了能够受益终身。不要指望数据结构，这个东西方面太广，不要只去看你有什么没学，你更要看你学了什么 计算思维思维方式在前人的">
+<meta name="twitter:image" content="https://i.imgur.com/QSoeHA5.png">
 
 
 
@@ -393,6 +395,17 @@
 </code></pre><h3 id="数理基础"><a href="#数理基础" class="headerlink" title="数理基础"></a>数理基础</h3><pre><code>对于数学定理，公式推导等，要熟悉
 </code></pre><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><pre><code>对于数据结构，吃透了能够受益终身。不要指望数据结构，这个东西方面太广，不要只去看你有什么没学，你更要看你学了什么
 </code></pre><h3 id="计算思维"><a href="#计算思维" class="headerlink" title="计算思维"></a>计算思维</h3><pre><code>思维方式在前人的基础上，形成自己的方式；同时学习一些套路，解题的套路，等等
+</code></pre><h2 id="算法集合"><a href="#算法集合" class="headerlink" title="算法集合"></a>算法集合</h2><h3 id="In-Triangle-Test-判断点是否在三角形内"><a href="#In-Triangle-Test-判断点是否在三角形内" class="headerlink" title="In-Triangle Test(判断点是否在三角形内)"></a>In-Triangle Test(判断点是否在三角形内)</h3><p><img src="https://i.imgur.com/QSoeHA5.png" alt=""></p>
+<pre><code>只要点在直线 PQ，QR，RP 的左边，那么点就在三角形内部。
+计算几何中，一般以逆时针方向 
+
+bool InTriangle(P, Q, R, S){
+    bool a = ToLeft(P, Q, S);
+    bool b = ToLeft(Q, R, S);
+    bool c = ToLeft(Q, R, S);
+    return a == b &amp;&amp; b == c;
+}
+//因为不知道PQR的排列顺序，虽然图片上是逆时针，但是实际中可能是逆时针可能是顺时针，所以全为True和全为False都成立
 </code></pre>
       
     </div>
@@ -546,7 +559,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习算法的建议"><span class="nav-number">1.</span> <span class="nav-text">学习算法的建议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#必备条件"><span class="nav-number">1.1.</span> <span class="nav-text">必备条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-或Java"><span class="nav-number">1.2.</span> <span class="nav-text">C++或Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数理基础"><span class="nav-number">1.3.</span> <span class="nav-text">数理基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构"><span class="nav-number">1.4.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算思维"><span class="nav-number">1.5.</span> <span class="nav-text">计算思维</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习算法的建议"><span class="nav-number">1.</span> <span class="nav-text">学习算法的建议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#必备条件"><span class="nav-number">1.1.</span> <span class="nav-text">必备条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-或Java"><span class="nav-number">1.2.</span> <span class="nav-text">C++或Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数理基础"><span class="nav-number">1.3.</span> <span class="nav-text">数理基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构"><span class="nav-number">1.4.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算思维"><span class="nav-number">1.5.</span> <span class="nav-text">计算思维</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法集合"><span class="nav-number">2.</span> <span class="nav-text">算法集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#In-Triangle-Test-判断点是否在三角形内"><span class="nav-number">2.1.</span> <span class="nav-text">In-Triangle Test(判断点是否在三角形内)</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1102,7 +1115,7 @@
     </script>
     <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
       <div class="powered-by"></div>
-      <span class="post-count">全站博客共42.8k字</span>
+      <span class="post-count">全站博客共42.9k字</span>
     </div>
 </footer>
 </html>

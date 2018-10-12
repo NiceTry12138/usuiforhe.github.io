@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-12T12:49:55.216Z</updated>
+  <updated>2018-10-12T13:15:14.226Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2018/10/12/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8-%E5%98%A4%E5%98%A4%E5%98%A4/"/>
     <id>http://yoursite.com/2018/10/12/算法入门-嘤嘤嘤/</id>
     <published>2018-10-12T11:13:24.000Z</published>
-    <updated>2018-10-12T12:49:55.216Z</updated>
+    <updated>2018-10-12T13:15:14.226Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="学习算法的建议"><a href="#学习算法的建议" class="headerlink" title="学习算法的建议"></a>学习算法的建议</h2><h3 id="必备条件"><a href="#必备条件" class="headerlink" title="必备条件"></a>必备条件</h3><pre><code>1. 数理基础，着力加强2. 兴趣爱好，能否持久的喜欢它3. 做事有系统，规范，着眼于大的方面</code></pre><h3 id="C-或Java"><a href="#C-或Java" class="headerlink" title="C++或Java"></a>C++或Java</h3><pre><code>熟练掌握C++或者Java，语言作为基础，即使算法能理解，也无法表示出来</code></pre><h3 id="数理基础"><a href="#数理基础" class="headerlink" title="数理基础"></a>数理基础</h3><pre><code>对于数学定理，公式推导等，要熟悉</code></pre><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><pre><code>对于数据结构，吃透了能够受益终身。不要指望数据结构，这个东西方面太广，不要只去看你有什么没学，你更要看你学了什么</code></pre><h3 id="计算思维"><a href="#计算思维" class="headerlink" title="计算思维"></a>计算思维</h3><pre><code>思维方式在前人的基础上，形成自己的方式；同时学习一些套路，解题的套路，等等</code></pre>]]></content>
+    <content type="html"><![CDATA[<h2 id="学习算法的建议"><a href="#学习算法的建议" class="headerlink" title="学习算法的建议"></a>学习算法的建议</h2><h3 id="必备条件"><a href="#必备条件" class="headerlink" title="必备条件"></a>必备条件</h3><pre><code>1. 数理基础，着力加强2. 兴趣爱好，能否持久的喜欢它3. 做事有系统，规范，着眼于大的方面</code></pre><h3 id="C-或Java"><a href="#C-或Java" class="headerlink" title="C++或Java"></a>C++或Java</h3><pre><code>熟练掌握C++或者Java，语言作为基础，即使算法能理解，也无法表示出来</code></pre><h3 id="数理基础"><a href="#数理基础" class="headerlink" title="数理基础"></a>数理基础</h3><pre><code>对于数学定理，公式推导等，要熟悉</code></pre><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><pre><code>对于数据结构，吃透了能够受益终身。不要指望数据结构，这个东西方面太广，不要只去看你有什么没学，你更要看你学了什么</code></pre><h3 id="计算思维"><a href="#计算思维" class="headerlink" title="计算思维"></a>计算思维</h3><pre><code>思维方式在前人的基础上，形成自己的方式；同时学习一些套路，解题的套路，等等</code></pre><h2 id="算法集合"><a href="#算法集合" class="headerlink" title="算法集合"></a>算法集合</h2><h3 id="In-Triangle-Test-判断点是否在三角形内"><a href="#In-Triangle-Test-判断点是否在三角形内" class="headerlink" title="In-Triangle Test(判断点是否在三角形内)"></a>In-Triangle Test(判断点是否在三角形内)</h3><p><img src="https://i.imgur.com/QSoeHA5.png" alt=""></p><pre><code>只要点在直线 PQ，QR，RP 的左边，那么点就在三角形内部。计算几何中，一般以逆时针方向 bool InTriangle(P, Q, R, S){    bool a = ToLeft(P, Q, S);    bool b = ToLeft(Q, R, S);    bool c = ToLeft(Q, R, S);    return a == b &amp;&amp; b == c;}//因为不知道PQR的排列顺序，虽然图片上是逆时针，但是实际中可能是逆时针可能是顺时针，所以全为True和全为False都成立</code></pre>]]></content>
     
     <summary type="html">
     
