@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-12T11:13:24.798Z</updated>
+  <updated>2018-10-12T12:00:14.234Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,16 @@
     <link href="http://yoursite.com/2018/10/12/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8-%E5%98%A4%E5%98%A4%E5%98%A4/"/>
     <id>http://yoursite.com/2018/10/12/算法入门-嘤嘤嘤/</id>
     <published>2018-10-12T11:13:24.000Z</published>
-    <updated>2018-10-12T11:13:24.798Z</updated>
+    <updated>2018-10-12T12:00:14.234Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="学习算法的建议"><a href="#学习算法的建议" class="headerlink" title="学习算法的建议"></a>学习算法的建议</h2><h3 id="必备条件"><a href="#必备条件" class="headerlink" title="必备条件"></a>必备条件</h3><pre><code>1. 数理基础，着力加强2. 兴趣爱好，能否持久的喜欢它3. 做事有系统，规范，着眼于大的方面</code></pre><h3 id="C-或Java"><a href="#C-或Java" class="headerlink" title="C++或Java"></a>C++或Java</h3><pre><code>熟练掌握C++或者Java，语言作为基础，即使算法能理解，也无法表示出来</code></pre><h3 id="数理基础"><a href="#数理基础" class="headerlink" title="数理基础"></a>数理基础</h3><pre><code>对于数学定理，公式推导等，要熟悉</code></pre><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><pre><code>对于数据结构，吃透了能够受益终身</code></pre>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;学习算法的建议&quot;&gt;&lt;a href=&quot;#学习算法的建议&quot; class=&quot;headerlink&quot; title=&quot;学习算法的建议&quot;&gt;&lt;/a&gt;学习算法的建议&lt;/h2&gt;&lt;h3 id=&quot;必备条件&quot;&gt;&lt;a href=&quot;#必备条件&quot; class=&quot;headerlink&quot; titl
+      
     
     </summary>
     
