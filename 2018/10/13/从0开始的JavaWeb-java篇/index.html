@@ -95,7 +95,8 @@
 <meta property="og:image" content="https://i.imgur.com/nMe2CKX.png">
 <meta property="og:image" content="https://i.imgur.com/XTD10M9.png">
 <meta property="og:image" content="https://i.imgur.com/E6X43Wh.png">
-<meta property="og:updated_time" content="2018-10-13T12:09:16.897Z">
+<meta property="og:image" content="https://i.imgur.com/KpOSoD7.png">
+<meta property="og:updated_time" content="2018-10-13T14:42:37.950Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从0开始的JavaWeb---java篇">
 <meta name="twitter:description" content="软件系统体系结构B/S1. B/S结构即浏览器/服务器（Browser/Server） 优点只需要编写服务器端程序 缺点安全性差 C/S1. C/S 结构即 客户端/服务器（Client/Server），例如QQ 2. 需要编写服务器程序，以及客户端程序，例如我们安装的就是QQ的客户端 缺点软件更新时需要同时更新客户端和服务器两端，比较麻烦 优点安全性比较好 Web资源Web资源介绍1. html">
@@ -588,8 +589,91 @@ g2.setColor(Color.BLACK);//设置颜色
 ge.drawString(&quot;hell0&quot;, point.x, point.y);//向图片区域中写String的内容
 
 ImageIO.write(bi, &quot;JPEG&quot;, new FileOutputStream(&quot;F:/a.jpg&quot;));//输出流，bi为图片缓冲区，&quot;JPEG&quot;为图片格式
-</code></pre><h2 id="response和request"><a href="#response和request" class="headerlink" title="response和request"></a>response和request</h2><h3 id="response"><a href="#response" class="headerlink" title="response"></a>response</h3><pre><code>服务器产生
-</code></pre><h3 id="request"><a href="#request" class="headerlink" title="request"></a>request</h3><pre><code>服务器产生
+</code></pre><h2 id="response和request"><a href="#response和request" class="headerlink" title="response和request"></a>response和request</h2><pre><code>都是由服务器产生
+</code></pre><p><img src="https://i.imgur.com/KpOSoD7.png" alt=""></p>
+<pre><code>服务器每次收到请求时，都会为这个请求开辟一个新的线程
+服务器会把客户端的请求数据封装到request对象中，request就是请求数据的载体
+服务器还会创建response对象，这个对象和客户端连接在一起，他可以用来向客户端发送响应
+</code></pre><h3 id="response"><a href="#response" class="headerlink" title="response"></a>response</h3><pre><code>ServletResponse ---&gt; 与协议无关的类型
+HtppServletResponse ----&gt; 与http协议相关的类型
+二者无关，传入到Servlet中的时HttpServletResponse，所以可以强转为response
+
+http协议中响应内容包括什么呢？
+</code></pre><h4 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h4><pre><code>200 表示成功， 302 表示重定向， 404 表示客户端错误， 500表示服务器端错误
+1. sendError(int sc)
+2. sendError(int sc, String msg)
+3. setStatus(int sc)
+例如：
+    发送404
+    response.sendError(404, &quot;您访问的资源存在，就是不给你看&quot;);
+</code></pre><h4 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h4><pre><code>响应头：Content-Type,Refresh,Location等
+1. setHeader(String name, String value):适用于单值的响应头
+2. addHeader(String name, String value):适用于多值的响应头
+3. setIntHeader(String name, String Value):适用于单值的int类型的响应头
+4. addIntHeader(String name, String value):适用于多值int类型的响应头
+5. setDateHeader(String name, long value):适用于单值的毫秒类型的响应头
+6. addDaTeHeader(String name, long value):适用于多值的毫秒类型的响应头；long型值为 毫秒值，代表过期时间，
+例如：
+    发送302，设置location头，完成重定向    
+        response.setHeader(&quot;Location&quot;,&quot;/项目名/servlet路径&quot;);
+        response.setStatus(302);
+    定时刷新，设置Refresh头，其实就是定时重定向
+        PrintWriter write = rsponse.getWriter();
+        writer.print(&quot;欢迎登陆，5秒后自动跳转到主页&quot;);
+        response.setHeader(&quot;Redresh&quot;, &quot;5;URL=/项目名/重定向的servlet或jsp&quot;);
+    禁用浏览器缓存：Cache-Control, prama, expires
+        response.setHeader(&quot;Cache-Control&quot;,&quot;no-cache&quot;);
+        response.setHeader(&quot;prame&quot;,&quot;no-cache&quot;);
+        response.setDateHeader(&quot;expires&quot;,-1);//过期时间-1，立马过期
+    &lt;meta&gt;标签可以代替响应头
+</code></pre><h4 id="响应体"><a href="#响应体" class="headerlink" title="响应体"></a>响应体</h4><pre><code>通常是html，也可以是图片
+response的两个流：
+    1. ServletOutPutStream,用来向客户端发送字节数据
+        ServletOutputStream out = response.getOutputStream();
+    2. PrintWriter,用来向客户端发送字符数据!需要设置编码
+        PrintWriter writer = response.getWriter();
+    两个流不能同时使用
+发送字节流：
+    String s = &quot;hello world&quot;;
+    byte[] bytes = s.getBytes();
+    response.getOutputStream().write(bytes);
+发送字节图片：
+    //运用commons-io库
+    String path = &quot;a.jpg&quot;;
+    FileInputStream in = new FileInputStream();
+    //读取输入流内容的字节到字节数组中
+    byte[] bytes = IOUtils.toByteArray(int);
+    response.getOutputStream().write(bytes);
+</code></pre><h4 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h4><pre><code>这个重定向不同与上面的重定向，这个更快
+sendRedirect(String location)方法
+response.sendRedirect(&quot;/项目名/servlet虚拟路径或jsp名&quot;);
+</code></pre><h3 id="request"><a href="#request" class="headerlink" title="request"></a>request</h3><pre><code>封装了客户端所有的请求数据
+Http协议中的数据都可以通过request对象来获取
+</code></pre><h4 id="获取常用信息"><a href="#获取常用信息" class="headerlink" title="获取常用信息"></a>获取常用信息</h4><pre><code>获取客户端Ip，请求方式
+Ip：request.getRemoteAddr();
+请求方式：request.getMethod();
+</code></pre><h4 id="获取请求头"><a href="#获取请求头" class="headerlink" title="获取请求头"></a>获取请求头</h4><pre><code>String getHeader(String name),适用于单值头
+int getIntHeader(String name),适用于单值int类型的请求头
+long getDateHeader(String name),适用于单值毫秒类型的请求头
+Enumeration&lt;String&gt; getHeaders(String name),适用于多值请求头
+例如：
+    通过user-agent识别用户浏览器类型
+        request.getHeader(&quot;User-Agent&quot;);
+    防盗链：如果请求不是通过本站发出的超链接发出的，发送错误状态码404
+</code></pre><h4 id="获取请求URL"><a href="#获取请求URL" class="headerlink" title="获取请求URL"></a>获取请求URL</h4><pre><code>String getScheme();获取协议
+String getServerName();获取服务器名
+String getServerPort();获取服务器端口
+String getContextPath();获取项目名
+String getServletPath();获取Servlet路径
+String getQueryString();获取参数部分，即问好后面的部分
+String getRequestURI();获取请求URI，等于项目名+Servlet路径
+String getRequestURL();获取请求URL，等于不包含参数的整个请求路径
+</code></pre><h4 id="获取请求参数"><a href="#获取请求参数" class="headerlink" title="获取请求参数"></a>获取请求参数</h4><pre><code>String getParameter(String name):获取指定名称的请求参数值，适用于单值请求
+String[] getParameterValues(String name);获取指定名称的请求参数值，适用于多值请求参数
+Map&lt;String, String[]&gt; getParameterMap():获取所有请i去参数，其中key为参数名，value为参数值，
+例如：
+    超链接参数
+    表单数据
 </code></pre>
       
     </div>
@@ -743,7 +827,7 @@ ImageIO.write(bi, &quot;JPEG&quot;, new FileOutputStream(&quot;F:/a.jpg&quot;));
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件系统体系结构"><span class="nav-number">1.</span> <span class="nav-text">软件系统体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#B-S"><span class="nav-number">1.1.</span> <span class="nav-text">B/S</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">1.1.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-S"><span class="nav-number">1.2.</span> <span class="nav-text">C/S</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">优点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web资源"><span class="nav-number">1.3.</span> <span class="nav-text">Web资源</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Web资源介绍"><span class="nav-number">1.3.1.</span> <span class="nav-text">Web资源介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态资源和动态资源的区别"><span class="nav-number">1.3.2.</span> <span class="nav-text">静态资源和动态资源的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#访问Web资源"><span class="nav-number">1.3.3.</span> <span class="nav-text">访问Web资源</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web服务器"><span class="nav-number">1.4.</span> <span class="nav-text">Web服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomcat"><span class="nav-number">1.5.</span> <span class="nav-text">Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tomcat简述"><span class="nav-number">1.5.1.</span> <span class="nav-text">Tomcat简述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置Tomcat"><span class="nav-number">1.5.2.</span> <span class="nav-text">配置Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#tomcat的安装"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">tomcat的安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tomcat端口改变"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">tomcat端口改变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tomcat配置"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">tomcat配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Tomcat目录结构"><span class="nav-number">1.5.2.4.</span> <span class="nav-text">Tomcat目录结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web应用"><span class="nav-number">1.6.</span> <span class="nav-text">Web应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个静态网站"><span class="nav-number">1.6.1.</span> <span class="nav-text">创建一个静态网站</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个动态网站"><span class="nav-number">1.6.2.</span> <span class="nav-text">创建一个动态网站</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置外部应用"><span class="nav-number">1.6.3.</span> <span class="nav-text">配置外部应用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#方法一"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方法二"><span class="nav-number">1.6.3.2.</span> <span class="nav-text">方法二</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#servet-xml的配置"><span class="nav-number">1.6.4.</span> <span class="nav-text">servet.xml的配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet"><span class="nav-number">2.</span> <span class="nav-text">Servlet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Servlet"><span class="nav-number">2.1.</span> <span class="nav-text">什么是Servlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现Servlet的方式"><span class="nav-number">2.2.</span> <span class="nav-text">实现Servlet的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Servlet"><span class="nav-number">2.3.</span> <span class="nav-text">使用Servlet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#servlet的方法"><span class="nav-number">2.3.1.</span> <span class="nav-text">servlet的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器访问Servlet"><span class="nav-number">2.3.2.</span> <span class="nav-text">浏览器访问Servlet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特性"><span class="nav-number">2.3.3.</span> <span class="nav-text">特性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet细节"><span class="nav-number">2.4.</span> <span class="nav-text">Servlet细节</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Servlet与线程安全"><span class="nav-number">2.4.1.</span> <span class="nav-text">Servlet与线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#让服务器在启动时就创建Servlet"><span class="nav-number">2.4.2.</span> <span class="nav-text">让服务器在启动时就创建Servlet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">2.4.3.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ServletContext"><span class="nav-number">2.5.</span> <span class="nav-text">ServletContext</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#servletContext概述"><span class="nav-number">2.5.1.</span> <span class="nav-text">servletContext概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取ServletContext"><span class="nav-number">2.5.2.</span> <span class="nav-text">获取ServletContext</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置，获取对象"><span class="nav-number">2.5.3.</span> <span class="nav-text">设置，获取对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取资源"><span class="nav-number">2.5.4.</span> <span class="nav-text">获取资源</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#获取真实路径"><span class="nav-number">2.5.4.1.</span> <span class="nav-text">获取真实路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取资源流"><span class="nav-number">2.5.4.2.</span> <span class="nav-text">获取资源流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取指定目录下所有资源路径"><span class="nav-number">2.5.4.3.</span> <span class="nav-text">获取指定目录下所有资源路径</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java画图（可用于验证码）"><span class="nav-number">3.</span> <span class="nav-text">Java画图（可用于验证码）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#response和request"><span class="nav-number">4.</span> <span class="nav-text">response和request</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#response"><span class="nav-number">4.1.</span> <span class="nav-text">response</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request"><span class="nav-number">4.2.</span> <span class="nav-text">request</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件系统体系结构"><span class="nav-number">1.</span> <span class="nav-text">软件系统体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#B-S"><span class="nav-number">1.1.</span> <span class="nav-text">B/S</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">1.1.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-S"><span class="nav-number">1.2.</span> <span class="nav-text">C/S</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">优点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web资源"><span class="nav-number">1.3.</span> <span class="nav-text">Web资源</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Web资源介绍"><span class="nav-number">1.3.1.</span> <span class="nav-text">Web资源介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态资源和动态资源的区别"><span class="nav-number">1.3.2.</span> <span class="nav-text">静态资源和动态资源的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#访问Web资源"><span class="nav-number">1.3.3.</span> <span class="nav-text">访问Web资源</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web服务器"><span class="nav-number">1.4.</span> <span class="nav-text">Web服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomcat"><span class="nav-number">1.5.</span> <span class="nav-text">Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tomcat简述"><span class="nav-number">1.5.1.</span> <span class="nav-text">Tomcat简述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置Tomcat"><span class="nav-number">1.5.2.</span> <span class="nav-text">配置Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#tomcat的安装"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">tomcat的安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tomcat端口改变"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">tomcat端口改变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tomcat配置"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">tomcat配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Tomcat目录结构"><span class="nav-number">1.5.2.4.</span> <span class="nav-text">Tomcat目录结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web应用"><span class="nav-number">1.6.</span> <span class="nav-text">Web应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个静态网站"><span class="nav-number">1.6.1.</span> <span class="nav-text">创建一个静态网站</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个动态网站"><span class="nav-number">1.6.2.</span> <span class="nav-text">创建一个动态网站</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置外部应用"><span class="nav-number">1.6.3.</span> <span class="nav-text">配置外部应用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#方法一"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方法二"><span class="nav-number">1.6.3.2.</span> <span class="nav-text">方法二</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#servet-xml的配置"><span class="nav-number">1.6.4.</span> <span class="nav-text">servet.xml的配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet"><span class="nav-number">2.</span> <span class="nav-text">Servlet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Servlet"><span class="nav-number">2.1.</span> <span class="nav-text">什么是Servlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现Servlet的方式"><span class="nav-number">2.2.</span> <span class="nav-text">实现Servlet的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Servlet"><span class="nav-number">2.3.</span> <span class="nav-text">使用Servlet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#servlet的方法"><span class="nav-number">2.3.1.</span> <span class="nav-text">servlet的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器访问Servlet"><span class="nav-number">2.3.2.</span> <span class="nav-text">浏览器访问Servlet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特性"><span class="nav-number">2.3.3.</span> <span class="nav-text">特性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet细节"><span class="nav-number">2.4.</span> <span class="nav-text">Servlet细节</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Servlet与线程安全"><span class="nav-number">2.4.1.</span> <span class="nav-text">Servlet与线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#让服务器在启动时就创建Servlet"><span class="nav-number">2.4.2.</span> <span class="nav-text">让服务器在启动时就创建Servlet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">2.4.3.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ServletContext"><span class="nav-number">2.5.</span> <span class="nav-text">ServletContext</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#servletContext概述"><span class="nav-number">2.5.1.</span> <span class="nav-text">servletContext概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取ServletContext"><span class="nav-number">2.5.2.</span> <span class="nav-text">获取ServletContext</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置，获取对象"><span class="nav-number">2.5.3.</span> <span class="nav-text">设置，获取对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取资源"><span class="nav-number">2.5.4.</span> <span class="nav-text">获取资源</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#获取真实路径"><span class="nav-number">2.5.4.1.</span> <span class="nav-text">获取真实路径</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取资源流"><span class="nav-number">2.5.4.2.</span> <span class="nav-text">获取资源流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取指定目录下所有资源路径"><span class="nav-number">2.5.4.3.</span> <span class="nav-text">获取指定目录下所有资源路径</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java画图（可用于验证码）"><span class="nav-number">3.</span> <span class="nav-text">Java画图（可用于验证码）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#response和request"><span class="nav-number">4.</span> <span class="nav-text">response和request</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#response"><span class="nav-number">4.1.</span> <span class="nav-text">response</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#状态码"><span class="nav-number">4.1.1.</span> <span class="nav-text">状态码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应头"><span class="nav-number">4.1.2.</span> <span class="nav-text">响应头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#响应体"><span class="nav-number">4.1.3.</span> <span class="nav-text">响应体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重定向"><span class="nav-number">4.1.4.</span> <span class="nav-text">重定向</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#request"><span class="nav-number">4.2.</span> <span class="nav-text">request</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取常用信息"><span class="nav-number">4.2.1.</span> <span class="nav-text">获取常用信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取请求头"><span class="nav-number">4.2.2.</span> <span class="nav-text">获取请求头</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取请求URL"><span class="nav-number">4.2.3.</span> <span class="nav-text">获取请求URL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取请求参数"><span class="nav-number">4.2.4.</span> <span class="nav-text">获取请求参数</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1299,7 +1383,7 @@ ImageIO.write(bi, &quot;JPEG&quot;, new FileOutputStream(&quot;F:/a.jpg&quot;));
     </script>
     <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
       <div class="powered-by"></div>
-      <span class="post-count">全站博客共45.7k字</span>
+      <span class="post-count">全站博客共46.7k字</span>
     </div>
 </footer>
 </html>
