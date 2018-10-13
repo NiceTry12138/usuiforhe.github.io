@@ -96,7 +96,8 @@
 <meta property="og:image" content="https://i.imgur.com/XTD10M9.png">
 <meta property="og:image" content="https://i.imgur.com/E6X43Wh.png">
 <meta property="og:image" content="https://i.imgur.com/KpOSoD7.png">
-<meta property="og:updated_time" content="2018-10-13T14:42:37.950Z">
+<meta property="og:image" content="https://i.imgur.com/moO8HuU.png">
+<meta property="og:updated_time" content="2018-10-13T16:06:02.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从0开始的JavaWeb---java篇">
 <meta name="twitter:description" content="软件系统体系结构B/S1. B/S结构即浏览器/服务器（Browser/Server） 优点只需要编写服务器端程序 缺点安全性差 C/S1. C/S 结构即 客户端/服务器（Client/Server），例如QQ 2. 需要编写服务器程序，以及客户端程序，例如我们安装的就是QQ的客户端 缺点软件更新时需要同时更新客户端和服务器两端，比较麻烦 优点安全性比较好 Web资源Web资源介绍1. html">
@@ -660,6 +661,14 @@ Enumeration&lt;String&gt; getHeaders(String name),适用于多值请求头
     通过user-agent识别用户浏览器类型
         request.getHeader(&quot;User-Agent&quot;);
     防盗链：如果请求不是通过本站发出的超链接发出的，发送错误状态码404
+        Refere这个请求头，表示请求的来源
+        String referer = req.getHeader(&quot;Rederer&quot;);
+        if(referer == null || referer.contains(&quot;localhost&quot;)){
+            resp.sendRedirect(&quot;https://www.baidu.com&quot;);
+            System.out.println(&quot;baidu&quot;);
+        } else{
+            System.out.println(&quot;hello&quot;);
+        }
 </code></pre><h4 id="获取请求URL"><a href="#获取请求URL" class="headerlink" title="获取请求URL"></a>获取请求URL</h4><pre><code>String getScheme();获取协议
 String getServerName();获取服务器名
 String getServerPort();获取服务器端口
@@ -668,7 +677,8 @@ String getServletPath();获取Servlet路径
 String getQueryString();获取参数部分，即问好后面的部分
 String getRequestURI();获取请求URI，等于项目名+Servlet路径
 String getRequestURL();获取请求URL，等于不包含参数的整个请求路径
-</code></pre><h4 id="获取请求参数"><a href="#获取请求参数" class="headerlink" title="获取请求参数"></a>获取请求参数</h4><pre><code>String getParameter(String name):获取指定名称的请求参数值，适用于单值请求
+</code></pre><p><img src="https://i.imgur.com/moO8HuU.png" alt=""></p>
+<h4 id="获取请求参数"><a href="#获取请求参数" class="headerlink" title="获取请求参数"></a>获取请求参数</h4><pre><code>String getParameter(String name):获取指定名称的请求参数值，适用于单值请求
 String[] getParameterValues(String name);获取指定名称的请求参数值，适用于多值请求参数
 Map&lt;String, String[]&gt; getParameterMap():获取所有请i去参数，其中key为参数名，value为参数值，
 例如：
