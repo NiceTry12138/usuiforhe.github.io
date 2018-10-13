@@ -92,7 +92,10 @@
 <meta property="og:image" content="https://i.imgur.com/J24crxY.png">
 <meta property="og:image" content="https://i.imgur.com/uJbkkiR.png">
 <meta property="og:image" content="https://i.imgur.com/TGsdd4W.png">
-<meta property="og:updated_time" content="2018-10-13T04:10:21.337Z">
+<meta property="og:image" content="https://i.imgur.com/nMe2CKX.png">
+<meta property="og:image" content="https://i.imgur.com/XTD10M9.png">
+<meta property="og:image" content="https://i.imgur.com/E6X43Wh.png">
+<meta property="og:updated_time" content="2018-10-13T09:03:08.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从0开始的JavaWeb---java篇">
 <meta name="twitter:description" content="软件系统体系结构B/S1. B/S结构即浏览器/服务器（Browser/Server） 优点只需要编写服务器端程序 缺点安全性差 C/S1. C/S 结构即 客户端/服务器（Client/Server），例如QQ 2. 需要编写服务器程序，以及客户端程序，例如我们安装的就是QQ的客户端 缺点软件更新时需要同时更新客户端和服务器两端，比较麻烦 优点安全性比较好 Web资源Web资源介绍1. html">
@@ -488,6 +491,50 @@ Servlet需要我们自己来编写，每个Servlet必须实现javax.servlet.Serv
     1. 获取Servlet的配置信息（从init函数中，可以获得Servlet的配置信息）
 5. getServletInfo()
     1. 获取Servlet的信息（没什么用）
+</code></pre><h4 id="浏览器访问Servlet"><a href="#浏览器访问Servlet" class="headerlink" title="浏览器访问Servlet"></a>浏览器访问Servlet</h4><pre><code>1. 给Servlet指定一个Servlet路径（让Servlet与一个路径绑定在一起）
+    1. 需要在web.xml中对Servlet配置
+    2.  &lt;servlet&gt;
+               &lt;servlet-name&gt;XXX随意&lt;/servlet-name&gt;
+            &lt;servlet-class&gt;Servlet的路径&lt;servlet-class&gt;
+        &lt;/servlet&gt;
+    3.  &lt;servlet-mapping&gt;
+            &lt;servlet-name&gt;与上面的name相同&lt;/servlet-name&gt;
+            &lt;url-pattern&gt;/虚拟路径 例如：/aa/b/c&lt;/url-pattern&gt;
+        &lt;/servlet-mapping&gt;
+2. 浏览器访问Servlet路径
+    1. localhost:8080/项目名/虚拟路径名
+</code></pre><h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><pre><code>1. 单例，一个类只有一个对象；当然可能存在多个Servlet类
+2. 线程不安全的，效率高
+3. Servlet由程序员写，但对象由服务器创建，调用响应的方法
+</code></pre><p><img src="https://i.imgur.com/nMe2CKX.png" alt=""></p>
+<p><img src="https://i.imgur.com/XTD10M9.png" alt=""></p>
+<p><img src="https://i.imgur.com/E6X43Wh.png" alt=""></p>
+<h3 id="Servlet细节"><a href="#Servlet细节" class="headerlink" title="Servlet细节"></a>Servlet细节</h3><h4 id="Servlet与线程安全"><a href="#Servlet与线程安全" class="headerlink" title="Servlet与线程安全"></a>Servlet与线程安全</h4><pre><code>因为一个类型的Servlet只有一个实例对象，那么就有可能会出现同一个时间一个Servlet同属处理多个请求
+ 那么Servlet是否为线程安全呢？
+ 答案是“不是线程安全的”
+这说明Servlet的工作效率很高，但也存在线程安全问题
+所以我们不应该在Servlet中随意创建成员变量
+因为可能会存在一个线程这个成员变量进行写操作，另一个线程对这个成员变量进行读操作
+
+1. 不要在Servlet中创建成员！创建局部变量即可
+2. 可创建无状态成员
+3. 可以创建有状态成员，但是状态必须为只读的
+</code></pre><h4 id="让服务器在启动时就创建Servlet"><a href="#让服务器在启动时就创建Servlet" class="headerlink" title="让服务器在启动时就创建Servlet"></a>让服务器在启动时就创建Servlet</h4><pre><code>默认情况下，服务器在某个Servlet第一次收到请求时创建它，也可以在web.xml中进行配置，使服务器启动的时候就创建Servlet
+&lt;servlet&gt;
+    &lt;servlet-name&gt;hello1&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;cn.itcast.servlet.HelloWorld&lt;servlet-class&gt;
+    &lt;load-on-startup&gt;非负整数&lt;/load-on-startup&gt;
+    &lt;!-- 非负数，越小越先创建 --&gt;
+&lt;servlet&gt;
+</code></pre><h4 id=""><a href="#" class="headerlink" title=""></a><url-pattern></url-pattern></h4><pre><code>&lt;url-pattern&gt;是&lt;servlet-mapping&gt;的子元素，用来指定Servlet的访问路径，即URL
+它必须是以 &quot;/&quot; 开头
+&lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;text&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/a&lt;/url-pattern&gt;
+    &lt;url-pattern&gt;/b&lt;/url-pattern&gt;
+    &lt;url-pattern&gt;/c&lt;/url-pattern&gt;
+&lt;/servlet-mapping&gt;
+那么说明这个Servlet绑定了多个url，一般也就一个，你设置多个也没什么用
 </code></pre>
       
     </div>
@@ -641,7 +688,7 @@ Servlet需要我们自己来编写，每个Servlet必须实现javax.servlet.Serv
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件系统体系结构"><span class="nav-number">1.</span> <span class="nav-text">软件系统体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#B-S"><span class="nav-number">1.1.</span> <span class="nav-text">B/S</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">1.1.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-S"><span class="nav-number">1.2.</span> <span class="nav-text">C/S</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">优点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web资源"><span class="nav-number">1.3.</span> <span class="nav-text">Web资源</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Web资源介绍"><span class="nav-number">1.3.1.</span> <span class="nav-text">Web资源介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态资源和动态资源的区别"><span class="nav-number">1.3.2.</span> <span class="nav-text">静态资源和动态资源的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#访问Web资源"><span class="nav-number">1.3.3.</span> <span class="nav-text">访问Web资源</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web服务器"><span class="nav-number">1.4.</span> <span class="nav-text">Web服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomcat"><span class="nav-number">1.5.</span> <span class="nav-text">Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tomcat简述"><span class="nav-number">1.5.1.</span> <span class="nav-text">Tomcat简述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置Tomcat"><span class="nav-number">1.5.2.</span> <span class="nav-text">配置Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#tomcat的安装"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">tomcat的安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tomcat端口改变"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">tomcat端口改变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tomcat配置"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">tomcat配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Tomcat目录结构"><span class="nav-number">1.5.2.4.</span> <span class="nav-text">Tomcat目录结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web应用"><span class="nav-number">1.6.</span> <span class="nav-text">Web应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个静态网站"><span class="nav-number">1.6.1.</span> <span class="nav-text">创建一个静态网站</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个动态网站"><span class="nav-number">1.6.2.</span> <span class="nav-text">创建一个动态网站</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置外部应用"><span class="nav-number">1.6.3.</span> <span class="nav-text">配置外部应用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#方法一"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方法二"><span class="nav-number">1.6.3.2.</span> <span class="nav-text">方法二</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#servet-xml的配置"><span class="nav-number">1.6.4.</span> <span class="nav-text">servet.xml的配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet"><span class="nav-number">2.</span> <span class="nav-text">Servlet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Servlet"><span class="nav-number">2.1.</span> <span class="nav-text">什么是Servlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现Servlet的方式"><span class="nav-number">2.2.</span> <span class="nav-text">实现Servlet的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Servlet"><span class="nav-number">2.3.</span> <span class="nav-text">使用Servlet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#servlet的方法"><span class="nav-number">2.3.1.</span> <span class="nav-text">servlet的方法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#软件系统体系结构"><span class="nav-number">1.</span> <span class="nav-text">软件系统体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#B-S"><span class="nav-number">1.1.</span> <span class="nav-text">B/S</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.1.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">1.1.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-S"><span class="nav-number">1.2.</span> <span class="nav-text">C/S</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">优点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web资源"><span class="nav-number">1.3.</span> <span class="nav-text">Web资源</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Web资源介绍"><span class="nav-number">1.3.1.</span> <span class="nav-text">Web资源介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态资源和动态资源的区别"><span class="nav-number">1.3.2.</span> <span class="nav-text">静态资源和动态资源的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#访问Web资源"><span class="nav-number">1.3.3.</span> <span class="nav-text">访问Web资源</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web服务器"><span class="nav-number">1.4.</span> <span class="nav-text">Web服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomcat"><span class="nav-number">1.5.</span> <span class="nav-text">Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tomcat简述"><span class="nav-number">1.5.1.</span> <span class="nav-text">Tomcat简述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置Tomcat"><span class="nav-number">1.5.2.</span> <span class="nav-text">配置Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#tomcat的安装"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">tomcat的安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tomcat端口改变"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">tomcat端口改变</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tomcat配置"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">tomcat配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Tomcat目录结构"><span class="nav-number">1.5.2.4.</span> <span class="nav-text">Tomcat目录结构</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web应用"><span class="nav-number">1.6.</span> <span class="nav-text">Web应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个静态网站"><span class="nav-number">1.6.1.</span> <span class="nav-text">创建一个静态网站</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个动态网站"><span class="nav-number">1.6.2.</span> <span class="nav-text">创建一个动态网站</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置外部应用"><span class="nav-number">1.6.3.</span> <span class="nav-text">配置外部应用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#方法一"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方法二"><span class="nav-number">1.6.3.2.</span> <span class="nav-text">方法二</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#servet-xml的配置"><span class="nav-number">1.6.4.</span> <span class="nav-text">servet.xml的配置</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Servlet"><span class="nav-number">2.</span> <span class="nav-text">Servlet</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Servlet"><span class="nav-number">2.1.</span> <span class="nav-text">什么是Servlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现Servlet的方式"><span class="nav-number">2.2.</span> <span class="nav-text">实现Servlet的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Servlet"><span class="nav-number">2.3.</span> <span class="nav-text">使用Servlet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#servlet的方法"><span class="nav-number">2.3.1.</span> <span class="nav-text">servlet的方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器访问Servlet"><span class="nav-number">2.3.2.</span> <span class="nav-text">浏览器访问Servlet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特性"><span class="nav-number">2.3.3.</span> <span class="nav-text">特性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet细节"><span class="nav-number">2.4.</span> <span class="nav-text">Servlet细节</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Servlet与线程安全"><span class="nav-number">2.4.1.</span> <span class="nav-text">Servlet与线程安全</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#让服务器在启动时就创建Servlet"><span class="nav-number">2.4.2.</span> <span class="nav-text">让服务器在启动时就创建Servlet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#"><span class="nav-number">2.4.3.</span> <span class="nav-text"></span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1197,7 +1244,7 @@ Servlet需要我们自己来编写，每个Servlet必须实现javax.servlet.Serv
     </script>
     <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
       <div class="powered-by"></div>
-      <span class="post-count">全站博客共44.4k字</span>
+      <span class="post-count">全站博客共45k字</span>
     </div>
 </footer>
 </html>
