@@ -91,9 +91,10 @@
 <meta property="og:image" content="https://i.imgur.com/phyPiVI.png">
 <meta property="og:image" content="https://i.imgur.com/zDVl8uX.png">
 <meta property="og:image" content="https://i.imgur.com/QSoeHA5.png">
+<meta property="og:image" content="https://i.imgur.com/2Rzs3zD.png">
 <meta property="og:image" content="https://i.imgur.com/n02CYjq.png">
 <meta property="og:image" content="https://i.imgur.com/Je4FQqo.png">
-<meta property="og:updated_time" content="2018-10-15T13:16:08.866Z">
+<meta property="og:updated_time" content="2018-10-15T15:47:47.394Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法入门 嘤嘤嘤">
 <meta name="twitter:description" content="学习算法的建议必备条件1. 数理基础，着力加强 2. 兴趣爱好，能否持久的喜欢它 3. 做事有系统，规范，着眼于大的方面 C++或Java熟练掌握C++或者Java，语言作为基础，即使算法能理解，也无法表示出来 数理基础对于数学定理，公式推导等，要熟悉 数据结构对于数据结构，吃透了能够受益终身。不要指望数据结构，这个东西方面太广，不要只去看你有什么没学，你更要看你学了什么 计算思维思维方式在前人的">
@@ -413,7 +414,8 @@
 你能否组成 V 颜料呢？
 </code></pre><h4 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h4><pre><code>将每种颜料构成一个点，我们所拥有的点作为顶点，只要目标点在顶点围成的边界里面，那么就可以得到颜料
 </code></pre><p><img src="https://i.imgur.com/zDVl8uX.png" alt=""></p>
-<h4 id="In-Triangle-Test-判断点是否在三角形内"><a href="#In-Triangle-Test-判断点是否在三角形内" class="headerlink" title="In-Triangle Test(判断点是否在三角形内)"></a>In-Triangle Test(判断点是否在三角形内)</h4><p><img src="https://i.imgur.com/QSoeHA5.png" alt=""></p>
+<pre><code>如果新生成的颜料正好在边上，那么我们称这个点凸相关，因为这个点对生成新的比例颜料毫无帮助
+</code></pre><h4 id="In-Triangle-Test-判断点是否在三角形内"><a href="#In-Triangle-Test-判断点是否在三角形内" class="headerlink" title="In-Triangle Test(判断点是否在三角形内)"></a>In-Triangle Test(判断点是否在三角形内)</h4><p><img src="https://i.imgur.com/QSoeHA5.png" alt=""></p>
 <pre><code>只要点在直线 PQ，QR，RP 的左边，那么点就在三角形内部。
 计算几何中，一般以逆时针方向 
 
@@ -424,6 +426,12 @@ bool InTriangle(P, Q, R, S){
     return a == b &amp;&amp; b == c;
 }
 //因为不知道PQR的排列顺序，虽然图片上是逆时针，但是实际中可能是逆时针可能是顺时针，所以全为True和全为False都成立
+</code></pre><h4 id="转化的思想"><a href="#转化的思想" class="headerlink" title="转化的思想"></a>转化的思想</h4><pre><code>我们把现实生活转化为数学图形
+</code></pre><h3 id="凸包判断"><a href="#凸包判断" class="headerlink" title="凸包判断"></a>凸包判断</h3><p><img src="https://i.imgur.com/2Rzs3zD.png" alt=""></p>
+<pre><code>每个点都有一条穿过它的直线，使得所有的点都落在这条直线的一侧
+
+那么，我们只需要先用前三个点围成一个三角形，再从第四个点判断是否在多边形内，在内部则不加，
+不在内部则定位新的顶点，如果新增加的顶点可以围住旧的顶点，那么就去除旧的顶点
 </code></pre><h2 id="InsertionSort"><a href="#InsertionSort" class="headerlink" title="InsertionSort"></a>InsertionSort</h2><h3 id="栈（Stack）"><a href="#栈（Stack）" class="headerlink" title="栈（Stack）"></a>栈（Stack）</h3><pre><code>last in,first out
 后进先出的数据结构
 </code></pre><h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><pre><code>出栈（pop）
@@ -560,7 +568,7 @@ bool InTriangle(P, Q, R, S){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -604,7 +612,7 @@ bool InTriangle(P, Q, R, S){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习算法的建议"><span class="nav-number">1.</span> <span class="nav-text">学习算法的建议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#必备条件"><span class="nav-number">1.1.</span> <span class="nav-text">必备条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-或Java"><span class="nav-number">1.2.</span> <span class="nav-text">C++或Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数理基础"><span class="nav-number">1.3.</span> <span class="nav-text">数理基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构"><span class="nav-number">1.4.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算思维"><span class="nav-number">1.5.</span> <span class="nav-text">计算思维</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算几何"><span class="nav-number">2.</span> <span class="nav-text">计算几何</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#凸包问题（计算几何的核心）"><span class="nav-number">2.1.</span> <span class="nav-text">凸包问题（计算几何的核心）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是凸包"><span class="nav-number">2.1.1.</span> <span class="nav-text">什么是凸包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#颜料混合"><span class="nav-number">2.1.2.</span> <span class="nav-text">颜料混合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解法"><span class="nav-number">2.1.3.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#In-Triangle-Test-判断点是否在三角形内"><span class="nav-number">2.1.4.</span> <span class="nav-text">In-Triangle Test(判断点是否在三角形内)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InsertionSort"><span class="nav-number">3.</span> <span class="nav-text">InsertionSort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#栈（Stack）"><span class="nav-number">3.1.</span> <span class="nav-text">栈（Stack）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作"><span class="nav-number">3.2.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InsertionSort（插入排序）"><span class="nav-number">3.3.</span> <span class="nav-text">InsertionSort（插入排序）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Largest-Rectangle-in-a-Histogram-直方图中最大的矩形"><span class="nav-number">4.</span> <span class="nav-text">Largest Rectangle in a Histogram(直方图中最大的矩形)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分而治之"><span class="nav-number">4.1.</span> <span class="nav-text">分而治之</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习算法的建议"><span class="nav-number">1.</span> <span class="nav-text">学习算法的建议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#必备条件"><span class="nav-number">1.1.</span> <span class="nav-text">必备条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C-或Java"><span class="nav-number">1.2.</span> <span class="nav-text">C++或Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数理基础"><span class="nav-number">1.3.</span> <span class="nav-text">数理基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构"><span class="nav-number">1.4.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算思维"><span class="nav-number">1.5.</span> <span class="nav-text">计算思维</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算几何"><span class="nav-number">2.</span> <span class="nav-text">计算几何</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#凸包问题（计算几何的核心）"><span class="nav-number">2.1.</span> <span class="nav-text">凸包问题（计算几何的核心）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是凸包"><span class="nav-number">2.1.1.</span> <span class="nav-text">什么是凸包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#颜料混合"><span class="nav-number">2.1.2.</span> <span class="nav-text">颜料混合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解法"><span class="nav-number">2.1.3.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#In-Triangle-Test-判断点是否在三角形内"><span class="nav-number">2.1.4.</span> <span class="nav-text">In-Triangle Test(判断点是否在三角形内)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转化的思想"><span class="nav-number">2.1.5.</span> <span class="nav-text">转化的思想</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#凸包判断"><span class="nav-number">2.2.</span> <span class="nav-text">凸包判断</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InsertionSort"><span class="nav-number">3.</span> <span class="nav-text">InsertionSort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#栈（Stack）"><span class="nav-number">3.1.</span> <span class="nav-text">栈（Stack）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作"><span class="nav-number">3.2.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InsertionSort（插入排序）"><span class="nav-number">3.3.</span> <span class="nav-text">InsertionSort（插入排序）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Largest-Rectangle-in-a-Histogram-直方图中最大的矩形"><span class="nav-number">4.</span> <span class="nav-text">Largest Rectangle in a Histogram(直方图中最大的矩形)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分而治之"><span class="nav-number">4.1.</span> <span class="nav-text">分而治之</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1160,7 +1168,7 @@ bool InTriangle(P, Q, R, S){
     </script>
     <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
       <div class="powered-by"></div>
-      <span class="post-count">全站博客共49.5k字</span>
+      <span class="post-count">全站博客共51.5k字</span>
     </div>
 </footer>
 </html>
