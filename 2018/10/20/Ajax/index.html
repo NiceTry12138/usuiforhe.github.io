@@ -89,7 +89,7 @@
 <meta property="og:description" content="什么是Ajax允许浏览器与服务器通信而无须刷新当前页面的技术都叫Ajax 异步的Js和XML的通信 不用刷新整个页面就可以与服务器通讯的方法1. Flash 2. Java appleet 3. 框架：如果使用一组框架构造了网页，可以只更新其中一个框架，而不用惊动整个页面 4. 隐藏的iframe 5. XMLHttpRequest:该对象是对JavaScript的一个扩展，可使网页与服务器进行通">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/1TQnuU0.png">
-<meta property="og:updated_time" content="2018-10-21T08:56:58.535Z">
+<meta property="og:updated_time" content="2018-10-21T13:34:49.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax">
 <meta name="twitter:description" content="什么是Ajax允许浏览器与服务器通信而无须刷新当前页面的技术都叫Ajax 异步的Js和XML的通信 不用刷新整个页面就可以与服务器通讯的方法1. Flash 2. Java appleet 3. 框架：如果使用一组框架构造了网页，可以只更新其中一个框架，而不用惊动整个页面 4. 隐藏的iframe 5. XMLHttpRequest:该对象是对JavaScript的一个扩展，可使网页与服务器进行通">
@@ -494,6 +494,17 @@ asynch：表示是否要异步传输，默认是true
 2. data：将要发送给服务器的字符串
 3. 若用&quot;GET&quot;请求，则不用发任何数据，即request.send(null);
 4. 当向send()方法提供参数时，要确保open()中指定的方法是&quot;POST&quot;,如果没有数据发送，则使用null
+</code></pre><h4 id="setRequestHeader-header-value"><a href="#setRequestHeader-header-value" class="headerlink" title="setRequestHeader(header, value)"></a>setRequestHeader(header, value)</h4><pre><code>1. 当浏览器向服务器请求页面时，它会伴随这个请求发送一组首部信息，当这些首部信息是一系列描述请求的元数据（metadata）。首部信息来声明一个请求时get还是post
+2. Ajax请求中，发送首部信息的工作可以是由setRequestHeader完成
+3. 参数header:首部的名字；参数value:首部的值
+4. 如果用POST请求向服务器发送数据，需要将 &quot;Content-type&quot;的首部设置为 &quot;application/x-www-form-urlencoded&quot;。
+   他会告知服务器正在发送数据，并且数据已经符合url编码了
+5. 该方法必须在open()之后才能调用
+</code></pre><h5 id="post示例"><a href="#post示例" class="headerlink" title="post示例"></a>post示例</h5><pre><code>var url = &quot;../jsp/forumServlet&quot;;
+var nameValue = trim(document.forumiddform.name.value);
+xhr.open(&quot;POST&quot;, url);
+xhr.setRequestHeader(&apos;Content-Type&apos;, &apos;application/x-www-form-urlencoded&apos;);
+xhr.send(&quot;method=name_isExist&quot; + &quot;&amp;name&quot; + nameValue);
 </code></pre><h3 id="接收响应"><a href="#接收响应" class="headerlink" title="接收响应"></a>接收响应</h3><h4 id="readyState"><a href="#readyState" class="headerlink" title="readyState"></a>readyState</h4><pre><code>1. readyState 属性表示Ajax请求的当前状态
     0. 0代表未初始化，没调用open方法
     1. 1代表正在加载，open()调用了而send()没有调用
@@ -514,6 +525,30 @@ asynch：表示是否要异步传输，默认是true
 在 XMLHttpRequest 对象中，服务器发送的状态码都保存在status属性中。
 </code></pre><h4 id="responseText"><a href="#responseText" class="headerlink" title="responseText"></a>responseText</h4><pre><code>XMLHttpRequest 的 responseText 属性包含了从服务器发送的数据。它是一个HTML，xml或普通文本
 当 readyState 属性值变成 4 时，responseText 属性才可以用，表明Ajax请求已经结束
+</code></pre><h2 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h2><pre><code>在服务器端Ajax时一门与语言无关的技术，在业务逻辑层使用何种服务器端语言都可以
+从服务器端接收数据的时候，那些数据必须以浏览器能够理解的格式来发送。服务器端的编程语言只能以如下三种格式返回数据：
+    1. XML
+    2. JSON
+    3. HTML
+</code></pre><h3 id="解析HTML"><a href="#解析HTML" class="headerlink" title="解析HTML"></a>解析HTML</h3><pre><code>HTML由一些普通文本组成，如果服务器通过XMLHttpRequest发送HTML，文本将存储在responseText属性中
+
+不必从responseText属性中读取数据。他已经是希望的格式，可以直接将它插入到页面中
+
+插入HTML代码最简单的方法是更新这个元素的innerHTML属性
+</code></pre><h4 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h4><pre><code>document.getElementById(&quot;id&quot;).innerHTML = request.responseText;
+</code></pre><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><pre><code>1. 从服务器端发送的HTML代码在浏览器端不需要用Javascript解析
+2. HTML的可读性好
+3. HTML代码块与innerHTML 属性搭配，效率高
+</code></pre><h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><pre><code>1. 如需要通过Ajax更新一篇文档的多个部分，HTML不合适
+2. innnerHTML并非DOM标准（问题不大，现在浏览器大都兼容）
+</code></pre><h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><pre><code>1. 需要进行解析，之后再插入到HTML中
+2. 获得的 responseHTML 不能直接使用，必须先创建对应的节点作为容器
+    result = request.responseXML;
+3. xml可以使用DOM的方式进行解析
+    var name = result.getElementsByTagName(&quot;key&quot;)[0].firstChild.nodeValue;
+    var aNode = document.createElement(&quot;a&quot;);//创建a标签
+    aNode.appendChild(document.createTextNode(name));
+    aNode.href = &quot;url&quot;;
 </code></pre>
       
     </div>
@@ -667,7 +702,7 @@ asynch：表示是否要异步传输，默认是true
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Ajax"><span class="nav-number">1.</span> <span class="nav-text">什么是Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不用刷新整个页面就可以与服务器通讯的方法"><span class="nav-number">1.1.</span> <span class="nav-text">不用刷新整个页面就可以与服务器通讯的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax工具包"><span class="nav-number">1.2.</span> <span class="nav-text">Ajax工具包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax的缺陷"><span class="nav-number">1.3.</span> <span class="nav-text">Ajax的缺陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">2.</span> <span class="nav-text">XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建XMLHttpRequest对象"><span class="nav-number">2.1.</span> <span class="nav-text">创建XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">2.2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个简单的案例"><span class="nav-number">2.3.</span> <span class="nav-text">一个简单的案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送请求"><span class="nav-number">2.4.</span> <span class="nav-text">发送请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#onreadystatechange"><span class="nav-number">2.4.1.</span> <span class="nav-text">onreadystatechange</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#open-methdo-url-asynch"><span class="nav-number">2.4.2.</span> <span class="nav-text">open(methdo, url, asynch)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#send-data"><span class="nav-number">2.4.3.</span> <span class="nav-text">send(data)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收响应"><span class="nav-number">2.5.</span> <span class="nav-text">接收响应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#readyState"><span class="nav-number">2.5.1.</span> <span class="nav-text">readyState</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#status"><span class="nav-number">2.5.2.</span> <span class="nav-text">status</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#responseText"><span class="nav-number">2.5.3.</span> <span class="nav-text">responseText</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Ajax"><span class="nav-number">1.</span> <span class="nav-text">什么是Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不用刷新整个页面就可以与服务器通讯的方法"><span class="nav-number">1.1.</span> <span class="nav-text">不用刷新整个页面就可以与服务器通讯的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax工具包"><span class="nav-number">1.2.</span> <span class="nav-text">Ajax工具包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax的缺陷"><span class="nav-number">1.3.</span> <span class="nav-text">Ajax的缺陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">2.</span> <span class="nav-text">XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建XMLHttpRequest对象"><span class="nav-number">2.1.</span> <span class="nav-text">创建XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">2.2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个简单的案例"><span class="nav-number">2.3.</span> <span class="nav-text">一个简单的案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送请求"><span class="nav-number">2.4.</span> <span class="nav-text">发送请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#onreadystatechange"><span class="nav-number">2.4.1.</span> <span class="nav-text">onreadystatechange</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#open-methdo-url-asynch"><span class="nav-number">2.4.2.</span> <span class="nav-text">open(methdo, url, asynch)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#send-data"><span class="nav-number">2.4.3.</span> <span class="nav-text">send(data)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setRequestHeader-header-value"><span class="nav-number">2.4.4.</span> <span class="nav-text">setRequestHeader(header, value)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#post示例"><span class="nav-number">2.4.4.1.</span> <span class="nav-text">post示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收响应"><span class="nav-number">2.5.</span> <span class="nav-text">接收响应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#readyState"><span class="nav-number">2.5.1.</span> <span class="nav-text">readyState</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#status"><span class="nav-number">2.5.2.</span> <span class="nav-text">status</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#responseText"><span class="nav-number">2.5.3.</span> <span class="nav-text">responseText</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据格式"><span class="nav-number">3.</span> <span class="nav-text">数据格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解析HTML"><span class="nav-number">3.1.</span> <span class="nav-text">解析HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例如"><span class="nav-number">3.1.1.</span> <span class="nav-text">例如</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">3.1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">3.1.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML"><span class="nav-number">3.2.</span> <span class="nav-text">XML</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1223,7 +1258,7 @@ asynch：表示是否要异步传输，默认是true
     </script>
     <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
       <div class="powered-by"></div>
-      <span class="post-count">全站博客共51.5k字</span>
+      <span class="post-count">全站博客共52.1k字</span>
     </div>
 </footer>
 </html>
