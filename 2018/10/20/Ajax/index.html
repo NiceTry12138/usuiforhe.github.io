@@ -89,7 +89,7 @@
 <meta property="og:description" content="什么是Ajax允许浏览器与服务器通信而无须刷新当前页面的技术都叫Ajax 异步的Js和XML的通信 不用刷新整个页面就可以与服务器通讯的方法1. Flash 2. Java appleet 3. 框架：如果使用一组框架构造了网页，可以只更新其中一个框架，而不用惊动整个页面 4. 隐藏的iframe 5. XMLHttpRequest:该对象是对JavaScript的一个扩展，可使网页与服务器进行通">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/1TQnuU0.png">
-<meta property="og:updated_time" content="2018-10-21T13:34:49.108Z">
+<meta property="og:updated_time" content="2018-10-21T14:54:40.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax">
 <meta name="twitter:description" content="什么是Ajax允许浏览器与服务器通信而无须刷新当前页面的技术都叫Ajax 异步的Js和XML的通信 不用刷新整个页面就可以与服务器通讯的方法1. Flash 2. Java appleet 3. 框架：如果使用一组框架构造了网页，可以只更新其中一个框架，而不用惊动整个页面 4. 隐藏的iframe 5. XMLHttpRequest:该对象是对JavaScript的一个扩展，可使网页与服务器进行通">
@@ -549,6 +549,16 @@ xhr.send(&quot;method=name_isExist&quot; + &quot;&amp;name&quot; + nameValue);
     var aNode = document.createElement(&quot;a&quot;);//创建a标签
     aNode.appendChild(document.createTextNode(name));
     aNode.href = &quot;url&quot;;
+</code></pre><h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><pre><code>1. XMl是一种通用的数据格式
+2. 不必把数据强加到以定义好的格式中，而是要为数据自定义合适的标记
+3. 利用DOM可以完全掌控文档
+</code></pre><h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><pre><code>1. 当浏览器接收到长的XML文件后，DOM解析可能会很复杂
+2. 如果文档来于服务器，就必须得到保证文档含有正确的首部信息。若文档类型不正确，那么responseXML的值将是空的
+</code></pre><h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><pre><code>一种简单那的数据格式，比XML更轻巧。
+JSON是JavaScript原生格式，这意味着JavaScript中处理JSON数据必须要任何特殊的API 或 工具包
+
+JSON的规则很简单：对象是一个无序的&quot; &apos;名称/值&apos;对 &quot;的集合。
+一个对象以&quot;{&quot; 开始， &quot;}&quot;结束。每个“名称” 后跟一个 &quot;:&quot;冒号；“&apos;名称/值&apos;对”之间使用 “,” 逗号分隔
 </code></pre>
       
     </div>
@@ -582,6 +592,10 @@ xhr.send(&quot;method=name_isExist&quot; + &quot;&amp;name&quot; + nameValue);
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/21/Java基础学习/" rel="prev" title="Java基础学习">
+                Java基础学习 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -658,7 +672,7 @@ xhr.send(&quot;method=name_isExist&quot; + &quot;&amp;name&quot; + nameValue);
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -702,7 +716,7 @@ xhr.send(&quot;method=name_isExist&quot; + &quot;&amp;name&quot; + nameValue);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Ajax"><span class="nav-number">1.</span> <span class="nav-text">什么是Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不用刷新整个页面就可以与服务器通讯的方法"><span class="nav-number">1.1.</span> <span class="nav-text">不用刷新整个页面就可以与服务器通讯的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax工具包"><span class="nav-number">1.2.</span> <span class="nav-text">Ajax工具包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax的缺陷"><span class="nav-number">1.3.</span> <span class="nav-text">Ajax的缺陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">2.</span> <span class="nav-text">XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建XMLHttpRequest对象"><span class="nav-number">2.1.</span> <span class="nav-text">创建XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">2.2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个简单的案例"><span class="nav-number">2.3.</span> <span class="nav-text">一个简单的案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送请求"><span class="nav-number">2.4.</span> <span class="nav-text">发送请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#onreadystatechange"><span class="nav-number">2.4.1.</span> <span class="nav-text">onreadystatechange</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#open-methdo-url-asynch"><span class="nav-number">2.4.2.</span> <span class="nav-text">open(methdo, url, asynch)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#send-data"><span class="nav-number">2.4.3.</span> <span class="nav-text">send(data)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setRequestHeader-header-value"><span class="nav-number">2.4.4.</span> <span class="nav-text">setRequestHeader(header, value)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#post示例"><span class="nav-number">2.4.4.1.</span> <span class="nav-text">post示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收响应"><span class="nav-number">2.5.</span> <span class="nav-text">接收响应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#readyState"><span class="nav-number">2.5.1.</span> <span class="nav-text">readyState</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#status"><span class="nav-number">2.5.2.</span> <span class="nav-text">status</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#responseText"><span class="nav-number">2.5.3.</span> <span class="nav-text">responseText</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据格式"><span class="nav-number">3.</span> <span class="nav-text">数据格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解析HTML"><span class="nav-number">3.1.</span> <span class="nav-text">解析HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例如"><span class="nav-number">3.1.1.</span> <span class="nav-text">例如</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">3.1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">3.1.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML"><span class="nav-number">3.2.</span> <span class="nav-text">XML</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Ajax"><span class="nav-number">1.</span> <span class="nav-text">什么是Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不用刷新整个页面就可以与服务器通讯的方法"><span class="nav-number">1.1.</span> <span class="nav-text">不用刷新整个页面就可以与服务器通讯的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax工具包"><span class="nav-number">1.2.</span> <span class="nav-text">Ajax工具包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax的缺陷"><span class="nav-number">1.3.</span> <span class="nav-text">Ajax的缺陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">2.</span> <span class="nav-text">XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建XMLHttpRequest对象"><span class="nav-number">2.1.</span> <span class="nav-text">创建XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">2.2.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个简单的案例"><span class="nav-number">2.3.</span> <span class="nav-text">一个简单的案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送请求"><span class="nav-number">2.4.</span> <span class="nav-text">发送请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#onreadystatechange"><span class="nav-number">2.4.1.</span> <span class="nav-text">onreadystatechange</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#open-methdo-url-asynch"><span class="nav-number">2.4.2.</span> <span class="nav-text">open(methdo, url, asynch)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#send-data"><span class="nav-number">2.4.3.</span> <span class="nav-text">send(data)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setRequestHeader-header-value"><span class="nav-number">2.4.4.</span> <span class="nav-text">setRequestHeader(header, value)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#post示例"><span class="nav-number">2.4.4.1.</span> <span class="nav-text">post示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收响应"><span class="nav-number">2.5.</span> <span class="nav-text">接收响应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#readyState"><span class="nav-number">2.5.1.</span> <span class="nav-text">readyState</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#status"><span class="nav-number">2.5.2.</span> <span class="nav-text">status</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#responseText"><span class="nav-number">2.5.3.</span> <span class="nav-text">responseText</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据格式"><span class="nav-number">3.</span> <span class="nav-text">数据格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解析HTML"><span class="nav-number">3.1.</span> <span class="nav-text">解析HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例如"><span class="nav-number">3.1.1.</span> <span class="nav-text">例如</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">3.1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">3.1.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML"><span class="nav-number">3.2.</span> <span class="nav-text">XML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON"><span class="nav-number">3.3.</span> <span class="nav-text">JSON</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1258,7 +1272,7 @@ xhr.send(&quot;method=name_isExist&quot; + &quot;&amp;name&quot; + nameValue);
     </script>
     <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
       <div class="powered-by"></div>
-      <span class="post-count">全站博客共52.1k字</span>
+      <span class="post-count">全站博客共53k字</span>
     </div>
 </footer>
 </html>

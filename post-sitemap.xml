@@ -7,8 +7,24 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2018/10/22/BootStrap%E6%A1%86%E6%9E%B6/</loc>
+        <lastmod>2018-10-22T11:46:11.979Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/10/21/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</loc>
+        <lastmod>2018-10-21T15:12:40.166Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2018/10/20/Ajax/</loc>
-        <lastmod>2018-10-21T13:34:49.108Z</lastmod>
+        <lastmod>2018-10-21T14:54:40.406Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
