@@ -81,17 +81,19 @@
 
 
 
-<meta name="description" content="系统信息arch 显示机器的处理器架构(1)  uname -m 显示机器的处理器架构(2)  uname -r 显示正在使用的内核版本  dmidecode -q 显示硬件系统部件 - (SMBIOS / DMI)  hdparm -i /dev/hda 罗列一个磁盘的架构特性  hdparm -tT /dev/sda 在磁盘上执行测试性读取操作  cat /proc/cpuinfo 显示CPU">
+<meta name="description" content="Linux命令行大多是互联网企业在安装系统甚至不会安装图形管理软件包，而是直接使用文本模式安装，因此登陆后直接面对的就是命令行的界面 Linux命令行提示符介绍Linux命令行结尾的提示符有 “#” 和 “$” 两种不同的符号    是超级管理员root用户对应的命令行 $ 是普通用户oldboy对应的命令行  命令行的快捷键tab                命令或路径等的补全键，Linux最">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux 命令大全">
-<meta property="og:url" content="http://yoursite.com/2018/09/27/linux-大全/index.html">
+<meta property="og:title" content="作死的学习Linux运维">
+<meta property="og:url" content="http://yoursite.com/2018/10/27/linux-大全/index.html">
 <meta property="og:site_name" content="lc_love_myh">
-<meta property="og:description" content="系统信息arch 显示机器的处理器架构(1)  uname -m 显示机器的处理器架构(2)  uname -r 显示正在使用的内核版本  dmidecode -q 显示硬件系统部件 - (SMBIOS / DMI)  hdparm -i /dev/hda 罗列一个磁盘的架构特性  hdparm -tT /dev/sda 在磁盘上执行测试性读取操作  cat /proc/cpuinfo 显示CPU">
+<meta property="og:description" content="Linux命令行大多是互联网企业在安装系统甚至不会安装图形管理软件包，而是直接使用文本模式安装，因此登陆后直接面对的就是命令行的界面 Linux命令行提示符介绍Linux命令行结尾的提示符有 “#” 和 “$” 两种不同的符号    是超级管理员root用户对应的命令行 $ 是普通用户oldboy对应的命令行  命令行的快捷键tab                命令或路径等的补全键，Linux最">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-01T08:12:26.416Z">
+<meta property="og:image" content="https://i.imgur.com/wrkAmPX.jpg">
+<meta property="og:updated_time" content="2018-11-09T16:03:08.218Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux 命令大全">
-<meta name="twitter:description" content="系统信息arch 显示机器的处理器架构(1)  uname -m 显示机器的处理器架构(2)  uname -r 显示正在使用的内核版本  dmidecode -q 显示硬件系统部件 - (SMBIOS / DMI)  hdparm -i /dev/hda 罗列一个磁盘的架构特性  hdparm -tT /dev/sda 在磁盘上执行测试性读取操作  cat /proc/cpuinfo 显示CPU">
+<meta name="twitter:title" content="作死的学习Linux运维">
+<meta name="twitter:description" content="Linux命令行大多是互联网企业在安装系统甚至不会安装图形管理软件包，而是直接使用文本模式安装，因此登陆后直接面对的就是命令行的界面 Linux命令行提示符介绍Linux命令行结尾的提示符有 “#” 和 “$” 两种不同的符号    是超级管理员root用户对应的命令行 $ 是普通用户oldboy对应的命令行  命令行的快捷键tab                命令或路径等的补全键，Linux最">
+<meta name="twitter:image" content="https://i.imgur.com/wrkAmPX.jpg">
 
 
 
@@ -121,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/27/linux-大全/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/27/linux-大全/"/>
 
 
 
@@ -143,7 +145,7 @@
       }
   </style>
 
-  <title>linux 命令大全 | lc_love_myh</title>
+  <title>作死的学习Linux运维 | lc_love_myh</title>
   
 
 
@@ -319,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/27/linux-大全/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/27/linux-大全/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lc_love_myh">
@@ -336,7 +338,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">linux 命令大全</h1>
+          <h1 class="post-title" itemprop="name headline">作死的学习Linux运维</h1>
         
 
         <div class="post-meta">
@@ -348,8 +350,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-27T16:07:26+08:00">
-                2018-09-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-27T16:07:26+08:00">
+                2018-10-27
               </time>
             
 
@@ -386,7 +388,96 @@
       
 
       
-        <h2 id="系统信息"><a href="#系统信息" class="headerlink" title="系统信息"></a>系统信息</h2><pre><code>arch 显示机器的处理器架构(1) 
+        <h2 id="Linux命令行"><a href="#Linux命令行" class="headerlink" title="Linux命令行"></a>Linux命令行</h2><p>大多是互联网企业在安装系统甚至不会安装图形管理软件包，而是直接使用文本模式安装，因此登陆后直接面对的就是命令行的界面</p>
+<h3 id="Linux命令行提示符介绍"><a href="#Linux命令行提示符介绍" class="headerlink" title="Linux命令行提示符介绍"></a>Linux命令行提示符介绍</h3><p>Linux命令行结尾的提示符有 “#” 和 “$” 两种不同的符号  </p>
+<ul>
+<li><h1 id="是超级管理员root用户对应的命令行"><a href="#是超级管理员root用户对应的命令行" class="headerlink" title="是超级管理员root用户对应的命令行"></a>是超级管理员root用户对应的命令行</h1></li>
+<li>$ 是普通用户oldboy对应的命令行</li>
+</ul>
+<h3 id="命令行的快捷键"><a href="#命令行的快捷键" class="headerlink" title="命令行的快捷键"></a>命令行的快捷键</h3><pre><code>tab                命令或路径等的补全键，Linux最有用的快捷键
+Ctrl+a            光标回到命令行行首
+Ctrl+e            光标回到命令行行尾
+Ctrl+f            光标向右移动一个字符（相当于方向键右键）
+Ctrl+b            光标向左移动一个字符（相当于方向键左键）
+Ctrl+insert        复制命令行内容
+shift+insert    粘贴命令行内容
+Ctrl+k            剪切（删除）光标处到行尾的字符
+Ctrl+u            剪切（删除）光标处到行首的字符
+Ctrl+w            剪切（删除）光标钱的一个单词
+Ctrl+y            粘贴上面三个剪贴的内容
+Ctrl+c            中断终端正在执行的任务或者删除整行
+!!                执行上一条命令
+!pw                执行最近以pw开头的命令
+!pw:p            仅打印最近以pw开头的命令，不执行
+!num            执行历史命令列表的第num条命令
+!$                上一条命令的最后一个参数
+Esc+.            获取上一条命令最后的部分
+Esc+b            移动到当前单词的开头
+Esc+f            移动到当前单词的结尾
+</code></pre><h3 id="Linux命令行下查看命令帮助"><a href="#Linux命令行下查看命令帮助" class="headerlink" title="Linux命令行下查看命令帮助"></a>Linux命令行下查看命令帮助</h3><h4 id="man命令"><a href="#man命令" class="headerlink" title="man命令"></a>man命令</h4><p>man命令是Linux系统中最核心的命令之一，因为通过它可以查看其他linux命令的使用信息，当然还可以查看软件的配置文件、系统调用、库函数等的帮助信息</p>
+<h5 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h5><pre><code>man 参数选项 命令/文件
+</code></pre><h6 id="参数选项"><a href="#参数选项" class="headerlink" title="参数选项"></a>参数选项</h6><table><br><tr><br><td>数字参数</td><td>说明</td><td>解释说明</td><br></tr><br><tr><br><td>1</td><td>User Commands</td><td>用户命令相关</td><br></tr><br><tr><br><td>2</td><td>System Calls</td><td>系统调用相关</td><br></tr><br><tr><br><td>3</td><td>C Library Functions</td><td>C的库函数相关</td><br></tr><br><tr><br><td>4</td><td>Devices and Special Files</td><td>设备和特殊文件相关</td><br></tr><br><tr><br><td>5</td><td>File Formats and Conventions</td><td>文件格式和规则</td><br></tr><br><tr><br><td>6</td><td>Games et. AI.</td><td>游戏及其他</td><br></tr><br><tr><br><td>7</td><td>Miscellanea</td><td>宏，包，及其他杂项</td><br></tr><br><tr><br><td>8</td><td>System Administration tools and Deamons</td><td>系统管理员命令和进程</td><br></tr><br></table>
+
+<h5 id="查阅的内容格式"><a href="#查阅的内容格式" class="headerlink" title="查阅的内容格式"></a>查阅的内容格式</h5><table><br><tr><br><td>man帮助信息中的标题</td><td>功能说明</td><br></tr><br><tr><br><td>NAME</td><td>命令说明介绍</td><br></tr><br><tr><br><td>SYNOPSIS</td><td>命令的基本使用语法</td><br></tr><br><tr><br><td>DESCRIPTION</td><td>命令行使用详细描述，以及相关参数选项说明</td><br></tr><br><tr><br><td>OPTION</td><td>命令相关参数选项说明</td><br></tr><br><tr><br><td>COMMANDS</td><td>在执行这个程序的时候，可以在此程序中执行的命令</td><br></tr><br><tr><br><td>FILES</td><td>程序涉及的相关文件</td><br></tr><br><tr><br><td>EXAMPLES</td><td>命令的一些例子</td><br></tr><br><tr><br><td>SEE ALSO</td><td>和命令相关的信息说明</td><br></tr><br><tr><br><td>BUGS（REPORTIONG BUGS）</td><td>命令对应缺陷问题的描述</td><br></tr><br><tr><br><td>COPYRIGHT</td><td>坂玄信息相关声明</td><br></tr><br><tr><br><td>AUTHOR</td><td>作者介绍</td><br></tr><br></table>
+
+
+<h4 id="–help获取命令帮助"><a href="#–help获取命令帮助" class="headerlink" title="–help获取命令帮助"></a>–help获取命令帮助</h4><p>使用起来很简单啦，就是 “ 命令 –help “</p>
+<h5 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h5><pre><code>--help 获取的是常用的帮助信息， man命令获取的是更过更复杂的帮助信息
+例如：
+    mv --help
+</code></pre><h4 id="help获取bash内置命令"><a href="#help获取bash内置命令" class="headerlink" title="help获取bash内置命令"></a>help获取bash内置命令</h4><p>在Linux系统里有一些特殊的命令，他们就是bash程序的内置命令，例如：cd，ls……<br>这些命令并不存在真实的程序文件，对于这些命令，查看帮助的方式就是使用help</p>
+<h5 id="使用方法-1"><a href="#使用方法-1" class="headerlink" title="使用方法"></a>使用方法</h5><pre><code>help 命令
+例如：
+    help cd
+</code></pre><h4 id="info获取帮助信息"><a href="#info获取帮助信息" class="headerlink" title="info获取帮助信息"></a>info获取帮助信息</h4><p>Linux系统中的info命令是一个查看程序对应文档的命令，可以作为man及help命令的帮助补充，用的少</p>
+<h5 id="使用方法-2"><a href="#使用方法-2" class="headerlink" title="使用方法"></a>使用方法</h5><pre><code>info 命令
+例如：
+    info ls
+</code></pre><h4 id="从互联网获取命令帮助信息"><a href="#从互联网获取命令帮助信息" class="headerlink" title="从互联网获取命令帮助信息"></a>从互联网获取命令帮助信息</h4><pre><code>简单一条 百度，google，总之怎么快怎么来。
+</code></pre><p><img src="https://i.imgur.com/wrkAmPX.jpg" alt=""></p>
+<h3 id="Linux的关机，重启，注销命令"><a href="#Linux的关机，重启，注销命令" class="headerlink" title="Linux的关机，重启，注销命令"></a>Linux的关机，重启，注销命令</h3><h4 id="shutdown命令"><a href="#shutdown命令" class="headerlink" title="shutdown命令"></a>shutdown命令</h4><h5 id="使用方法及例子"><a href="#使用方法及例子" class="headerlink" title="使用方法及例子"></a>使用方法及例子</h5><pre><code>shutdown [OPTION]... TIME[MESSAFE]
+shutdown [选项] 时间 信息
+通常形况下，一般用的比较多的就是 shutdown -h now 或者 shutdown -r now
+例子：
+    shutdown -h +1        #一分钟后关机
+    shutdown -r 11:00    #十一点关机
+</code></pre><table><br><tr><br><td>参数选项</td><td>解释说明</td><br></tr><br><tr><br><td>-r</td><td>重启系统，而不是关机</td><br></tr><br><tr><br><td>-h</td><td>关机</td><br></tr><br><tr><br><td>-H</td><td>关机，但是并不是完全关机，不常用</td><br></tr><br><tr><br><td>-P</td><td>关机，不常用</td><br></tr><br><tr><br><td>-c</td><td>取消正在执行的shutdown命令</td><br></tr><br><tr><br><td>-k</td><td>只发送关机提示，但是并不关机，就闹着玩玩</td><br></tr><br></table>
+
+
+<h5 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h5><p>shutdown命令的工作原理为：一旦到达关机时间，shutdown命令就会发送请求给系统的init进程将系统调整到合适的运行级别（运行级别请参考runlevel命令，运行级别请查看/etc/inittab文件说明），其中0表示关机，6表示重启。所以，执行 “init 0”就表示关机，执行”init 6”表示重启</p>
+<h4 id="halt-poweroff-reboot-重启关机命令"><a href="#halt-poweroff-reboot-重启关机命令" class="headerlink" title="halt/poweroff/reboot 重启关机命令"></a>halt/poweroff/reboot 重启关机命令</h4><h5 id="语法格式-1"><a href="#语法格式-1" class="headerlink" title="语法格式"></a>语法格式</h5><pre><code>reboot [OPTION]...
+halt [OPTION]...
+poweroff [OPTION]...
+通常情况下，执行这三个命令不带任何参数
+</code></pre><h5 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h5><pre><code>halt         #就是直接关机
+reboot         #就是直接重启
+poweroff    #就是直接关机
+</code></pre><h4 id="一些常见的关机，重启，注销命令"><a href="#一些常见的关机，重启，注销命令" class="headerlink" title="一些常见的关机，重启，注销命令"></a>一些常见的关机，重启，注销命令</h4><table><br><tr><br><td>命令</td><td>说明</td><br></tr><br><tr><br><td>shutdown -h now</td><td>立刻关机</td><br></tr><br><tr><br><td>shutdwn -h +1</td><td>一分钟后关机，+1也可以是时间点，例如：11：00</td><br></tr><br><tr><br><td>halt</td><td>立刻停止系统，需要人工关闭电源</td><br></tr><br><tr><br><td>init 0</td><td>切换运行级别到0，关机</td><br></tr><br><tr><br><td>poweroff</td><td>立刻停止系统，并且关闭电源</td><br></tr><br><tr><br><td>reboot</td><td>立刻重启</td><br></tr><br><tr><br><td>shutdown -r now</td><td>立刻重启</td><br></tr><br><tr><br><td>shutdown -r +1</td><td>一分钟后重启</td><br></tr><br><tr><br><td>init 6</td><td>切换运行级别到6，重启</td><br></tr><br><tr><br><td>logout</td><td>注销退出当前用户</td><br></tr><br><tr><br><td>exit</td><td>注销退出当前用户窗口</td><br></tr><br></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="系统信息"><a href="#系统信息" class="headerlink" title="系统信息"></a>系统信息</h2><pre><code>arch 显示机器的处理器架构(1) 
 uname -m 显示机器的处理器架构(2) 
 uname -r 显示正在使用的内核版本 
 dmidecode -q 显示硬件系统部件 - (SMBIOS / DMI) 
@@ -721,8 +812,8 @@ whois www.example.com lookup on Whois database
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/27/Cocos-内存管理/" rel="next" title="Cocos 内存管理">
-                <i class="fa fa-chevron-left"></i> Cocos 内存管理
+              <a href="/2018/10/22/BootStrap框架/" rel="next" title="BootStrap框架">
+                <i class="fa fa-chevron-left"></i> BootStrap框架
               </a>
             
           </div>
@@ -730,10 +821,6 @@ whois www.example.com lookup on Whois database
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/29/从0开始的JavaWeb/" rel="prev" title="从0开始的JavaWeb---H5篇">
-                从0开始的JavaWeb---H5篇 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -854,7 +941,7 @@ whois www.example.com lookup on Whois database
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统信息"><span class="nav-number">1.</span> <span class="nav-text">系统信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关机-系统的关机、重启以及登出"><span class="nav-number">2.</span> <span class="nav-text">关机 (系统的关机、重启以及登出 )</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件和目录"><span class="nav-number">3.</span> <span class="nav-text">文件和目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件搜索"><span class="nav-number">4.</span> <span class="nav-text">文件搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#挂载一个文件系统"><span class="nav-number">5.</span> <span class="nav-text">挂载一个文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#磁盘空间"><span class="nav-number">6.</span> <span class="nav-text">磁盘空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户和群组"><span class="nav-number">7.</span> <span class="nav-text">用户和群组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件的权限-使用-“-”-设置权限，使用-“-“-用于取消"><span class="nav-number">8.</span> <span class="nav-text">文件的权限 - 使用 “+” 设置权限，使用 “-“ 用于取消</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件的特殊属性-使用-“-”-设置权限，使用-“-“-用于取消"><span class="nav-number">9.</span> <span class="nav-text">文件的特殊属性 - 使用 “+” 设置权限，使用 “-“ 用于取消</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包和压缩文件"><span class="nav-number">10.</span> <span class="nav-text">打包和压缩文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RPM-包-（Fedora-Redhat及类似系统）"><span class="nav-number">11.</span> <span class="nav-text">RPM 包 - （Fedora, Redhat及类似系统）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#YUM-软件包升级器-（Fedora-RedHat及类似系统）"><span class="nav-number">12.</span> <span class="nav-text">YUM 软件包升级器 - （Fedora, RedHat及类似系统）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DEB-包-Debian-Ubuntu-以及类似系统"><span class="nav-number">13.</span> <span class="nav-text">DEB 包 (Debian, Ubuntu 以及类似系统)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APT-软件工具-Debian-Ubuntu-以及类似系统"><span class="nav-number">14.</span> <span class="nav-text">APT 软件工具 (Debian, Ubuntu 以及类似系统)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看文件内容"><span class="nav-number">15.</span> <span class="nav-text">查看文件内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本处理"><span class="nav-number">16.</span> <span class="nav-text">文本处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符设置和文件格式转换"><span class="nav-number">17.</span> <span class="nav-text">字符设置和文件格式转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件系统分析"><span class="nav-number">18.</span> <span class="nav-text">文件系统分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化一个文件系统"><span class="nav-number">19.</span> <span class="nav-text">初始化一个文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SWAP文件系统"><span class="nav-number">20.</span> <span class="nav-text">SWAP文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备份"><span class="nav-number">21.</span> <span class="nav-text">备份</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#光盘"><span class="nav-number">22.</span> <span class="nav-text">光盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络-（以太网和WIFI无线）"><span class="nav-number">23.</span> <span class="nav-text">网络 - （以太网和WIFI无线）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux命令行"><span class="nav-number">1.</span> <span class="nav-text">Linux命令行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux命令行提示符介绍"><span class="nav-number">1.1.</span> <span class="nav-text">Linux命令行提示符介绍</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#是超级管理员root用户对应的命令行"><span class="nav-number"></span> <span class="nav-text">是超级管理员root用户对应的命令行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行的快捷键"><span class="nav-number">0.1.</span> <span class="nav-text">命令行的快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux命令行下查看命令帮助"><span class="nav-number">0.2.</span> <span class="nav-text">Linux命令行下查看命令帮助</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#man命令"><span class="nav-number">0.2.1.</span> <span class="nav-text">man命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#语法格式"><span class="nav-number">0.2.1.1.</span> <span class="nav-text">语法格式</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#参数选项"><span class="nav-number">0.2.1.1.1.</span> <span class="nav-text">参数选项</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查阅的内容格式"><span class="nav-number">0.2.1.2.</span> <span class="nav-text">查阅的内容格式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–help获取命令帮助"><span class="nav-number">0.2.2.</span> <span class="nav-text">–help获取命令帮助</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用方法"><span class="nav-number">0.2.2.1.</span> <span class="nav-text">使用方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#help获取bash内置命令"><span class="nav-number">0.2.3.</span> <span class="nav-text">help获取bash内置命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用方法-1"><span class="nav-number">0.2.3.1.</span> <span class="nav-text">使用方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#info获取帮助信息"><span class="nav-number">0.2.4.</span> <span class="nav-text">info获取帮助信息</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用方法-2"><span class="nav-number">0.2.4.1.</span> <span class="nav-text">使用方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从互联网获取命令帮助信息"><span class="nav-number">0.2.5.</span> <span class="nav-text">从互联网获取命令帮助信息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux的关机，重启，注销命令"><span class="nav-number">0.3.</span> <span class="nav-text">Linux的关机，重启，注销命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#shutdown命令"><span class="nav-number">0.3.1.</span> <span class="nav-text">shutdown命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#使用方法及例子"><span class="nav-number">0.3.1.1.</span> <span class="nav-text">使用方法及例子</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#工作原理"><span class="nav-number">0.3.1.2.</span> <span class="nav-text">工作原理</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#halt-poweroff-reboot-重启关机命令"><span class="nav-number">0.3.2.</span> <span class="nav-text">halt/poweroff/reboot 重启关机命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#语法格式-1"><span class="nav-number">0.3.2.1.</span> <span class="nav-text">语法格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用"><span class="nav-number">0.3.2.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一些常见的关机，重启，注销命令"><span class="nav-number">0.3.3.</span> <span class="nav-text">一些常见的关机，重启，注销命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统信息"><span class="nav-number">1.</span> <span class="nav-text">系统信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关机-系统的关机、重启以及登出"><span class="nav-number">2.</span> <span class="nav-text">关机 (系统的关机、重启以及登出 )</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件和目录"><span class="nav-number">3.</span> <span class="nav-text">文件和目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件搜索"><span class="nav-number">4.</span> <span class="nav-text">文件搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#挂载一个文件系统"><span class="nav-number">5.</span> <span class="nav-text">挂载一个文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#磁盘空间"><span class="nav-number">6.</span> <span class="nav-text">磁盘空间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户和群组"><span class="nav-number">7.</span> <span class="nav-text">用户和群组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件的权限-使用-“-”-设置权限，使用-“-“-用于取消"><span class="nav-number">8.</span> <span class="nav-text">文件的权限 - 使用 “+” 设置权限，使用 “-“ 用于取消</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件的特殊属性-使用-“-”-设置权限，使用-“-“-用于取消"><span class="nav-number">9.</span> <span class="nav-text">文件的特殊属性 - 使用 “+” 设置权限，使用 “-“ 用于取消</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包和压缩文件"><span class="nav-number">10.</span> <span class="nav-text">打包和压缩文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RPM-包-（Fedora-Redhat及类似系统）"><span class="nav-number">11.</span> <span class="nav-text">RPM 包 - （Fedora, Redhat及类似系统）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#YUM-软件包升级器-（Fedora-RedHat及类似系统）"><span class="nav-number">12.</span> <span class="nav-text">YUM 软件包升级器 - （Fedora, RedHat及类似系统）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DEB-包-Debian-Ubuntu-以及类似系统"><span class="nav-number">13.</span> <span class="nav-text">DEB 包 (Debian, Ubuntu 以及类似系统)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APT-软件工具-Debian-Ubuntu-以及类似系统"><span class="nav-number">14.</span> <span class="nav-text">APT 软件工具 (Debian, Ubuntu 以及类似系统)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看文件内容"><span class="nav-number">15.</span> <span class="nav-text">查看文件内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本处理"><span class="nav-number">16.</span> <span class="nav-text">文本处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符设置和文件格式转换"><span class="nav-number">17.</span> <span class="nav-text">字符设置和文件格式转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件系统分析"><span class="nav-number">18.</span> <span class="nav-text">文件系统分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化一个文件系统"><span class="nav-number">19.</span> <span class="nav-text">初始化一个文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SWAP文件系统"><span class="nav-number">20.</span> <span class="nav-text">SWAP文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备份"><span class="nav-number">21.</span> <span class="nav-text">备份</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#光盘"><span class="nav-number">22.</span> <span class="nav-text">光盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络-（以太网和WIFI无线）"><span class="nav-number">23.</span> <span class="nav-text">网络 - （以太网和WIFI无线）</span></a></li></ol></div>
             
 
           </div>
@@ -1410,7 +1497,7 @@ whois www.example.com lookup on Whois database
     </script>
     <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
       <div class="powered-by"></div>
-      <span class="post-count">全站博客共54k字</span>
+      <span class="post-count">全站博客共55.3k字</span>
     </div>
 </footer>
 </html>
