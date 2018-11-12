@@ -89,7 +89,7 @@
 <meta property="og:description" content="Linux命令行大多是互联网企业在安装系统甚至不会安装图形管理软件包，而是直接使用文本模式安装，因此登陆后直接面对的就是命令行的界面 Linux命令行提示符介绍Linux命令行结尾的提示符有 “#” 和 “$” 两种不同的符号   # 是超级管理员root用户对应的命令行  $ 是普通用户oldboy对应的命令行 命令行的快捷键tab                命令或路径等的补全键，Linux">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/wrkAmPX.jpg">
-<meta property="og:updated_time" content="2018-11-12T11:57:56.445Z">
+<meta property="og:updated_time" content="2018-11-12T12:11:51.846Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="作死的学习Linux运维">
 <meta name="twitter:description" content="Linux命令行大多是互联网企业在安装系统甚至不会安装图形管理软件包，而是直接使用文本模式安装，因此登陆后直接面对的就是命令行的界面 Linux命令行提示符介绍Linux命令行结尾的提示符有 “#” 和 “$” 两种不同的符号   # 是超级管理员root用户对应的命令行  $ 是普通用户oldboy对应的命令行 命令行的快捷键tab                命令或路径等的补全键，Linux">
@@ -561,7 +561,35 @@ ls [选项] [&lt;文件或目录&gt;]
 <li>ls -l                #长格式输出文件类型，权限，链接数，属组，时间等</li>
 <li>ls -l –time-style=long-iso #以long-iso方式显示时间</li>
 <li>ls -F                #显示文件，文件夹后加上’/‘</li>
-<li>当然你也可以用alias方法给原本很长ls命令取个别名</li>
+<li>当然你也可以用alias方法给原本很长ls命令取个别名<ul>
+<li>alias lst=’ls -l –time-style=long-iso’<ul>
+<li>给 ls -l –time-style=long-iso 起别名为 lst</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ls -F                #给文件夹后加上’/‘，其他文件加上其他字符</p>
+<ul>
+<li>‘*’    可执行的普通文件</li>
+<li>‘/‘    目录</li>
+<li>‘=’    套接字(sockets)</li>
+<li>‘|’    FIFOS</li>
+<li>‘@’    符号链接</li>
+</ul>
+</li>
+<li><p>ls -lhi</p>
+<ul>
+<li>命令对应列数意义</li>
+<li>第一列：    inode索引节点的编号</li>
+<li>第二列:    文件类型及权限</li>
+<li>第三列：    硬连接个数</li>
+<li>第四列:    文件或目录所属的用户</li>
+<li>第五列：    文件或目录所属的组</li>
+<li>第六列：    文件或目录的大小</li>
+<li>第七，八，九列：    文件或目录的修改时间</li>
+<li>第十列：    实际的文件名或目录名</li>
+</ul>
+</li>
 </ul>
 <h2 id="系统信息"><a href="#系统信息" class="headerlink" title="系统信息"></a>系统信息</h2><pre><code>arch 显示机器的处理器架构(1) 
 uname -m 显示机器的处理器架构(2) 
@@ -1575,7 +1603,7 @@ whois www.example.com lookup on Whois database
     </script>
     <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
       <div class="powered-by"></div>
-      <span class="post-count">全站博客共57.3k字</span>
+      <span class="post-count">全站博客共57.5k字</span>
     </div>
 </footer>
 </html>
