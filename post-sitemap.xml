@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2018/10/21/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</loc>
+        <lastmod>2018-11-22T14:42:48.983Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2018/11/20/Spring%E5%AD%A6%E4%B9%A0/</loc>
         <lastmod>2018-11-22T04:30:30.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -33,14 +41,6 @@
     <url>
         <loc>http://yoursite.com/2018/10/22/BootStrap%E6%A1%86%E6%9E%B6/</loc>
         <lastmod>2018-10-23T05:48:56.912Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/10/21/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</loc>
-        <lastmod>2018-10-21T15:12:40.166Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

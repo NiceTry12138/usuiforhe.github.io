@@ -18,7 +18,7 @@
   <entry>
     <title><![CDATA[Java基础学习]]></title>
     <url>%2F2018%2F10%2F21%2FJava%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%2F</url>
-    <content type="text"><![CDATA[基本数据类型数值型1. byte 字节型 1字节 2. short 短整型 2字节 3. int 整型 4字节 4. long 长整形 8字节 5. floa 单精度浮点型 4字节 6. double 双精度浮点型 8字节 字符型1. char 字符型 2字节 布尔型1. boolean 布尔型 1字节]]></content>
+    <content type="text"><![CDATA[基本数据类型 数值型 byte 字节型 1字节 short 短整型 2字节 int 整型 4字节 long 长整形 8字节 floa 单精度浮点型 4字节 double 双精度浮点型 8字节 字符型 char 字符型 2字节 布尔型 boolean 布尔型 1字节 JDBC编程目前市面上数据库管理系统已经非常多，mysql，Oracle，SQLserver等等在ODBC出现之前，对这些数据库的访问是一件非常麻烦的事情，因为这些数据库虽然都支持sql，但他们针对自己数据库的访问方法，所以当用户访问不同个的数据库时，就必须使用不同API来编写相应的数据库访问程序 ODBC（Open Database Connectivity）通过ODBC访问不同的数据库，无需对数据库访问程序进行修改，这样ODBC的应用越来越广泛 JDBC（java data base connectivity）按照ODBC的模式来制定的，它是一个通用的底层的支持sql功能的Java API JDBC的组成JDBC提供了两种接口 JDBC API 面向开发人员的API JDBC Driver API 面向底层驱动程序开发商的API JDBC API JDBC API 是一系列的应用编程接口，可以用来进行数据库连接，访问数据等 JDBC API的主要编程接口： DriverManager 驱动程序管理类 用来装载驱动程序，并为创建数据库链接提供支持 Connection 是一个接口 用来连接某一个指定的数据库 Statement 是一个接口 提供了执行SQL语句，获取查询结果的方法 PreparedStatement 用于执行预编译的SQL语句 ResultSet 提供了对接口集进行处理的方法 JDBC Driver API主要有四种类型 JDBC-ODBC bridge 通过将JDBC的调用全部委托给其他编程接口来实现 部分java技术的本地API驱动程序 驱动程序部分实现通过JAVA语言 其他的部分则委托给本地的数据库的客户段代码来实现 全部基于java技术的本地API程序 这种驱动程序的实现全部通过Java语言 通常由某个中间件服务器提供 客户端程序可以使用数据库无关的协议和中间件服务器进行通信 中间件服务器再讲客户端的调用转发给服务器进行处理 全部基于java技术的本地协议驱动程序 全部基于java语言 包含了特定数据库的访问协议，使得客户端可以直接同服务器进行通信 使用JDBC进行增删改]]></content>
   </entry>
   <entry>
     <title><![CDATA[Ajax]]></title>
