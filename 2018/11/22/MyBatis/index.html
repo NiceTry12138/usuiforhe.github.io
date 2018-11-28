@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="lc_love_myh">
 <meta property="og:description" content="MyBatis MyBatis 不同与 Hiberanat MyBatis 比较轻 而 Hiberanat 比较重这里的 轻 代表的是 方便学习，开发，维护，简单  初识MyBatisMyBatis介绍历史iBATIS = “internet” + “abatis” 的组合是Apache公司的一个开源项目，这个项目是做软件加密的abatis 翻译过来是 路障，铁丝网的意思后来转型成为一个基于Jav">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-28T05:08:53.472Z">
+<meta property="og:updated_time" content="2018-11-28T05:16:18.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis学习">
 <meta name="twitter:description" content="MyBatis MyBatis 不同与 Hiberanat MyBatis 比较轻 而 Hiberanat 比较重这里的 轻 代表的是 方便学习，开发，维护，简单  初识MyBatisMyBatis介绍历史iBATIS = “internet” + “abatis” 的组合是Apache公司的一个开源项目，这个项目是做软件加密的abatis 翻译过来是 路障，铁丝网的意思后来转型成为一个基于Jav">
@@ -596,30 +596,98 @@
 <ul>
 <li>在TestMain调试文件中</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	try &#123;</span><br><span class="line">		JikeUserMapInterface jkumi = session.getMapper(JikeUserMapInterface.class);</span><br><span class="line">		jkumi.deleteUder(1);//删除id为1的记录</span><br><span class="line">		session.commit();//提交sql语句</span><br><span class="line">	&#125; catch (Exception e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">		session.rollback();//回滚</span><br><span class="line">	&#125;finally &#123;</span><br><span class="line">		session.close();</span><br><span class="line">	&#125;  </span><br><span class="line"></span><br><span class="line">```  </span><br><span class="line">### 查询</span><br><span class="line">- 返回集合</span><br><span class="line"></span><br><span class="line">#### Select 参数 如何操作 如何得到结果集</span><br><span class="line"></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">	&lt;select id=&quot;selectPerson&quot; parameterType=&quot;int&quot; parameterMap=&quot;hashmap&quot; resultType=&quot;hashmap&quot; resultMap=&quot;personResultMap&quot; flushCache=&quot;false&quot; userCache=&quot;true&quot; timeout=&quot;10000&quot; fetchSize=&quot;256&quot;&gt;  </span><br><span class="line">  </span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">| 属性 | 描述 |</span><br><span class="line">| ------ | ------ |  </span><br><span class="line">| id | 在命名空间中唯一的标识符，可以被用来引用这条语句 |   </span><br><span class="line">| parameterType | 将会传入这条语句的参数类的完全限定名或类名 |  </span><br><span class="line">| parameterMap | 这是引用外部parameterMap的已经被废弃的方法。使用内敛参数映射和parameterType属性|  </span><br><span class="line">| resultType | 从这条语句中返回的期望类型的类和完全限定名或别名。注意集合情形，那应该是集合可以包含的类型，而不能是集合。使用resultType或resultMa，但不能同时使用 |  </span><br><span class="line">| resultMap | 命名引用外部的resultMap。返回map是MyBatis最具力量的特性，对其有一个很好的理解的话，许多复杂映射的清醒就能被解决了。 |  </span><br><span class="line">| flushCache | 将其设为true，不能语句什么时候被调用，都会导致缓存被清空。默认值为false |</span><br><span class="line">| userCache | 将其设置为true，将会导致本条语句的结果被缓存。默认值为false |  </span><br><span class="line">| timeout | 设置驱动程序等待数据库返回请求结果，并抛出异常时间的最大值。默认值不设定，驱动自行处理 |  </span><br><span class="line">| fetchSize | 这是暗示驱动程序每次批量返回的结果函数。默认值不设置，程序自行控制 |  </span><br><span class="line">| statementType | STATEMENT，PREPARED或CALLABLE的一种。这会让MyBatis选择使用Statement,PreparedStatement或Callable 的一种 |  </span><br><span class="line">| resultSetType | FORWARD_ONLY，SCROLL_SENSITIVE,SCROLL_INSTENSITIVE中的一种。默认是不设置，驱动自行处理 |  </span><br><span class="line"></span><br><span class="line">- parameterType封装：hashmap</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;select id=&quot;loginSelect&quot; resultType=&quot;TestUser&quot; parameterType=&quot;hashmap&quot;&gt;
-    select * from jikeUser where userName=#{userName} and password=#{password}
-&lt;/select&gt;
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;  老样子 把上述代码放在map.xml文件中</span><br><span class="line"></span><br><span class="line">- 测试</span><br></pre></td></tr></table></figure>
-<pre><code>HashMap(String, String) hm = new HashMap();
-hm.put(&quot;userName&quot;, &quot;laoziniubi&quot;);
-hm.put(&quot;password&quot;, &quot;666666&quot;); 
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 上述的 &quot;userName&quot; 和 &quot;password&quot; 不仅是map的键，同时是 上述 select 标签中传入的参数名称</span><br><span class="line">- 调用session 方法传入 hashmap</span><br><span class="line">	- TestUser ontemp = session.selectOne(&quot;loginSelect&quot;, 	hm);</span><br><span class="line">	</span><br><span class="line">- 调试代码 `(使用hashmap)`</span><br></pre></td></tr></table></figure>
-<pre><code>try {
-    HashMap&lt;String, String&gt; hm = new HashMap&lt;String, String&gt;();
-    hm.put(&quot;userName&quot;, &quot;laoziniubi&quot;);
-    hm.put(&quot;password&quot;,&quot;666666&quot;);
-    TestUser testUser = session.selectOne(&quot;loginSelect&quot;,hm);
-    if (testUser != null) {
-        System.out.println(testUser.getUserName() + &quot; 欢迎回来&quot;);
-    }
-} catch (Exception e) {
-    e.printStackTrace();
-    session.rollback();//回滚
-}finally {
-    session.close();
-}
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 调试代码 `(使用对象)`</span><br><span class="line">	- 对象参数自动匹配属性</span><br><span class="line">	- 如果对象属性与列名不一样用别名</span><br><span class="line">	</span><br><span class="line">- 这里 要修改xml文件的select标签</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">	&lt;select id=&quot;login2&quot; resultType=&quot;TestUser&quot; parameterType=&quot;TestUser&quot; &gt;</span><br><span class="line">		select * from jikeUser where userName=#&#123;userName&#125; and password=#&#123;password&#125;</span><br><span class="line">	&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">try &#123;</span><br><span class="line">	JikeUserMapInterface jkumi = session.getMapper(JikeUserMapInterface.class);</span><br><span class="line">	jkumi.deleteUder(1);//删除id为1的记录</span><br><span class="line">	session.commit();//提交sql语句</span><br><span class="line">&#125; catch (Exception e) &#123;</span><br><span class="line">	e.printStackTrace();</span><br><span class="line">	session.rollback();//回滚</span><br><span class="line">&#125;finally &#123;</span><br><span class="line">	session.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><ul>
+<li>返回集合</li>
+</ul>
+<h4 id="Select-参数-如何操作-如何得到结果集"><a href="#Select-参数-如何操作-如何得到结果集" class="headerlink" title="Select 参数 如何操作 如何得到结果集"></a>Select 参数 如何操作 如何得到结果集</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;select id=&quot;selectPerson&quot; parameterType=&quot;int&quot; parameterMap=&quot;hashmap&quot; resultType=&quot;hashmap&quot; resultMap=&quot;personResultMap&quot; flushCache=&quot;false&quot; userCache=&quot;true&quot; timeout=&quot;10000&quot; fetchSize=&quot;256&quot;&gt;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>在命名空间中唯一的标识符，可以被用来引用这条语句</td>
+</tr>
+<tr>
+<td>parameterType</td>
+<td>将会传入这条语句的参数类的完全限定名或类名</td>
+</tr>
+<tr>
+<td>parameterMap</td>
+<td>这是引用外部parameterMap的已经被废弃的方法。使用内敛参数映射和parameterType属性</td>
+</tr>
+<tr>
+<td>resultType</td>
+<td>从这条语句中返回的期望类型的类和完全限定名或别名。注意集合情形，那应该是集合可以包含的类型，而不能是集合。使用resultType或resultMa，但不能同时使用</td>
+</tr>
+<tr>
+<td>resultMap</td>
+<td>命名引用外部的resultMap。返回map是MyBatis最具力量的特性，对其有一个很好的理解的话，许多复杂映射的清醒就能被解决了。</td>
+</tr>
+<tr>
+<td>flushCache</td>
+<td>将其设为true，不能语句什么时候被调用，都会导致缓存被清空。默认值为false</td>
+</tr>
+<tr>
+<td>userCache</td>
+<td>将其设置为true，将会导致本条语句的结果被缓存。默认值为false</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>设置驱动程序等待数据库返回请求结果，并抛出异常时间的最大值。默认值不设定，驱动自行处理</td>
+</tr>
+<tr>
+<td>fetchSize</td>
+<td>这是暗示驱动程序每次批量返回的结果函数。默认值不设置，程序自行控制</td>
+</tr>
+<tr>
+<td>statementType</td>
+<td>STATEMENT，PREPARED或CALLABLE的一种。这会让MyBatis选择使用Statement,PreparedStatement或Callable 的一种</td>
+</tr>
+<tr>
+<td>resultSetType</td>
+<td>FORWARD_ONLY，SCROLL_SENSITIVE,SCROLL_INSTENSITIVE中的一种。默认是不设置，驱动自行处理</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>parameterType封装：hashmap</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;loginSelect&quot; resultType=&quot;TestUser&quot; parameterType=&quot;hashmap&quot;&gt;</span><br><span class="line">	select * from jikeUser where userName=#&#123;userName&#125; and password=#&#123;password&#125;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> 老样子 把上述代码放在map.xml文件中</p>
+</blockquote>
+<ul>
+<li>测试</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HashMap(String, String) hm = new HashMap();</span><br><span class="line">hm.put(&quot;userName&quot;, &quot;laoziniubi&quot;);</span><br><span class="line">hm.put(&quot;password&quot;, &quot;666666&quot;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>上述的 “userName” 和 “password” 不仅是map的键，同时是 上述 select 标签中传入的参数名称</li>
+<li><p>调用session 方法传入 hashmap</p>
+<ul>
+<li>TestUser ontemp = session.selectOne(“loginSelect”,     hm);</li>
+</ul>
+</li>
+<li><p>调试代码 <code>(使用hashmap)</code></p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">	HashMap&lt;String, String&gt; hm = new HashMap&lt;String, String&gt;();</span><br><span class="line">	hm.put(&quot;userName&quot;, &quot;laoziniubi&quot;);</span><br><span class="line">	hm.put(&quot;password&quot;,&quot;666666&quot;);</span><br><span class="line">	TestUser testUser = session.selectOne(&quot;loginSelect&quot;,hm);</span><br><span class="line">	if (testUser != null) &#123;</span><br><span class="line">		System.out.println(testUser.getUserName() + &quot; 欢迎回来&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125; catch (Exception e) &#123;</span><br><span class="line">	e.printStackTrace();</span><br><span class="line">	session.rollback();//回滚</span><br><span class="line">&#125;finally &#123;</span><br><span class="line">	session.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>调试代码 <code>(使用对象)</code></p>
+<ul>
+<li>对象参数自动匹配属性</li>
+<li>如果对象属性与列名不一样用别名</li>
+</ul>
+</li>
+<li><p>这里 要修改xml文件的select标签</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;select id=&quot;login2&quot; resultType=&quot;TestUser&quot; parameterType=&quot;TestUser&quot; &gt;</span><br><span class="line">	select * from jikeUser where userName=#&#123;userName&#125; and password=#&#123;password&#125;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>然后是TestMain</li>
 </ul>
@@ -847,7 +915,7 @@ hm.put(&quot;password&quot;, &quot;666666&quot;);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MyBatis"><span class="nav-number">1.</span> <span class="nav-text">MyBatis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初识MyBatis"><span class="nav-number">1.1.</span> <span class="nav-text">初识MyBatis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MyBatis介绍"><span class="nav-number">1.1.1.</span> <span class="nav-text">MyBatis介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#历史"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">历史</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MyBatis环境搭建"><span class="nav-number">1.1.2.</span> <span class="nav-text">MyBatis环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导入工程"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">导入工程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日志配置"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">日志配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MyBatis工作流程"><span class="nav-number">1.1.3.</span> <span class="nav-text">MyBatis工作流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#工作流程的步骤"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">工作流程的步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工作流程的配置文件"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">工作流程的配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SqlSessionFactory-SqlSession"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">SqlSessionFactory, SqlSession</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Map文件"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">Map文件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本配置文件引用map文件"><span class="nav-number">1.1.3.4.1.</span> <span class="nav-text">基本配置文件引用map文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是map文件"><span class="nav-number">1.1.3.4.2.</span> <span class="nav-text">什么是map文件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#看实战，学操作，我有知识我自豪"><span class="nav-number">1.1.3.5.</span> <span class="nav-text">看实战，学操作，我有知识我自豪</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#建立数据库"><span class="nav-number">1.1.3.5.1.</span> <span class="nav-text">建立数据库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询代码"><span class="nav-number">1.1.3.5.2.</span> <span class="nav-text">查询代码</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MyBatis-基础操作"><span class="nav-number">1.2.</span> <span class="nav-text">MyBatis 基础操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#增删改"><span class="nav-number">1.2.1.</span> <span class="nav-text">增删改</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#insert"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">insert</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Update"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">Update</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#delete-使用注解方式"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">delete(使用注解方式)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回多个查询"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">返回多个查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#resultType-与-resultMap"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">resultType 与 resultMap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事务处理配置"><span class="nav-number">1.2.1.6.</span> <span class="nav-text">事务处理配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事务处理方法"><span class="nav-number">1.2.1.7.</span> <span class="nav-text">事务处理方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MyBatis高级查询操作"><span class="nav-number">1.3.</span> <span class="nav-text">MyBatis高级查询操作</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MyBatis"><span class="nav-number">1.</span> <span class="nav-text">MyBatis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初识MyBatis"><span class="nav-number">1.1.</span> <span class="nav-text">初识MyBatis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MyBatis介绍"><span class="nav-number">1.1.1.</span> <span class="nav-text">MyBatis介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#历史"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">历史</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特点"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">特点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MyBatis环境搭建"><span class="nav-number">1.1.2.</span> <span class="nav-text">MyBatis环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导入工程"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">导入工程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日志配置"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">日志配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MyBatis工作流程"><span class="nav-number">1.1.3.</span> <span class="nav-text">MyBatis工作流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#工作流程的步骤"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">工作流程的步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工作流程的配置文件"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">工作流程的配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SqlSessionFactory-SqlSession"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">SqlSessionFactory, SqlSession</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Map文件"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">Map文件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本配置文件引用map文件"><span class="nav-number">1.1.3.4.1.</span> <span class="nav-text">基本配置文件引用map文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是map文件"><span class="nav-number">1.1.3.4.2.</span> <span class="nav-text">什么是map文件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#看实战，学操作，我有知识我自豪"><span class="nav-number">1.1.3.5.</span> <span class="nav-text">看实战，学操作，我有知识我自豪</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#建立数据库"><span class="nav-number">1.1.3.5.1.</span> <span class="nav-text">建立数据库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#查询代码"><span class="nav-number">1.1.3.5.2.</span> <span class="nav-text">查询代码</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MyBatis-基础操作"><span class="nav-number">1.2.</span> <span class="nav-text">MyBatis 基础操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#增删改"><span class="nav-number">1.2.1.</span> <span class="nav-text">增删改</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#insert"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">insert</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Update"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">Update</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#delete-使用注解方式"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">delete(使用注解方式)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询"><span class="nav-number">1.2.2.</span> <span class="nav-text">查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Select-参数-如何操作-如何得到结果集"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Select 参数 如何操作 如何得到结果集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#返回多个查询"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">返回多个查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#resultType-与-resultMap"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">resultType 与 resultMap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事务处理配置"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">事务处理配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事务处理方法"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">事务处理方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MyBatis高级查询操作"><span class="nav-number">1.3.</span> <span class="nav-text">MyBatis高级查询操作</span></a></li></ol></li></ol></div>
             
 
           </div>
