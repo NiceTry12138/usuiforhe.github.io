@@ -89,7 +89,7 @@
 <meta property="og:description" content="什么是Ajax允许浏览器与服务器通信而无须刷新当前页面的技术都叫Ajax 异步的Js和XML的通信 不用刷新整个页面就可以与服务器通讯的方法1. Flash 2. Java appleet 3. 框架：如果使用一组框架构造了网页，可以只更新其中一个框架，而不用惊动整个页面 4. 隐藏的iframe 5. XMLHttpRequest:该对象是对JavaScript的一个扩展，可使网页与服务器进行通">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/1TQnuU0.png">
-<meta property="og:updated_time" content="2018-12-01T04:54:48.671Z">
+<meta property="og:updated_time" content="2018-12-02T03:17:35.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ajax">
 <meta name="twitter:description" content="什么是Ajax允许浏览器与服务器通信而无须刷新当前页面的技术都叫Ajax 异步的Js和XML的通信 不用刷新整个页面就可以与服务器通讯的方法1. Flash 2. Java appleet 3. 框架：如果使用一组框架构造了网页，可以只更新其中一个框架，而不用惊动整个页面 4. 隐藏的iframe 5. XMLHttpRequest:该对象是对JavaScript的一个扩展，可使网页与服务器进行通">
@@ -642,15 +642,56 @@
 </li>
 </ul>
 <h2 id="JQuery的Ajax"><a href="#JQuery的Ajax" class="headerlink" title="JQuery的Ajax"></a>JQuery的Ajax</h2><ul>
-<li><p>jQuery对Ajax操作进行了封装</p>
-<ul>
+<li>jQuery对Ajax操作进行了封装<ul>
 <li>在jQuery中最底层的方式是 $.ajax()</li>
 <li>第二层是load()，$.get() 和 $.post()</li>
-<li>第三层是$/getScript()和$.getJSON()</li>
+<li>第三层是$.getScript()和$.getJSON()</li>
 </ul>
 </li>
-<li><p>load()</p>
+</ul>
+<h3 id="ajax-方法（底层接口）"><a href="#ajax-方法（底层接口）" class="headerlink" title="ajax 方法（底层接口）"></a>ajax 方法（底层接口）</h3><ul>
+<li>$.ajax(url,setttring)<ul>
+<li>url 参数地址</li>
+<li>setttring 例如下面（包括大括号都是）<ul>
+<li>{type:’post’, data : {id : 1, name : “test”} ,beforeSend:function(xhr){},success:function (data){},error(xhr){},conplete:function(){}}</li>
+<li>data 为 服务端的响应体</li>
+<li>success 为 响应成功的时候的回调函数<ul>
+<li>其中 data 的数据类型 会通过 服务端的 设置 自动转换</li>
+</ul>
+</li>
+<li>data 为 传递参数<ul>
+<li>post 通过请求体传递</li>
+<li>get 通过 url 传递</li>
+</ul>
+</li>
+<li>通过设置dataType 设置 返回的参数类型</li>
+<li>error 请求不正常(状态码不为200)的时候执行的函数</li>
+<li>complete 请求完成(readystatus 到达 4 )时执行的回调函数</li>
+<li>beforeSend 在 执行 xmlHtpp.open 之前调用的回调函数</li>
+</ul>
+</li>
+<li>setting 还有其他参数 放在下面的链接里面咯<ul>
+<li><a href="https://www.jquery123.com/jQuery.ajax/" target="_blank" rel="noopener">jQuery.Ajax</a> </li>
+</ul>
+</li>
+<li>其实嘛 你也可以吧 url 放入 setting 里面 </li>
+</ul>
+</li>
+</ul>
+<h4 id="为什么使用jQuery呢"><a href="#为什么使用jQuery呢" class="headerlink" title="为什么使用jQuery呢"></a>为什么使用jQuery呢</h4><p><code>在访问一个不存在的页面时 会返回一个404页面</code></p>
 <ul>
+<li>如果用原生js<ul>
+<li>返回的是一个404页面代码 </li>
+<li>即 一串 html 代码</li>
+</ul>
+</li>
+<li>如果是jQuery<ul>
+<li>返回空 </li>
+</ul>
+</li>
+</ul>
+<h3 id="load方法"><a href="#load方法" class="headerlink" title="load方法"></a>load方法</h3><ul>
+<li>load()<ul>
 <li><code>载入远程HTML文件代码并插入至DOM中</code></li>
 <li>load(url,[data],[callback]);</li>
 <li>url 待装入HTML网页的网址，必须是JSON格式，一旦url不为空，那么请求方式就默认改为POST</li>
@@ -679,6 +720,8 @@
 <li>任何一个节点都可以使用load()方法来加载Ajax，结果直接插入到html节点中</li>
 </ul>
 </li>
+</ul>
+<h3 id="get和post-方法"><a href="#get和post-方法" class="headerlink" title="get和post 方法"></a>get和post 方法</h3><ul>
 <li><p>$.get() （或$.post()）方法</p>
 </li>
 <li><p>$.get() 方法使用GET方式来进行异步请求</p>
@@ -705,6 +748,51 @@
 <li>$.get()和$.post()方法是jQuery中的全局函数，而find()等方法都是对jQuery对象进行操作的方法</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="keyword">this</span>.href;</span><br><span class="line"><span class="keyword">var</span> args= &#123;<span class="string">"time"</span> : <span class="keyword">new</span> <span class="built_in">Date</span>()&#125;;</span><br><span class="line">$.post(url, args, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> name = $(data).find(<span class="string">"name"</span>).text();</span><br><span class="line">	<span class="keyword">var</span> email = $(data).find(<span class="string">"email"</span>).text();</span><br><span class="line">	<span class="keyword">var</span> website = $(data).find(<span class="string">"website"</span>).text();</span><br><span class="line">&#125;, <span class="string">"JSON"</span>);</span><br><span class="line"></span><br><span class="line">$.getJSON(url, args, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123; <span class="comment">// 这里直接通过getJSON 将 data 转为JSON格式</span></span><br><span class="line">	<span class="keyword">var</span> name = data.person.name;</span><br><span class="line">	<span class="keyword">var</span> email = data.person.email;</span><br><span class="line">	<span class="keyword">var</span> website = data.person.website;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Ajax的全局事件"><a href="#Ajax的全局事件" class="headerlink" title="Ajax的全局事件"></a>Ajax的全局事件</h3><ul>
+<li><p>所谓全局事件，就是在所有ajax调用的时候，都会执行的事件</p>
+<ul>
+<li>例如：我有一个请求开始的动画，我整个页面写了100个Ajax</li>
+<li>有一天 我想把所有的动画全部改了 我要改100个</li>
+<li>全局事件就是用在这个地方的</li>
+</ul>
+</li>
+<li><p>.ajaxComplete()</p>
+<ul>
+<li>当Ajax请求完成后注册一个回调函数。这是一个 AjaxEvent。</li>
+<li>Ajax &gt; 全局 Ajax 事件处理器</li>
+</ul>
+</li>
+<li><p>.ajaxError()</p>
+<ul>
+<li>Ajax请求出错时注册一个回调处理函数，这是一个 Ajax Event。</li>
+<li>Ajax &gt; 全局 Ajax 事件处理器</li>
+</ul>
+</li>
+<li><p>.ajaxSend()</p>
+<ul>
+<li>在Ajax请求发送之前绑定一个要执行的函数，这是一个 Ajax Event.</li>
+<li>Ajax &gt; 全局 Ajax 事件处理器</li>
+</ul>
+</li>
+<li><p>.ajaxStart()</p>
+<ul>
+<li>在AJAX 请求刚开始时执行一个处理函数。 这是一个 Ajax Event.</li>
+<li>Ajax &gt; 全局 Ajax 事件处理器</li>
+</ul>
+</li>
+<li><p>.ajaxStop()</p>
+<ul>
+<li>在AJAX 请求完成时执行一个处理函数。 这是一个 Ajax Event。</li>
+<li>Ajax &gt; 全局 Ajax 事件处理器</li>
+</ul>
+</li>
+<li><p>.ajaxSuccess()</p>
+<ul>
+<li>绑定一个函数当 Ajax 请求成功完成时执行。 这是一个Ajax Event.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ajaxComplete(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> $( <span class="string">".log"</span> ).text( <span class="string">"Triggered ajaxComplete handler."</span> );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h3 id="jQuery-Servlet实现-验证用户名是否存在"><a href="#jQuery-Servlet实现-验证用户名是否存在" class="headerlink" title="jQuery + Servlet实现 验证用户名是否存在"></a>jQuery + Servlet实现 验证用户名是否存在</h3><ul>
 <li>HTML 写法</li>
 </ul>
@@ -749,6 +837,55 @@
 <h3 id="学习学习"><a href="#学习学习" class="headerlink" title="学习学习"></a>学习学习</h3><p><a href="好东西">http://bookshadow.com/weblog/2014/09/26/jquery-blockui-js-introduction/</a> </p>
 <h4 id="全局覆盖"><a href="#全局覆盖" class="headerlink" title="全局覆盖"></a>全局覆盖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// change message border</span><br><span class="line">$.blockUI.defaults.css.border = &apos;5px solid red&apos;;</span><br><span class="line"></span><br><span class="line">// make fadeOut effect shorter</span><br><span class="line">$.blockUI.defaults.fadeOut = 200;</span><br></pre></td></tr></table></figure>
 <h4 id="局部覆盖"><a href="#局部覆盖" class="headerlink" title="局部覆盖"></a>局部覆盖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// change message border</span><br><span class="line">$.blockUI(&#123; css: &#123; border = &apos;5px solid red&apos;&#125; &#125;);</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">// make fadeOut effect shorter</span><br><span class="line">$.unblockUI(&#123; fadeOut: 200 &#125;);</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">// use a different message</span><br><span class="line">$.blockUI(&#123; message: &apos;Hold on!&apos; &#125;);</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">// use a different message</span><br><span class="line">$(&apos;#myDiv&apos;).block(&#123; message: &apos;Processing...&apos; &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ul>
+<li>xmlHttp.response 和 xmlHttp.responseText 都是获取响应<ul>
+<li>responseText 获取的永远是以文本格式，字符串形式的响应体</li>
+<li>response 会 根据 responseType的变化而变化<ul>
+<li>xmlHttp.responseType = “json” 则 response 则为 json 格式</li>
+<li>通过代码告诉请求代理对象服务器端响应的是JSON对象 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="模板引擎的使用（这里用的是art-template）"><a href="#模板引擎的使用（这里用的是art-template）" class="headerlink" title="模板引擎的使用（这里用的是art-template）"></a>模板引擎的使用（这里用的是art-template）</h3><ul>
+<li>首先我们要选择模板引擎<ul>
+<li>市面上的模板引擎很多<ul>
+<li>art-template（国产）</li>
+<li>Handlebars（最火）</li>
+<li>ejs</li>
+<li>doT</li>
+<li>swig（不维护了）</li>
+<li>……</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>下载模板引擎JS文件</li>
+<li>引入到页面中<ul>
+<li>&lt;script src=”js/template-web.js”&gt;&lt;/script&gt;</li>
+</ul>
+</li>
+<li>准备一个模板</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;script id = <span class="string">"tmple"</span> type=<span class="string">"text/javascript"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="comment">// 如果 type 不为 text/javascript 那么 标签内部的内容不会作为 js语句 执行</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>准备一个数据</li>
+<li>通过模板引擎的JS文件提供的一个函数/方法 将模板和数据整合的到渲染结果HTML</li>
+<li>将渲染结果的HTML设置到某个元素的innderHTML中</li>
+</ul>
+<h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><ul>
+<li>跨域可以说Ajax没有一点关系，也可以说与Ajax有着绝对的联系</li>
+</ul>
+<h3 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h3><pre><code>同源策略是浏览器的一种安全策略
+所谓同源是指：域名，协议，端口 完全相同
+只有同源的地址才可以通过Ajax的方式请求
+不同源地址之间，默认不能相互进行Ajax请求
+不同源地址之间的请求我们称之为跨域请求
+</code></pre><p>不同源则报错：<font style="color:red">No ‘Access-Control-Allow-Origin’ header is present on the requested resource</font></p>
+<ul>
+<li>翻译过来就是 目标地址 不允许不同源的地址对其进行Ajax操作<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3></li>
+</ul>
 
       
     </div>
@@ -906,7 +1043,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Ajax"><span class="nav-number">1.</span> <span class="nav-text">什么是Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不用刷新整个页面就可以与服务器通讯的方法"><span class="nav-number">1.1.</span> <span class="nav-text">不用刷新整个页面就可以与服务器通讯的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax工具包"><span class="nav-number">1.2.</span> <span class="nav-text">Ajax工具包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax的缺陷"><span class="nav-number">1.3.</span> <span class="nav-text">Ajax的缺陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">2.</span> <span class="nav-text">XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建XMLHttpRequest对象"><span class="nav-number">2.1.</span> <span class="nav-text">创建XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">2.2.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#以下用于发送："><span class="nav-number">2.2.1.</span> <span class="nav-text">以下用于发送：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#以下用于请求："><span class="nav-number">2.2.2.</span> <span class="nav-text">以下用于请求：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个简单的案例"><span class="nav-number">2.3.</span> <span class="nav-text">一个简单的案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送请求"><span class="nav-number">2.4.</span> <span class="nav-text">发送请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#onreadystatechange"><span class="nav-number">2.4.1.</span> <span class="nav-text">onreadystatechange</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#open-methdo-url-asynch"><span class="nav-number">2.4.2.</span> <span class="nav-text">open(methdo, url, asynch)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#send-data"><span class="nav-number">2.4.3.</span> <span class="nav-text">send(data)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setRequestHeader-header-value"><span class="nav-number">2.4.4.</span> <span class="nav-text">setRequestHeader(header, value)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#post示例"><span class="nav-number">2.4.4.1.</span> <span class="nav-text">post示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收响应"><span class="nav-number">2.5.</span> <span class="nav-text">接收响应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#readyState"><span class="nav-number">2.5.1.</span> <span class="nav-text">readyState</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#status"><span class="nav-number">2.5.2.</span> <span class="nav-text">status</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#responseText"><span class="nav-number">2.5.3.</span> <span class="nav-text">responseText</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据格式"><span class="nav-number">3.</span> <span class="nav-text">数据格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解析HTML"><span class="nav-number">3.1.</span> <span class="nav-text">解析HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例如"><span class="nav-number">3.1.1.</span> <span class="nav-text">例如</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">3.1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">3.1.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML"><span class="nav-number">3.2.</span> <span class="nav-text">XML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON"><span class="nav-number">3.3.</span> <span class="nav-text">JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串转为json对象"><span class="nav-number">3.3.1.</span> <span class="nav-text">字符串转为json对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#看实战学操作"><span class="nav-number">4.</span> <span class="nav-text">看实战学操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发送post请求，判断账户名是否存在"><span class="nav-number">4.1.</span> <span class="nav-text">发送post请求，判断账户名是否存在</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSP的写法"><span class="nav-number">4.1.1.</span> <span class="nav-text">JSP的写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Servlet写法"><span class="nav-number">4.1.2.</span> <span class="nav-text">Servlet写法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应内容为XML"><span class="nav-number">4.2.</span> <span class="nav-text">响应内容为XML</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JQuery的Ajax"><span class="nav-number">5.</span> <span class="nav-text">JQuery的Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery-Servlet实现-验证用户名是否存在"><span class="nav-number">5.1.</span> <span class="nav-text">jQuery + Servlet实现 验证用户名是否存在</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用jackson包去生成json"><span class="nav-number">6.</span> <span class="nav-text">使用jackson包去生成json</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先写好一个class"><span class="nav-number">6.1.</span> <span class="nav-text">先写好一个class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写一个main类去调用上述Customer"><span class="nav-number">6.2.</span> <span class="nav-text">写一个main类去调用上述Customer</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-block-ui"><span class="nav-number">7.</span> <span class="nav-text">jQuery block ui</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#阻止页面交互"><span class="nav-number">7.1.</span> <span class="nav-text">阻止页面交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义消息阻塞UI"><span class="nav-number">7.2.</span> <span class="nav-text">自定义消息阻塞UI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义样式阻塞UI"><span class="nav-number">7.3.</span> <span class="nav-text">自定义样式阻塞UI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解除对页面的遮罩"><span class="nav-number">7.4.</span> <span class="nav-text">解除对页面的遮罩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用缺省设置对所有的ajax请求都使用UI遮罩"><span class="nav-number">7.5.</span> <span class="nav-text">使用缺省设置对所有的ajax请求都使用UI遮罩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习学习"><span class="nav-number">7.6.</span> <span class="nav-text">学习学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局覆盖"><span class="nav-number">7.6.1.</span> <span class="nav-text">全局覆盖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部覆盖"><span class="nav-number">7.6.2.</span> <span class="nav-text">局部覆盖</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Ajax"><span class="nav-number">1.</span> <span class="nav-text">什么是Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不用刷新整个页面就可以与服务器通讯的方法"><span class="nav-number">1.1.</span> <span class="nav-text">不用刷新整个页面就可以与服务器通讯的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax工具包"><span class="nav-number">1.2.</span> <span class="nav-text">Ajax工具包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax的缺陷"><span class="nav-number">1.3.</span> <span class="nav-text">Ajax的缺陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">2.</span> <span class="nav-text">XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建XMLHttpRequest对象"><span class="nav-number">2.1.</span> <span class="nav-text">创建XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">2.2.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#以下用于发送："><span class="nav-number">2.2.1.</span> <span class="nav-text">以下用于发送：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#以下用于请求："><span class="nav-number">2.2.2.</span> <span class="nav-text">以下用于请求：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个简单的案例"><span class="nav-number">2.3.</span> <span class="nav-text">一个简单的案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送请求"><span class="nav-number">2.4.</span> <span class="nav-text">发送请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#onreadystatechange"><span class="nav-number">2.4.1.</span> <span class="nav-text">onreadystatechange</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#open-methdo-url-asynch"><span class="nav-number">2.4.2.</span> <span class="nav-text">open(methdo, url, asynch)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#send-data"><span class="nav-number">2.4.3.</span> <span class="nav-text">send(data)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setRequestHeader-header-value"><span class="nav-number">2.4.4.</span> <span class="nav-text">setRequestHeader(header, value)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#post示例"><span class="nav-number">2.4.4.1.</span> <span class="nav-text">post示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收响应"><span class="nav-number">2.5.</span> <span class="nav-text">接收响应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#readyState"><span class="nav-number">2.5.1.</span> <span class="nav-text">readyState</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#status"><span class="nav-number">2.5.2.</span> <span class="nav-text">status</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#responseText"><span class="nav-number">2.5.3.</span> <span class="nav-text">responseText</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据格式"><span class="nav-number">3.</span> <span class="nav-text">数据格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解析HTML"><span class="nav-number">3.1.</span> <span class="nav-text">解析HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例如"><span class="nav-number">3.1.1.</span> <span class="nav-text">例如</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">3.1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">3.1.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML"><span class="nav-number">3.2.</span> <span class="nav-text">XML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON"><span class="nav-number">3.3.</span> <span class="nav-text">JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串转为json对象"><span class="nav-number">3.3.1.</span> <span class="nav-text">字符串转为json对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#看实战学操作"><span class="nav-number">4.</span> <span class="nav-text">看实战学操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发送post请求，判断账户名是否存在"><span class="nav-number">4.1.</span> <span class="nav-text">发送post请求，判断账户名是否存在</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSP的写法"><span class="nav-number">4.1.1.</span> <span class="nav-text">JSP的写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Servlet写法"><span class="nav-number">4.1.2.</span> <span class="nav-text">Servlet写法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应内容为XML"><span class="nav-number">4.2.</span> <span class="nav-text">响应内容为XML</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JQuery的Ajax"><span class="nav-number">5.</span> <span class="nav-text">JQuery的Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax-方法（底层接口）"><span class="nav-number">5.1.</span> <span class="nav-text">ajax 方法（底层接口）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么使用jQuery呢"><span class="nav-number">5.1.1.</span> <span class="nav-text">为什么使用jQuery呢</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#load方法"><span class="nav-number">5.2.</span> <span class="nav-text">load方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get和post-方法"><span class="nav-number">5.3.</span> <span class="nav-text">get和post 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax的全局事件"><span class="nav-number">5.4.</span> <span class="nav-text">Ajax的全局事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery-Servlet实现-验证用户名是否存在"><span class="nav-number">5.5.</span> <span class="nav-text">jQuery + Servlet实现 验证用户名是否存在</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用jackson包去生成json"><span class="nav-number">6.</span> <span class="nav-text">使用jackson包去生成json</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先写好一个class"><span class="nav-number">6.1.</span> <span class="nav-text">先写好一个class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写一个main类去调用上述Customer"><span class="nav-number">6.2.</span> <span class="nav-text">写一个main类去调用上述Customer</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-block-ui"><span class="nav-number">7.</span> <span class="nav-text">jQuery block ui</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#阻止页面交互"><span class="nav-number">7.1.</span> <span class="nav-text">阻止页面交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义消息阻塞UI"><span class="nav-number">7.2.</span> <span class="nav-text">自定义消息阻塞UI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义样式阻塞UI"><span class="nav-number">7.3.</span> <span class="nav-text">自定义样式阻塞UI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解除对页面的遮罩"><span class="nav-number">7.4.</span> <span class="nav-text">解除对页面的遮罩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用缺省设置对所有的ajax请求都使用UI遮罩"><span class="nav-number">7.5.</span> <span class="nav-text">使用缺省设置对所有的ajax请求都使用UI遮罩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习学习"><span class="nav-number">7.6.</span> <span class="nav-text">学习学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局覆盖"><span class="nav-number">7.6.1.</span> <span class="nav-text">全局覆盖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部覆盖"><span class="nav-number">7.6.2.</span> <span class="nav-text">局部覆盖</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number">8.</span> <span class="nav-text">补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模板引擎的使用（这里用的是art-template）"><span class="nav-number">8.1.</span> <span class="nav-text">模板引擎的使用（这里用的是art-template）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域"><span class="nav-number">9.</span> <span class="nav-text">跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同源策略"><span class="nav-number">9.1.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案"><span class="nav-number">9.2.</span> <span class="nav-text">解决方案</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1462,7 +1599,7 @@
     </script>
     <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
       <div class="powered-by"></div>
-      <span class="post-count">全站博客共73.4k字</span>
+      <span class="post-count">全站博客共75.9k字</span>
     </div>
 </footer>
 </html>
