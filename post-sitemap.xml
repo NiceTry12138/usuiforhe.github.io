@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2018/11/23/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</loc>
+        <lastmod>2018-12-05T06:15:12.742Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/12/04/Box2D%E5%9C%A8cocos%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/</loc>
+        <lastmod>2018-12-04T19:47:40.856Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2018/10/13/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84JavaWeb-java%E7%AF%87/</loc>
         <lastmod>2018-12-02T08:38:31.392Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -25,14 +41,6 @@
     <url>
         <loc>http://yoursite.com/2018/11/22/MyBatis/</loc>
         <lastmod>2018-12-01T05:33:08.690Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/11/23/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</loc>
-        <lastmod>2018-11-24T23:54:07.242Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
