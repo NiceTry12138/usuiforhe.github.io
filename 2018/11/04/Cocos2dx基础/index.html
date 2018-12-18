@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="Box2D物理引擎在Cocos的应用 为了能够使用BOX2D，所以需要在vs中配置 右键工程名，选择属性 在常规中 设置 附加包含目录（第一个） 修改 $(EngineRoot)external\chipmunk\include\chipmunk  为 $(EngineRoot)external\Box2D\include\   在 预处理 器中 设置 预处理器定义 修改 CC_ENABLE_CH">
+<meta name="description" content="Cocos2dx-网络通信 Socket通讯 http协议 WebSocket协议        Cocos2d-x封装了3个类来处理HTTP请求 HttpRequest HttpClient HttpResponse   他们在命名空间cocos2d::network中定义 WebSocket protocol是HTML5一种新的协议 实现了浏览器和服务器全双工通信 实现浏览器和服务器的即时通讯">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cocos2dx基础">
 <meta property="og:url" content="http://yoursite.com/2018/11/04/Cocos2dx基础/index.html">
 <meta property="og:site_name" content="lc_love_myh">
-<meta property="og:description" content="Box2D物理引擎在Cocos的应用 为了能够使用BOX2D，所以需要在vs中配置 右键工程名，选择属性 在常规中 设置 附加包含目录（第一个） 修改 $(EngineRoot)external\chipmunk\include\chipmunk  为 $(EngineRoot)external\Box2D\include\   在 预处理 器中 设置 预处理器定义 修改 CC_ENABLE_CH">
+<meta property="og:description" content="Cocos2dx-网络通信 Socket通讯 http协议 WebSocket协议        Cocos2d-x封装了3个类来处理HTTP请求 HttpRequest HttpClient HttpResponse   他们在命名空间cocos2d::network中定义 WebSocket protocol是HTML5一种新的协议 实现了浏览器和服务器全双工通信 实现浏览器和服务器的即时通讯">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-06T13:41:10.187Z">
+<meta property="og:updated_time" content="2018-12-18T04:44:19.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cocos2dx基础">
-<meta name="twitter:description" content="Box2D物理引擎在Cocos的应用 为了能够使用BOX2D，所以需要在vs中配置 右键工程名，选择属性 在常规中 设置 附加包含目录（第一个） 修改 $(EngineRoot)external\chipmunk\include\chipmunk  为 $(EngineRoot)external\Box2D\include\   在 预处理 器中 设置 预处理器定义 修改 CC_ENABLE_CH">
+<meta name="twitter:description" content="Cocos2dx-网络通信 Socket通讯 http协议 WebSocket协议        Cocos2d-x封装了3个类来处理HTTP请求 HttpRequest HttpClient HttpResponse   他们在命名空间cocos2d::network中定义 WebSocket protocol是HTML5一种新的协议 实现了浏览器和服务器全双工通信 实现浏览器和服务器的即时通讯">
 
 
 
@@ -386,7 +386,140 @@
       
 
       
-        <h1 id="Box2D物理引擎在Cocos的应用"><a href="#Box2D物理引擎在Cocos的应用" class="headerlink" title="Box2D物理引擎在Cocos的应用"></a>Box2D物理引擎在Cocos的应用</h1><ul>
+        <h1 id="Cocos2dx-网络通信"><a href="#Cocos2dx-网络通信" class="headerlink" title="Cocos2dx-网络通信"></a>Cocos2dx-网络通信</h1><ol>
+<li>Socket通讯</li>
+<li>http协议</li>
+<li>WebSocket协议     </li>
+</ol>
+<ul>
+<li>Cocos2d-x封装了3个类来处理HTTP请求<ul>
+<li>HttpRequest</li>
+<li>HttpClient</li>
+<li>HttpResponse</li>
+</ul>
+</li>
+<li>他们在命名空间cocos2d::network中定义</li>
+<li>WebSocket protocol是HTML5一种新的协议<ul>
+<li>实现了浏览器和服务器全双工通信</li>
+<li>实现浏览器和服务器的即时通讯</li>
+</ul>
+</li>
+</ul>
+<h2 id="使用Http协议进行网络通信"><a href="#使用Http协议进行网络通信" class="headerlink" title="使用Http协议进行网络通信"></a>使用Http协议进行网络通信</h2><ol>
+<li>HttpRequest</li>
+<li>HttpClient</li>
+<li>HttpRespose</li>
+</ol>
+<ul>
+<li>在使用上述三个类的时候，必须遵守一定的流程<ol>
+<li>创建HttpRequest实例</li>
+<li>设置请求方式-Get/Post等</li>
+<li>设置请求地址和发送数据</li>
+<li>设置响应回调函数，在回调函数中处理获取的数据</li>
+<li>创建HttpClient实例，发送请求</li>
+<li>释放连接</li>
+</ol>
+</li>
+</ul>
+<h3 id="HttpRequest"><a href="#HttpRequest" class="headerlink" title="HttpRequest"></a>HttpRequest</h3><ul>
+<li>是一种数据类型</li>
+<li><p>提供了一些定义或获取HTTP请求的参数的方法</p>
+</li>
+<li><p>常用方法</p>
+<ul>
+<li>设置请求连接<ul>
+<li>void setUrl(const char *url)</li>
+</ul>
+</li>
+<li>设置请求类型<ul>
+<li>void setRequestType(Type type)</li>
+<li>Type是一个枚举类型</li>
+<li>enum class Type{<ul>
+<li>GET,</li>
+<li>POST,</li>
+<li>PUT,</li>
+<li>DELETE,</li>
+<li>UNKOW,</li>
+</ul>
+</li>
+<li>};</li>
+</ul>
+</li>
+<li>设置回调函数<ul>
+<li>void setResponseCallback(Ref *pTarget, SEL_HttpResponse pSelector)</li>
+</ul>
+</li>
+<li>设置请求的数据，参数buffer是提交的数据，len是请求数据的长度<ul>
+<li>void serRequestData(const char *buffer, unsigned int len)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="HttpClient"><a href="#HttpClient" class="headerlink" title="HttpClient"></a>HttpClient</h3><ul>
+<li>在创建完HttpRequest之后，就需要创建HttpClient对象</li>
+<li>HttpClient对象控制请求相关的参数<ul>
+<li>发送请求</li>
+<li>设置请求超时时间</li>
+<li>……</li>
+</ul>
+</li>
+<li>使用单例模式，是唯一实例</li>
+<li>常用方法<ul>
+<li>发送请求<ul>
+<li>send(Http Request* request)</li>
+</ul>
+</li>
+<li>设置连接超时时间<ul>
+<li>setTimeoutForConnect(int value)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="HttpRespose"><a href="#HttpRespose" class="headerlink" title="HttpRespose"></a>HttpRespose</h3><ul>
+<li>包含服务器返回的数据等信息</li>
+<li>使用HTTPResponse提供的方法可获取这些数据<ul>
+<li>获取请求返回的数据<ul>
+<li>std::vector<char>* getResponseData();</char></li>
+</ul>
+</li>
+<li>获取返回状态（200,300,404,500…）<ul>
+<li>getResponseState()</li>
+</ul>
+</li>
+<li>判断是否返回成功<ul>
+<li>issucced()</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入头文件</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"network/HttpRequest.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"network/HttpClient.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"network/HttpResponse.h"</span></span></span><br><span class="line"><span class="comment">// 引入名空间</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cocos2d::network;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取HttpRequest对象</span></span><br><span class="line"><span class="keyword">auto</span> request = <span class="keyword">new</span> HttpRequest();</span><br><span class="line"><span class="comment">// 设置请求连接</span></span><br><span class="line">request-&gt;setUrl(<span class="string">"http://httpbin.org/ip"</span>);</span><br><span class="line"><span class="comment">// 设置请求方式</span></span><br><span class="line">request-&gt;setRequestType(HttpRequest::Type::GET);</span><br><span class="line"><span class="comment">// 设置发送数据</span></span><br><span class="line"><span class="keyword">char</span> data[<span class="number">50</span>] = <span class="string">"data"</span>;</span><br><span class="line">request-&gt;setRequestData(data, <span class="built_in">strlen</span>(data));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置回调函数</span></span><br><span class="line">request-&gt;setResponseCallback(CC_CALLBACK_2(HelloWorld::ConnetIntnet,<span class="keyword">this</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取唯一的clien实例</span></span><br><span class="line"><span class="keyword">auto</span> client = HttpClient::getInstance();</span><br><span class="line"><span class="comment">// 设置超时时间</span></span><br><span class="line">client-&gt;setTimeoutForConnect(<span class="number">60</span>);</span><br><span class="line"><span class="comment">// 设置读取时间</span></span><br><span class="line">client-&gt;setTimeoutForRead(<span class="number">100</span>);</span><br><span class="line"><span class="comment">// 发送请求</span></span><br><span class="line">client-&gt;send(request);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> HelloWorld::ConnetIntnet(HttpClient * client, HttpResponse * response)</span><br><span class="line">&#123;</span><br><span class="line">	CCLOG(<span class="string">"response code = %d"</span>, response-&gt;getResponseCode());</span><br><span class="line">	<span class="keyword">if</span> (response-&gt;isSucceed())&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; *data = response-&gt;getResponseData();</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">stringstream</span> oss;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; data-&gt;size(); i++) &#123;</span><br><span class="line">			oss &lt;&lt; (*data)[i];</span><br><span class="line">		&#125;</span><br><span class="line">		CCLOG(<span class="string">" response data is %s"</span>, oss.str().c_str());</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		CCLOG(<span class="string">"error msg is : %s"</span>, response-&gt;getErrorBuffer());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="发送POST请求"><a href="#发送POST请求" class="headerlink" title="发送POST请求"></a>发送POST请求</h3><ul>
+<li>很简单</li>
+<li>修改上述的部分代码即可</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">request-&gt;setUrl(<span class="string">"http://httpbin.org/post"</span>);</span><br><span class="line"><span class="comment">// 设置请求方式</span></span><br><span class="line">request-&gt;setRequestType(HttpRequest::Type::POST);</span><br><span class="line"><span class="comment">// 设置发送数据</span></span><br><span class="line"><span class="keyword">char</span> data[<span class="number">50</span>] = <span class="string">"controller=cocos2d&amp;username=test"</span>;</span><br><span class="line">request-&gt;setRequestData(data, <span class="built_in">strlen</span>(data));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 最后加上</span></span><br><span class="line">request-&gt;release();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>观察输出结构<ul>
+<li>form 表单中 controller 就是 cocos2d，username 是 test</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">response code = 200</span><br><span class="line"> response data is &#123;</span><br><span class="line">  "args": &#123;&#125;, </span><br><span class="line">  "data": "", </span><br><span class="line">  "files": &#123;&#125;, </span><br><span class="line">  "form": &#123;</span><br><span class="line">    "controller": "cocos2d", </span><br><span class="line">    "username": "test"</span><br><span class="line">  &#125;, </span><br><span class="line">  "headers": &#123;</span><br><span class="line">    "Accept": "*/*", </span><br><span class="line">    "Accept-Encoding": "identity", </span><br><span class="line">    "Connection": "close", </span><br><span class="line">    "Content-Length": "32", </span><br><span class="line">    "Content-Type": "application/x-www-form-urlencoded", </span><br><span class="line">    "Host": "httpbin.org"</span><br><span class="line">  &#125;, </span><br><span class="line">  "json": null, </span><br><span class="line">  "origin": "61.136.151.254", </span><br><span class="line">  "url": "http://httpbin.org/post"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="设置Content-Type"><a href="#设置Content-Type" class="headerlink" title="设置Content-Type"></a>设置Content-Type</h4><ul>
+<li><p>POST请求需要设置 Content-type的格式</p>
+<ul>
+<li>application/html 或者 xml 或 json</li>
+<li>默认为text/html</li>
+</ul>
+</li>
+<li><p>一般来说 Content-Type:application/html;charset=uft-8</p>
+</li>
+</ul>
+<h4 id="设置请求头信息"><a href="#设置请求头信息" class="headerlink" title="设置请求头信息"></a>设置请求头信息</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">set</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; header;</span><br><span class="line">header.push_back(<span class="string">"Content-Type:application/html;charset=utf-8"</span>);</span><br><span class="line">request-&gt;setHeaders(header);</span><br><span class="line"><span class="comment">// 具体情况具体分析吧，有的服务器使用的是XML，有的是HTML，有的是Json</span></span><br></pre></td></tr></table></figure>
+<h1 id="Box2D物理引擎在Cocos的应用"><a href="#Box2D物理引擎在Cocos的应用" class="headerlink" title="Box2D物理引擎在Cocos的应用"></a>Box2D物理引擎在Cocos的应用</h1><ul>
 <li>为了能够使用BOX2D，所以需要在vs中配置<ul>
 <li>右键工程名，选择属性</li>
 <li>在常规中 设置 附加包含目录（第一个）<ul>
@@ -618,7 +751,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Box2D物理引擎在Cocos的应用"><span class="nav-number">1.</span> <span class="nav-text">Box2D物理引擎在Cocos的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建世界，设置边界"><span class="nav-number">1.1.</span> <span class="nav-text">创建世界，设置边界</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#碰撞检测"><span class="nav-number">1.2.</span> <span class="nav-text">碰撞检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关节"><span class="nav-number">1.3.</span> <span class="nav-text">关节</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动作"><span class="nav-number">2.</span> <span class="nav-text">动作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cocos2dx-网络通信"><span class="nav-number">1.</span> <span class="nav-text">Cocos2dx-网络通信</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Http协议进行网络通信"><span class="nav-number">1.1.</span> <span class="nav-text">使用Http协议进行网络通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HttpRequest"><span class="nav-number">1.1.1.</span> <span class="nav-text">HttpRequest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HttpClient"><span class="nav-number">1.1.2.</span> <span class="nav-text">HttpClient</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HttpRespose"><span class="nav-number">1.1.3.</span> <span class="nav-text">HttpRespose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送POST请求"><span class="nav-number">1.1.4.</span> <span class="nav-text">发送POST请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置Content-Type"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">设置Content-Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置请求头信息"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">设置请求头信息</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Box2D物理引擎在Cocos的应用"><span class="nav-number">2.</span> <span class="nav-text">Box2D物理引擎在Cocos的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建世界，设置边界"><span class="nav-number">2.1.</span> <span class="nav-text">创建世界，设置边界</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#碰撞检测"><span class="nav-number">2.2.</span> <span class="nav-text">碰撞检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关节"><span class="nav-number">2.3.</span> <span class="nav-text">关节</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动作"><span class="nav-number">3.</span> <span class="nav-text">动作</span></a></li></ol></div>
             
 
           </div>
@@ -1174,7 +1307,7 @@
     </script>
     <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
       <div class="powered-by"></div>
-      <span class="post-count">全站博客共83.9k字</span>
+      <span class="post-count">全站博客共84.8k字</span>
     </div>
 </footer>
 </html>
