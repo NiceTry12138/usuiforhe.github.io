@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="lc_love_myh">
 <meta property="og:description" content="Cocos2dx-网络通信 Socket通讯 http协议 WebSocket协议        Cocos2d-x封装了3个类来处理HTTP请求 HttpRequest HttpClient HttpResponse   他们在命名空间cocos2d::network中定义 WebSocket protocol是HTML5一种新的协议 实现了浏览器和服务器全双工通信 实现浏览器和服务器的即时通讯">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-18T04:44:19.884Z">
+<meta property="og:updated_time" content="2018-12-20T03:08:15.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cocos2dx基础">
 <meta name="twitter:description" content="Cocos2dx-网络通信 Socket通讯 http协议 WebSocket协议        Cocos2d-x封装了3个类来处理HTTP请求 HttpRequest HttpClient HttpResponse   他们在命名空间cocos2d::network中定义 WebSocket protocol是HTML5一种新的协议 实现了浏览器和服务器全双工通信 实现浏览器和服务器的即时通讯">
@@ -519,6 +519,30 @@
 </li>
 </ul>
 <h4 id="设置请求头信息"><a href="#设置请求头信息" class="headerlink" title="设置请求头信息"></a>设置请求头信息</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">set</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; header;</span><br><span class="line">header.push_back(<span class="string">"Content-Type:application/html;charset=utf-8"</span>);</span><br><span class="line">request-&gt;setHeaders(header);</span><br><span class="line"><span class="comment">// 具体情况具体分析吧，有的服务器使用的是XML，有的是HTML，有的是Json</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用WebSocket发送请求"><a href="#使用WebSocket发送请求" class="headerlink" title="使用WebSocket发送请求"></a>使用WebSocket发送请求</h2><h3 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h3><ul>
+<li>WebSocket类了跟websocket相关操作的方法。他的作用包括<ol>
+<li>创建socket对象<ul>
+<li>new 方法</li>
+</ul>
+</li>
+<li>向服务器发送数据，可以是文本数据，也可以是二进制数据<ul>
+<li>send方法</li>
+</ul>
+</li>
+<li>半段连接状态</li>
+<li>等等</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">ErrorCode</span>&#123;</span></span><br><span class="line">	TIME_OUT,<span class="comment">// 连接超时</span></span><br><span class="line">	CONNECTION_FAILURE, <span class="comment">// 连接失败</span></span><br><span class="line">	UNKNOW, <span class="comment">// 为止错误</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cocos2d::network::WebSocket* wsSendText = <span class="keyword">new</span> network::WebSocket();</span><br><span class="line"><span class="comment">// 创建对象</span></span><br><span class="line"></span><br><span class="line">wsSendText-&gt;init(*<span class="keyword">this</span>, <span class="string">"ws://echo.websocket.org"</span>);</span><br><span class="line"><span class="comment">// 初始化请求地址</span></span><br><span class="line"></span><br><span class="line">weSendText-&gt;send(<span class="string">"hello WebSocket, I'm a text message"</span>);</span><br><span class="line"><span class="comment">// 发送数据</span></span><br></pre></td></tr></table></figure>
+<h3 id="WebSocket-Delegete"><a href="#WebSocket-Delegete" class="headerlink" title="WebSocket::Delegete"></a>WebSocket::Delegete</h3><ul>
+<li>类似Socket</li>
+<li>WebSocket::Delegete提供了四个纯虚函数</li>
+<li>在使用WebSocket时，要先继承Delegete类，实现四个纯虚函数</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">onOpen</span><span class="params">(WebSocket* ws)</span></span>;</span><br><span class="line"><span class="comment">// 当打开websocket连接时调用</span></span><br><span class="line"><span class="comment">// 即WebSocket new 出来的时候调用的函数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">onMessage</span><span class="params">(WebSocket* ws, <span class="keyword">const</span> Data&amp; data)</span></span>;</span><br><span class="line"><span class="comment">// 当接收到数据时调用</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">onClose</span><span class="params">(WebSocket* ws)</span></span>;</span><br><span class="line"><span class="comment">// 当关闭连接时调用</span></span><br><span class="line"></span><br><span class="line"><span class="function">voirtual <span class="keyword">void</span> <span class="title">onError</span><span class="params">(WebSocket* ws, <span class="keyword">const</span> ErrorCode&amp; error)</span></span>;</span><br><span class="line"><span class="comment">// 当发送数据但没有建立连接，或者收到断开连接信号时调用</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">wstest = <span class="keyword">new</span> WebSocket();</span><br><span class="line">wstest-&gt;init(*<span class="keyword">this</span>,	<span class="string">"ws://echo.websocket.org"</span>);</span><br><span class="line">wstest-&gt;send(<span class="string">"hello world"</span>);</span><br><span class="line">wstest-&gt;close();</span><br></pre></td></tr></table></figure>
 <h1 id="Box2D物理引擎在Cocos的应用"><a href="#Box2D物理引擎在Cocos的应用" class="headerlink" title="Box2D物理引擎在Cocos的应用"></a>Box2D物理引擎在Cocos的应用</h1><ul>
 <li>为了能够使用BOX2D，所以需要在vs中配置<ul>
 <li>右键工程名，选择属性</li>
@@ -707,7 +731,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -751,7 +775,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cocos2dx-网络通信"><span class="nav-number">1.</span> <span class="nav-text">Cocos2dx-网络通信</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Http协议进行网络通信"><span class="nav-number">1.1.</span> <span class="nav-text">使用Http协议进行网络通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HttpRequest"><span class="nav-number">1.1.1.</span> <span class="nav-text">HttpRequest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HttpClient"><span class="nav-number">1.1.2.</span> <span class="nav-text">HttpClient</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HttpRespose"><span class="nav-number">1.1.3.</span> <span class="nav-text">HttpRespose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送POST请求"><span class="nav-number">1.1.4.</span> <span class="nav-text">发送POST请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置Content-Type"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">设置Content-Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置请求头信息"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">设置请求头信息</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Box2D物理引擎在Cocos的应用"><span class="nav-number">2.</span> <span class="nav-text">Box2D物理引擎在Cocos的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建世界，设置边界"><span class="nav-number">2.1.</span> <span class="nav-text">创建世界，设置边界</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#碰撞检测"><span class="nav-number">2.2.</span> <span class="nav-text">碰撞检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关节"><span class="nav-number">2.3.</span> <span class="nav-text">关节</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动作"><span class="nav-number">3.</span> <span class="nav-text">动作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cocos2dx-网络通信"><span class="nav-number">1.</span> <span class="nav-text">Cocos2dx-网络通信</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Http协议进行网络通信"><span class="nav-number">1.1.</span> <span class="nav-text">使用Http协议进行网络通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HttpRequest"><span class="nav-number">1.1.1.</span> <span class="nav-text">HttpRequest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HttpClient"><span class="nav-number">1.1.2.</span> <span class="nav-text">HttpClient</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HttpRespose"><span class="nav-number">1.1.3.</span> <span class="nav-text">HttpRespose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送POST请求"><span class="nav-number">1.1.4.</span> <span class="nav-text">发送POST请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#设置Content-Type"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">设置Content-Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置请求头信息"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">设置请求头信息</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用WebSocket发送请求"><span class="nav-number">1.2.</span> <span class="nav-text">使用WebSocket发送请求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WebSocket"><span class="nav-number">1.2.1.</span> <span class="nav-text">WebSocket</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WebSocket-Delegete"><span class="nav-number">1.2.2.</span> <span class="nav-text">WebSocket::Delegete</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Box2D物理引擎在Cocos的应用"><span class="nav-number">2.</span> <span class="nav-text">Box2D物理引擎在Cocos的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建世界，设置边界"><span class="nav-number">2.1.</span> <span class="nav-text">创建世界，设置边界</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#碰撞检测"><span class="nav-number">2.2.</span> <span class="nav-text">碰撞检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关节"><span class="nav-number">2.3.</span> <span class="nav-text">关节</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动作"><span class="nav-number">3.</span> <span class="nav-text">动作</span></a></li></ol></div>
             
 
           </div>
@@ -1307,7 +1331,7 @@
     </script>
     <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
       <div class="powered-by"></div>
-      <span class="post-count">全站博客共85.8k字</span>
+      <span class="post-count">全站博客共88.5k字</span>
     </div>
 </footer>
 </html>

@@ -7,8 +7,8 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/12/22/C#/</loc>
-        <lastmod>2018-12-19T14:33:49.676Z</lastmod>
+        <loc>http://yoursite.com/2018/12/24/Lua/</loc>
+        <lastmod>2018-12-23T13:52:41.258Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -16,7 +16,15 @@
 
     <url>
         <loc>http://yoursite.com/2018/11/04/Cocos2dx%E5%9F%BA%E7%A1%80/</loc>
-        <lastmod>2018-12-18T04:44:19.884Z</lastmod>
+        <lastmod>2018-12-20T03:08:15.917Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/12/22/C#/</loc>
+        <lastmod>2018-12-19T14:33:49.676Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
