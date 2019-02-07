@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="lc_love_myh" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="什么是Ajax允许浏览器与服务器通信而无须刷新当前页面的技术都叫Ajax 异步的Js和XML的通信 不用刷新整个页面就可以与服务器通讯的方法1. Flash 2. Java appleet 3. 框架：如果使用一组框架构造了网页，可以只更新其中一个框架，而不用惊动整个页面 4. 隐藏的iframe 5. XMLHttpRequest:该对象是对JavaScript的一个扩展，可使网页与服务器进行通">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax">
+<meta property="og:url" content="http://yoursite.com/2017/11/20/Ajax/index.html">
+<meta property="og:site_name" content="lc_love_myh">
+<meta property="og:description" content="什么是Ajax允许浏览器与服务器通信而无须刷新当前页面的技术都叫Ajax 异步的Js和XML的通信 不用刷新整个页面就可以与服务器通讯的方法1. Flash 2. Java appleet 3. 框架：如果使用一组框架构造了网页，可以只更新其中一个框架，而不用惊动整个页面 4. 隐藏的iframe 5. XMLHttpRequest:该对象是对JavaScript的一个扩展，可使网页与服务器进行通">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/1TQnuU0.png">
+<meta property="og:updated_time" content="2019-02-07T07:03:54.636Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajax">
+<meta name="twitter:description" content="什么是Ajax允许浏览器与服务器通信而无须刷新当前页面的技术都叫Ajax 异步的Js和XML的通信 不用刷新整个页面就可以与服务器通讯的方法1. Flash 2. Java appleet 3. 框架：如果使用一组框架构造了网页，可以只更新其中一个框架，而不用惊动整个页面 4. 隐藏的iframe 5. XMLHttpRequest:该对象是对JavaScript的一个扩展，可使网页与服务器进行通">
+<meta name="twitter:image" content="https://i.imgur.com/1TQnuU0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/20/Ajax/"/>
+
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+  <style>
+      .pace .pace-progress {
+          background: #1E92FB; /*进度条颜色*/
+          height: 3px;
+      }
+      .pace .pace-progress-inner {
+           box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+      }
+      .pace .pace-activity {
+          border-top-color: #1E92FB;    /*上边框颜色*/
+          border-left-color: #1E92FB;    /*左边框颜色*/
+      }
+  </style>
+
+  <title>Ajax | lc_love_myh</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+  
+  
+  
+    
+  
+  <script type="text/javascript" src=" //cdn.bootcss.com/jquery/3.1.1/jquery.min.js">
+    var a_idx = 0;
+    jQuery(document).ready(function($) {
+      $("body").click(function(e) {
+        var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");
+        var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,y = e.pageY;
+        $i.css({"z-index": 999999999999999999999999999999999999999999999999999999999999999999999,"top": y - 20,"left": x,"position": "absolute","font-weight": "bold","color": "#ff6651"});
+        $("body").append($i);$i.animate({"top": y - 180,"opacity": 0},1500,function() {$i.remove();});
+      });
+    });
+  </script>
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+
+  <iframe  frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=38358277&auto=1&height=66"></iframe>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div> 
+      <!--git的主体设置-->
+      <a href="https://usuiforhe.github.io/" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">lc_love_myh</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"><b style="background-color:white;" >往后余生 心底温柔是你，目光所至也是你。</b></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+  <style>
+      .pace .pace-progress {
+          background: #1E92FB; /*进度条颜色*/
+          height: 3px;
+      }
+      .pace .pace-progress-inner {
+           box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+      }
+      .pace .pace-activity {
+          border-top-color: #1E92FB;    /*上边框颜色*/
+          border-left-color: #1E92FB;    /*左边框颜色*/
+      }
+  </style>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/20/Ajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="lc_love_myh">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lc_love_myh">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ajax</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-20T21:12:01+08:00">
+                2017-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="什么是Ajax"><a href="#什么是Ajax" class="headerlink" title="什么是Ajax"></a>什么是Ajax</h2><pre><code>允许浏览器与服务器通信而无须刷新当前页面的技术都叫Ajax
+异步的Js和XML的通信
+</code></pre><h3 id="不用刷新整个页面就可以与服务器通讯的方法"><a href="#不用刷新整个页面就可以与服务器通讯的方法" class="headerlink" title="不用刷新整个页面就可以与服务器通讯的方法"></a>不用刷新整个页面就可以与服务器通讯的方法</h3><pre><code>1. Flash
+2. Java appleet
+3. 框架：如果使用一组框架构造了网页，可以只更新其中一个框架，而不用惊动整个页面
+4. 隐藏的iframe
+5. XMLHttpRequest:该对象是对JavaScript的一个扩展，可使网页与服务器进行通信。
+   是创建Ajax应用的最佳选择，实际上通常把Ajax当成XMLHttpRequest对象的代名词
+</code></pre><p><img src="https://i.imgur.com/1TQnuU0.png" alt=""></p>
+<h3 id="Ajax工具包"><a href="#Ajax工具包" class="headerlink" title="Ajax工具包"></a>Ajax工具包</h3><pre><code>Ajax并不是一项新技术，它实际上是几种技术，每种技术各尽其职，以一种全新的方式聚合在一起：
+1. 服务器端语言：服务器必须具备向浏览器发送特定信息的能力。Ajax与服务器语言无关
+2. XMLL:Ajax程序需要某种格式化的格式来在服务器和客户端之间传递信息，XML是其中一种选择
+3. XHTML：使用扩展HTML和CSS标准化呈现
+4. DOM：实现动态交互和显示
+5. 使用Javascript绑定和处理所有数据
+6. 使用XMLHTTP组件XMLHttpRequests对象进行异步数据读取
+</code></pre><h3 id="Ajax的缺陷"><a href="#Ajax的缺陷" class="headerlink" title="Ajax的缺陷"></a>Ajax的缺陷</h3><pre><code>1. 由JavaScript和Ajax引擎会导致引擎的兼容性问题（现在少）
+2. 页面局部刷新，导致 后退功能不好用
+3. 对流媒体的支持没有Flash和JavaApple好
+4. 一些手持设备支持性差（现在少）
+</code></pre><h2 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h2><h3 id="创建XMLHttpRequest对象"><a href="#创建XMLHttpRequest对象" class="headerlink" title="创建XMLHttpRequest对象"></a>创建XMLHttpRequest对象</h3><pre><code>function getHTTPObject(){
+    var xhr = false;
+    if(window.XMLHttpRequest){
+        xhr = new XMLHttpRequest();
+    } else if(window.ActiveXObject()){
+        xhr = new ActiveXObject(&quot;Microsoft.XMLHttp&quot;);
+    }
+    return xhr;
+}
+</code></pre><ul>
+<li>大多数浏览器都支持 <code>var xmlhttp = new XMLHttpRequest()</code></li>
+<li>IE6.0： <code>var xmlhttp = new ActiveXObject(&quot;Msxml2.XMLHTTP&quot;)</code></li>
+<li>IE5.5及更早版本的IE： <code>var xmlHttp = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);</code></li>
+<li>对window.XMLHttpRequest的调用会返回一个对象或null，如果XMLHttpRequest对象存在，啧把xhr的值设为该对象的新实例</li>
+</ul>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><h4 id="以下用于发送："><a href="#以下用于发送：" class="headerlink" title="以下用于发送："></a>以下用于发送：</h4><ol>
+<li>abort()停止当前请求</li>
+<li>getAllResponseHeader() 把HTTP请求的所有响应首部作为键值对返回</li>
+<li>getResponseHeader(“header”); 返回指定首部的串值</li>
+<li>open(“method”,”url”,bool);建立对服务器的调用，Method参数可以是put或post，url可以是相对url也可以是绝对url, 请求是否为异步请求</li>
+<li>send(content) 向服务器发送请求，没有为null，最好send里面有东西（就算是null）</li>
+<li>setRequestHeader(“header”,”value”);设置首部及其值，在设置任何首部之前必须先调用open()</li>
+</ol>
+<h4 id="以下用于请求："><a href="#以下用于请求：" class="headerlink" title="以下用于请求："></a>以下用于请求：</h4><ol>
+<li>onreadystatechange    每个状态改变的是都会出发这个事件处理器，通常会条用一个JavaScript函数</li>
+<li>readyState    请求的状态，有五个可取值：0=未初始化，1=正在加载，2=已经加载，3=交互中，4=完成</li>
+<li>responseText    服务器的响应，表示为一个串</li>
+<li>responseXML    服务器的响应，表示为XML，这个对象可以解析为Dom对象</li>
+<li>status    服务器的HTTP状态码</li>
+<li>statusText    HTTP状态码对应的文本（OK或NotFount等）</li>
+</ol>
+<h3 id="一个简单的案例"><a href="#一个简单的案例" class="headerlink" title="一个简单的案例"></a>一个简单的案例</h3><pre><code>目标，不刷新，不跳转界面，只alert 出 a.xml
+&lt;script&gt;
+    window.onload = funtion(){
+    //获取a节点
+    document.getElementByTagName(&quot;a&quot;)[0].onclick = function(){
+        // 创建一个XMLHttpRequest对象
+        var request = new XMLHttpRequest();
+
+        // 准备发送请求的数据：url加上时间戳
+        var url = this.href + &quot;?time=&quot;+new Date();
+        var method = &quot;GET&quot;;
+
+        // 调用XMLHttpRequest 对象的open方法
+        request.open(method, url);
+
+        // 调用XMLHttpRequest 对象的send方法
+        request.send(null);
+
+        // 为 XMLHttpRequest 对象添加onreadystatechange
+
+        // 判断响应是否完成：XMLHttpRequest对象的readyState属性为4的时候
+        // 再判断响应是否可用：XMLHttpReqeust对象status属性值为200
+        request.onreadystaechange = function(){
+            if(request.readyState == 4){
+                if(request.status == 200 || request.status == 304)
+                alert(request.responseText);
+            }
+
+        }
+
+        //返回false，取消原有功能，也就是说返回false后，不会跳转页面
+        return false;
+    }        
+}
+&lt;/script&gt;
+&lt;html&gt;
+    &lt;a href=&quot;a.xml&quot;&gt;跳转&lt;/a&gt;
+&lt;/html&gt;
+</code></pre><h3 id="发送请求"><a href="#发送请求" class="headerlink" title="发送请求"></a>发送请求</h3><ul>
+<li>利用XMLHttpRequest实例与服务器进行通信包含一下三个关键部分：</li>
+</ul>
+<ol>
+<li>onreadystatechange 事件处理函数</li>
+<li>open 方法</li>
+<li>send 方法</li>
+</ol>
+<h4 id="onreadystatechange"><a href="#onreadystatechange" class="headerlink" title="onreadystatechange"></a>onreadystatechange</h4><pre><code>该事件处理函数由服务器出发，而不是用户
+在Ajax执行过程中，服务器会通知客户端当前的通信状态
+这依靠更新XMLhttpRequest对象的readyState来实现
+改变readyState属性是服务器对客户端连续操作的一种方式
+每次readyState属性的改变都会触发readystatechange事件
+</code></pre><h4 id="open-methdo-url-asynch"><a href="#open-methdo-url-asynch" class="headerlink" title="open(methdo, url, asynch)"></a>open(methdo, url, asynch)</h4><ul>
+<li><p>XMlHttpRequest对象的open方法允许程序员用一个Ajax调用向服务器发送请求</p>
+</li>
+<li><p>method：请求类型，类似“GET”或“POST”的字符串。</p>
+</li>
+<li><p>在某些情况下，有些浏览器会把多个XMLHttpRequest请求的结果缓存到用一个URL，</p>
+</li>
+<li><p>如果每个请求的相应不同，但是得到的结果却会一样。所以此时加一个 时间戳 到url最后，以确保url的唯一性</p>
+</li>
+<li><p>url：路径字符串，指向你所请求的服务器上的那个文件，可以是绝对路径，也可以是相对路径</p>
+</li>
+<li><p>asynch：表示是否要异步传输，默认是true</p>
+</li>
+</ul>
+<h4 id="send-data"><a href="#send-data" class="headerlink" title="send(data)"></a>send(data)</h4><ol>
+<li>open方法定义了Ajax请求的一些细节，send方法可以为已经待命的请求发送指令</li>
+<li>data：将要发送给服务器的字符串</li>
+<li>若用”GET”请求，则不用发任何数据，即request.send(null);</li>
+<li>当向send()方法提供参数时，要确保open()中指定的方法是”POST”,如果没有数据发送，则使用null</li>
+</ol>
+<h4 id="setRequestHeader-header-value"><a href="#setRequestHeader-header-value" class="headerlink" title="setRequestHeader(header, value)"></a>setRequestHeader(header, value)</h4><ol>
+<li>当浏览器向服务器请求页面时，它会伴随这个请求发送一组首部信息，当这些首部信息是一系列描述请求的元数据（metadata）。首部信息来声明一个请求时get还是post</li>
+<li>Ajax请求中，发送首部信息的工作可以是由setRequestHeader完成</li>
+<li>参数header:首部的名字；参数value:首部的值</li>
+<li>如果用POST请求向服务器发送数据，需要将 “Content-type”的首部设置为 “application/x-www-form-urlencoded”。<ul>
+<li>他会告知服务器正在发送数据，并且数据已经符合url编码了</li>
+</ul>
+</li>
+<li>该方法必须在open()之后才能调用</li>
+</ol>
+<h5 id="post示例"><a href="#post示例" class="headerlink" title="post示例"></a>post示例</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var url = "../jsp/forumServlet";</span><br><span class="line">var nameValue = trim(document.forumiddform.name.value);</span><br><span class="line">xhr.open("POST", url);</span><br><span class="line">xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');</span><br><span class="line">xhr.send("method=name_isExist" + "&amp;name" + nameValue);</span><br></pre></td></tr></table></figure>
+<h3 id="接收响应"><a href="#接收响应" class="headerlink" title="接收响应"></a>接收响应</h3><h4 id="readyState"><a href="#readyState" class="headerlink" title="readyState"></a>readyState</h4><ol>
+<li>readyState 属性表示Ajax请求的当前状态<ol start="0">
+<li>0代表未初始化，没调用open方法</li>
+<li>1代表正在加载，open()调用了而send()没有调用</li>
+<li>2代表send()调用了，请求开始</li>
+<li>3代表交互中，服务器正在发送响应</li>
+<li>4代表完成</li>
+</ol>
+</li>
+<li>readyState值的变化会出发 readystatechange 事件，如果把onreadystaechange事件赋给函数，则每次变换调用函数</li>
+<li>readyState的值因浏览器不同有所差异，但是请求结束时，每个浏览器都会把 readyState 的值设为 4</li>
+</ol>
+<h4 id="status"><a href="#status" class="headerlink" title="status"></a>status</h4><pre><code>服务器发送的每一个响应也都有首部信息
+
+常用的状态码及其意义：
+1. 404 没有页面
+2. 403 禁止访问
+3. 500 内部服务器错误
+4. 200 一切正常
+5. 304 没有被修改
+
+在 XMLHttpRequest 对象中，服务器发送的状态码都保存在status属性中。
+</code></pre><h4 id="responseText"><a href="#responseText" class="headerlink" title="responseText"></a>responseText</h4><pre><code>XMLHttpRequest 的 responseText 属性包含了从服务器发送的数据。它是一个HTML，xml或普通文本
+当 readyState 属性值变成 4 时，responseText 属性才可以用，表明Ajax请求已经结束
+</code></pre><h2 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h2><pre><code>在服务器端Ajax时一门与语言无关的技术，在业务逻辑层使用何种服务器端语言都可以
+从服务器端接收数据的时候，那些数据必须以浏览器能够理解的格式来发送。服务器端的编程语言只能以如下三种格式返回数据：
+    1. XML
+    2. JSON
+    3. HTML
+</code></pre><h3 id="解析HTML"><a href="#解析HTML" class="headerlink" title="解析HTML"></a>解析HTML</h3><pre><code>HTML由一些普通文本组成，如果服务器通过XMLHttpRequest发送HTML，文本将存储在responseText属性中
+
+不必从responseText属性中读取数据。他已经是希望的格式，可以直接将它插入到页面中
+
+插入HTML代码最简单的方法是更新这个元素的innerHTML属性
+</code></pre><h4 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.getElementById(&quot;id&quot;).innerHTML = request.responseText;</span><br></pre></td></tr></table></figure>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><pre><code>1. 从服务器端发送的HTML代码在浏览器端不需要用Javascript解析
+2. HTML的可读性好
+3. HTML代码块与innerHTML 属性搭配，效率高
+</code></pre><h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><pre><code>1. 如需要通过Ajax更新一篇文档的多个部分，HTML不合适
+2. innnerHTML并非DOM标准（问题不大，现在浏览器大都兼容）
+</code></pre><h3 id="XML"><a href="#XML" class="headerlink" title="XML"></a>XML</h3><pre><code>1. 需要进行解析，之后再插入到HTML中
+2. 获得的 responseHTML 不能直接使用，必须先创建对应的节点作为容器
+    result = request.responseXML;
+3. xml可以使用DOM的方式进行解析
+    var name = result.getElementsByTagName(&quot;key&quot;)[0].firstChild.nodeValue;
+    var aNode = document.createElement(&quot;a&quot;);//创建a标签
+    aNode.appendChild(document.createTextNode(name));
+    aNode.href = &quot;url&quot;;
+</code></pre><h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><pre><code>1. XMl是一种通用的数据格式
+2. 不必把数据强加到以定义好的格式中，而是要为数据自定义合适的标记
+3. 利用DOM可以完全掌控文档
+</code></pre><h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><pre><code>1. 当浏览器接收到长的XML文件后，DOM解析可能会很复杂
+2. 如果文档来于服务器，就必须得到保证文档含有正确的首部信息。若文档类型不正确，那么responseXML的值将是空的
+</code></pre><h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><ul>
+<li><p>一种简单那的数据格式，比XML更轻巧。</p>
+<ul>
+<li>SON是JavaScript原生格式，这意味着JavaScript中处理JSON数据必须要任何特殊的API 或 工具包</li>
+</ul>
+</li>
+<li><p>JSON的规则很简单：对象是一个无序的” ‘名称/值’对 “的集合。</p>
+<ul>
+<li>一个对象以”{“ 开始， “}”结束。每个“名称” 后跟一个 “:”冒号；“’名称/值’对”之间使用 “,” 逗号分隔</li>
+</ul>
+</li>
+<li><p>Json用冒号来赋值</p>
+</li>
+<li>赋值语句用逗号分开</li>
+<li>整个对象用大括号封装</li>
+<li>可用大括号分装嵌套数据</li>
+<li>对象描述中存储的数据可以是字符串，数字，布尔值，甚至函数方法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> jsonObjec = &#123;</span><br><span class="line">	<span class="string">"name"</span> : <span class="string">"test"</span>,</span><br><span class="line">	<span class="string">"age"</span>:<span class="number">12</span>,</span><br><span class="line">	<span class="string">"address"</span>:&#123;<span class="string">"city"</span>:<span class="string">"wuhan"</span>, <span class="string">"contury"</span>:<span class="string">"chind"</span>&#125;</span><br><span class="line">	<span class="string">"teaching"</span> : <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	  alert(<span class="string">"this is a funtion"</span>); </span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">alert(jsonObjec.name);</span><br><span class="line">jsonObjec.teaching();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>其实嘛，json可以用jar包打包，不用自己写</li>
+</ul>
+<h4 id="字符串转为json对象"><a href="#字符串转为json对象" class="headerlink" title="字符串转为json对象"></a>字符串转为json对象</h4><ul>
+<li>Json保存在responseText中</li>
+<li><p>需要借助JavaScript的eval语句</p>
+<ul>
+<li>函数eval会把一个字符串当做它的参数，然后这个字符串会被当做JavaScript代码来执行</li>
+<li>var JsonResponse = xmlHttp.responseText;</li>
+<li>var personJson = eval(“(“ + JsonResponse + “)”);</li>
+<li>上述的 左括号和右括号 一定要加</li>
+</ul>
+</li>
+<li><p>Json 提供了json.js 包，下载<a href="http://www.json.org/json.js" target="_blank" rel="noopener">http://www.json.org/json.js</a> 后，使用parseJSON()方法将字符串解析</p>
+<ul>
+<li>var JsonResponse = xmlHttp.responseText;</li>
+<li>personJson = JsonResponse.parseJSON();</li>
+</ul>
+</li>
+</ul>
+<h2 id="看实战学操作"><a href="#看实战学操作" class="headerlink" title="看实战学操作"></a>看实战学操作</h2><h3 id="发送post请求，判断账户名是否存在"><a href="#发送post请求，判断账户名是否存在" class="headerlink" title="发送post请求，判断账户名是否存在"></a>发送post请求，判断账户名是否存在</h3><p><code>如果发送请求时带有参数，一般都用post请求</code></p>
+<ul>
+<li>请求头有个 <code>默认值</code> 是 Content-Type: application/x-www-form-urlencoded</li>
+<li><p>open : xmlHttp.open(“post”, …..);</p>
+</li>
+<li><p>添加一步：设置Content-Type请求头：</p>
+<blockquote>
+<p>xmlHttp.setRequeestHeader(“Conten-Type”,”application/x-www-form-urlencoded”);</p>
+</blockquote>
+</li>
+<li><p>send : xmlHttp.send(“username=zhanshan&amp;password=123”);</p>
+</li>
+</ul>
+<h4 id="JSP的写法"><a href="#JSP的写法" class="headerlink" title="JSP的写法"></a>JSP的写法</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%--</span></span></span><br><span class="line"><span class="tag">  <span class="attr">User:</span> <span class="attr">cong</span></span></span><br><span class="line"><span class="tag">  <span class="attr">Date:</span> <span class="attr">18-11-22</span></span></span><br><span class="line"><span class="tag">  <span class="attr">Time:</span> 下午<span class="attr">3:48</span></span></span><br><span class="line"><span class="tag">  <span class="attr">To</span> <span class="attr">change</span> <span class="attr">this</span> <span class="attr">template</span> <span class="attr">use</span> <span class="attr">File</span> | <span class="attr">Settings</span> | <span class="attr">File</span> <span class="attr">Templates.</span></span></span><br><span class="line"><span class="tag"><span class="attr">--</span>%&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">contentType</span>=<span class="string">"text/html;charset=UTF-8"</span> <span class="attr">language</span>=<span class="string">"java"</span> %&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Ajax<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>用户名：<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"username"</span> <span class="attr">name</span>=<span class="string">"username"</span> /&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"can1"</span> <span class="attr">style</span>=<span class="string">"color: red"</span> &gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>密 码：<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">id</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"username"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> username = <span class="built_in">document</span>.getElementById(<span class="string">"username"</span>);</span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">createXMLHttpRequest</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">try</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">return</span> <span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"><span class="javascript">            &#125; <span class="keyword">catch</span> (e) &#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">try</span> &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="string">"Msxm12.XMLHTTP"</span>);</span></span><br><span class="line"><span class="javascript">                &#125; <span class="keyword">catch</span> (e) &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">try</span> &#123;</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">return</span> <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span></span><br><span class="line"><span class="javascript">                    &#125; <span class="keyword">catch</span> (e) &#123;</span></span><br><span class="line"><span class="javascript">                        alert(<span class="string">"浏览器太几把差了"</span>);</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">throw</span> e;</span></span><br><span class="line"><span class="undefined">                    &#125;</span></span><br><span class="line"><span class="undefined">                &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="javascript">        username.onblur = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="comment">// 当失去焦点的时候 触发函数</span></span></span><br><span class="line"><span class="javascript">            <span class="comment">// 获取异步对象</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> xmlHttp = createXMLHttpRequest();</span></span><br><span class="line"><span class="javascript">            <span class="comment">// 打开链接</span></span></span><br><span class="line"><span class="javascript">            xmlHttp.open(<span class="string">"post"</span>, <span class="string">"Exist"</span>, <span class="literal">true</span>);</span></span><br><span class="line"><span class="javascript">            <span class="comment">// 设置请求头</span></span></span><br><span class="line"><span class="javascript">            xmlHttp.setRequestHeader(<span class="string">"Content-Type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            <span class="comment">// 发送请求 给出请求体</span></span></span><br><span class="line"><span class="javascript">            xmlHttp.send(<span class="string">"username="</span> + username.value);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">            <span class="comment">// 给xmlHttp的onreadystatechange事件注册监听</span></span></span><br><span class="line"><span class="javascript">            xmlHttp.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span> (xmlHttp.readyState === <span class="number">4</span>) &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">if</span> (xmlHttp.status === <span class="number">200</span>)&#123;</span></span><br><span class="line"><span class="javascript">                        <span class="comment">// 4 代表 运行完成  200 代表状态码</span></span></span><br><span class="line"><span class="javascript">                        <span class="keyword">var</span> text = xmlHttp.responseText;</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">var</span> can1 = <span class="built_in">document</span>.getElementById(<span class="string">"can1"</span>);</span></span><br><span class="line"><span class="javascript">                        <span class="keyword">if</span> (text == <span class="string">"1"</span>) &#123;</span></span><br><span class="line"><span class="javascript">                            can1.innerHTML = <span class="string">"用户名已存在"</span></span></span><br><span class="line"><span class="javascript">                        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">                            can1.innerHTML = <span class="string">""</span>;</span></span><br><span class="line"><span class="undefined">                        &#125;</span></span><br><span class="line"><span class="undefined">                    &#125;</span></span><br><span class="line"><span class="javascript">                    <span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="javascript">                        alert(<span class="string">"false"</span>);</span></span><br><span class="line"><span class="undefined">                    &#125;</span></span><br><span class="line"><span class="undefined">                &#125;</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="Servlet写法"><a href="#Servlet写法" class="headerlink" title="Servlet写法"></a>Servlet写法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ajax.test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Servlet implementation class Exist</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/Exist"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Exist</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">       </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@see</span> HttpServlet#HttpServlet()</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Exist</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="comment">// TODO Auto-generated constructor stub</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="comment">// response.getWriter().append("Served at: ").append(request.getContextPath());</span></span><br><span class="line">		System.out.println(<span class="string">"get"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="comment">// doGet(request, response);</span></span><br><span class="line">		System.out.println(<span class="string">"post"</span>);</span><br><span class="line">		request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">		response.setContentType(<span class="string">"text/html;charaset=utf-8"</span>);</span><br><span class="line">		String username = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line">		<span class="keyword">if</span>(username.equalsIgnoreCase(<span class="string">"lc"</span>)) &#123;</span><br><span class="line">			response.getWriter().print(<span class="string">"1"</span>);</span><br><span class="line">			System.out.println(<span class="string">"1"</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			response.getWriter().print(<span class="string">"0"</span>);</span><br><span class="line">			System.out.println(<span class="string">"0"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="响应内容为XML"><a href="#响应内容为XML" class="headerlink" title="响应内容为XML"></a>响应内容为XML</h3><ul>
+<li>首先就要设置响应头</li>
+<li>服务器端：<ul>
+<li>Contentype 设置为 text/xml;charset=utf-8</li>
+</ul>
+</li>
+<li>客户端：<ul>
+<li>var doc = xmlHttp.responseXML; //得到的是Documented对象</li>
+<li>获取服务器的响应结果</li>
+<li>使用dom运用</li>
+</ul>
+</li>
+</ul>
+<h2 id="JQuery的Ajax"><a href="#JQuery的Ajax" class="headerlink" title="JQuery的Ajax"></a>JQuery的Ajax</h2><ul>
+<li>jQuery对Ajax操作进行了封装<ul>
+<li>在jQuery中最底层的方式是 $.ajax()</li>
+<li>第二层是load()，$.get() 和 $.post()</li>
+<li>第三层是$.getScript()和$.getJSON()</li>
+</ul>
+</li>
+</ul>
+<h3 id="ajax-方法（底层接口）"><a href="#ajax-方法（底层接口）" class="headerlink" title="ajax 方法（底层接口）"></a>ajax 方法（底层接口）</h3><ul>
+<li>$.ajax(url,setttring)<ul>
+<li>url 参数地址</li>
+<li>setttring 例如下面（包括大括号都是）<ul>
+<li>{type:’post’, data : {id : 1, name : “test”} ,beforeSend:function(xhr){},success:function (data){},error(xhr){},conplete:function(){}}</li>
+<li>data 为 服务端的响应体</li>
+<li>success 为 响应成功的时候的回调函数<ul>
+<li>其中 data 的数据类型 会通过 服务端的 设置 自动转换</li>
+</ul>
+</li>
+<li>data 为 传递参数<ul>
+<li>post 通过请求体传递</li>
+<li>get 通过 url 传递</li>
+</ul>
+</li>
+<li>通过设置dataType 设置 返回的参数类型</li>
+<li>error 请求不正常(状态码不为200)的时候执行的函数</li>
+<li>complete 请求完成(readystatus 到达 4 )时执行的回调函数</li>
+<li>beforeSend 在 执行 xmlHtpp.open 之前调用的回调函数</li>
+</ul>
+</li>
+<li>setting 还有其他参数 放在下面的链接里面咯<ul>
+<li><a href="https://www.jquery123.com/jQuery.ajax/" target="_blank" rel="noopener">jQuery.Ajax</a> </li>
+</ul>
+</li>
+<li>其实嘛 你也可以吧 url 放入 setting 里面 </li>
+</ul>
+</li>
+</ul>
+<h4 id="为什么使用jQuery呢"><a href="#为什么使用jQuery呢" class="headerlink" title="为什么使用jQuery呢"></a>为什么使用jQuery呢</h4><p><code>在访问一个不存在的页面时 会返回一个404页面</code></p>
+<ul>
+<li>如果用原生js<ul>
+<li>返回的是一个404页面代码 </li>
+<li>即 一串 html 代码</li>
+</ul>
+</li>
+<li>如果是jQuery<ul>
+<li>返回空 </li>
+</ul>
+</li>
+</ul>
+<h3 id="load方法"><a href="#load方法" class="headerlink" title="load方法"></a>load方法</h3><ul>
+<li>load()<ul>
+<li><code>载入远程HTML文件代码并插入至DOM中</code></li>
+<li>load(url,[data],[callback]);</li>
+<li>url 待装入HTML网页的网址，必须是JSON格式，一旦url不为空，那么请求方式就默认改为POST</li>
+<li>data（可选） 发送至服务器的 key/value 数据，在jQuery1.3中也可以接受一个字符串</li>
+<li>callback（可选）载入成功时回调函数 </li>
+<li>如果只需要加载目标HTML网页内的某些元素，则可以通过load()方法的URL参数来达到目的<ul>
+<li>通过URL参数制定选择符就可以方便的从加载过来的HTML文档中挑选内容</li>
+<li>语法结构是 “url selector”(注意：url 和 选择器 中间有个空格)</li>
+<li>如果返回的是&lt;h2&gt;文本1&lt;/h2&gt;&lt;h3&gt;文本2&lt;/h3&gt;</li>
+<li>如果url  后面 加上 “ h2” ，那么就只会得到 h2 部分</li>
+</ul>
+</li>
+<li>传递方式： load()方法的传递参数根据参数data来自动自定<ul>
+<li>如果没有参数传递，采用GET方式传递，否则POST</li>
+</ul>
+</li>
+<li>对于必须在加载完才能继续的操作，load()方法提供了回调函数<ul>
+<li>该回调函数有三个参数<ul>
+<li>data 代表请求返回内容</li>
+<li>textStatus 代表请求状态</li>
+<li>XMLHttpRequest 代表请求状态</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>任何一个节点都可以使用load()方法来加载Ajax，结果直接插入到html节点中</li>
+</ul>
+</li>
+</ul>
+<h3 id="get和post-方法"><a href="#get和post-方法" class="headerlink" title="get和post 方法"></a>get和post 方法</h3><ul>
+<li><p>$.get() （或$.post()）方法</p>
+</li>
+<li><p>$.get() 方法使用GET方式来进行异步请求</p>
+<ul>
+<li>它的结构是 $.get(url, [data], [callback], [type]);</li>
+<li>url，String类型，请求HTML页面的URL地址</li>
+<li>data，Object类型，发送到服务器的key/value数据会作为Query/String附加到URL中</li>
+<li>callback， function类型，载入成功时的回调函数</li>
+<li>type，String类型，服务器返回内容的格式，包括xml,html,script,json等 </li>
+</ul>
+</li>
+<li><p>$.get()方法的回调函数只有两个参数</p>
+<ul>
+<li>data， 代表返回的内容，可以是一个XML文档，JSON文件，HTMl片段等</li>
+<li>textstatus代表请求状态，其值可能是<ol>
+<li>succuss</li>
+<li>error</li>
+<li>notmodify</li>
+<li>timeout</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>$.get()和$.post()方法是jQuery中的全局函数，而find()等方法都是对jQuery对象进行操作的方法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="keyword">this</span>.href;</span><br><span class="line"><span class="keyword">var</span> args= &#123;<span class="string">"time"</span> : <span class="keyword">new</span> <span class="built_in">Date</span>()&#125;;</span><br><span class="line">$.post(url, args, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> name = $(data).find(<span class="string">"name"</span>).text();</span><br><span class="line">	<span class="keyword">var</span> email = $(data).find(<span class="string">"email"</span>).text();</span><br><span class="line">	<span class="keyword">var</span> website = $(data).find(<span class="string">"website"</span>).text();</span><br><span class="line">&#125;, <span class="string">"JSON"</span>);</span><br><span class="line"></span><br><span class="line">$.getJSON(url, args, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123; <span class="comment">// 这里直接通过getJSON 将 data 转为JSON格式</span></span><br><span class="line">	<span class="keyword">var</span> name = data.person.name;</span><br><span class="line">	<span class="keyword">var</span> email = data.person.email;</span><br><span class="line">	<span class="keyword">var</span> website = data.person.website;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="Ajax的全局事件"><a href="#Ajax的全局事件" class="headerlink" title="Ajax的全局事件"></a>Ajax的全局事件</h3><ul>
+<li><p>所谓全局事件，就是在所有ajax调用的时候，都会执行的事件</p>
+<ul>
+<li>例如：我有一个请求开始的动画，我整个页面写了100个Ajax</li>
+<li>有一天 我想把所有的动画全部改了 我要改100个</li>
+<li>全局事件就是用在这个地方的</li>
+</ul>
+</li>
+<li><p>.ajaxComplete()</p>
+<ul>
+<li>当Ajax请求完成后注册一个回调函数。这是一个 AjaxEvent。</li>
+<li>Ajax &gt; 全局 Ajax 事件处理器</li>
+</ul>
+</li>
+<li><p>.ajaxError()</p>
+<ul>
+<li>Ajax请求出错时注册一个回调处理函数，这是一个 Ajax Event。</li>
+<li>Ajax &gt; 全局 Ajax 事件处理器</li>
+</ul>
+</li>
+<li><p>.ajaxSend()</p>
+<ul>
+<li>在Ajax请求发送之前绑定一个要执行的函数，这是一个 Ajax Event.</li>
+<li>Ajax &gt; 全局 Ajax 事件处理器</li>
+</ul>
+</li>
+<li><p>.ajaxStart()</p>
+<ul>
+<li>在AJAX 请求刚开始时执行一个处理函数。 这是一个 Ajax Event.</li>
+<li>Ajax &gt; 全局 Ajax 事件处理器</li>
+</ul>
+</li>
+<li><p>.ajaxStop()</p>
+<ul>
+<li>在AJAX 请求完成时执行一个处理函数。 这是一个 Ajax Event。</li>
+<li>Ajax &gt; 全局 Ajax 事件处理器</li>
+</ul>
+</li>
+<li><p>.ajaxSuccess()</p>
+<ul>
+<li>绑定一个函数当 Ajax 请求成功完成时执行。 这是一个Ajax Event.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="built_in">document</span>).ajaxComplete(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> $( <span class="string">".log"</span> ).text( <span class="string">"Triggered ajaxComplete handler."</span> );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="jQuery-Servlet实现-验证用户名是否存在"><a href="#jQuery-Servlet实现-验证用户名是否存在" class="headerlink" title="jQuery + Servlet实现 验证用户名是否存在"></a>jQuery + Servlet实现 验证用户名是否存在</h3><ul>
+<li>HTML 写法</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">language</span>=<span class="string">"java"</span> <span class="attr">contentType</span>=<span class="string">"text/html; charset=UTF-8"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">pageEncoding</span>=<span class="string">"UTF-8"</span>%&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>检查用户名是否注册<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"$&#123;pageContext.request.contextPath&#125;/JS/jquery-1.12.4.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">	$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">		$(<span class="string">"#usernmae"</span>).change(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//当value值改变时触发函数</span></span></span><br><span class="line"><span class="javascript">			<span class="keyword">var</span> val = $(<span class="keyword">this</span>).val();<span class="comment">//获取值</span></span></span><br><span class="line"><span class="javascript">			val = $.trim(val);<span class="comment">//去除前后的空格</span></span></span><br><span class="line"><span class="javascript">			<span class="keyword">if</span>(val != <span class="string">""</span>)&#123;</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> url = <span class="string">"$&#123;pageContext.request.contextPath&#125;/Exist"</span>;</span></span><br><span class="line"><span class="javascript">				<span class="keyword">var</span> args = &#123;<span class="string">"username"</span> : val, <span class="string">"time"</span>:<span class="keyword">new</span> <span class="built_in">Date</span>()&#125;;</span></span><br><span class="line"><span class="javascript">				$.post(url, args, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">					$(<span class="string">"#message"</span>).html(data);</span></span><br><span class="line"><span class="undefined">				&#125;);</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="undefined">		&#125;);</span></span><br><span class="line"><span class="undefined">	&#125;);</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">		UserName:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"usernmae"</span> /&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"message"</span> <span class="attr">style</span>=<span class="string">"color:red;"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"submit"</span> /&gt;</span> </span><br><span class="line">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Servlet写法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">package com.ajax.test;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">import javax.servlet.ServletException;</span><br><span class="line">import javax.servlet.annotation.WebServlet;</span><br><span class="line">import javax.servlet.http.HttpServlet;</span><br><span class="line">import javax.servlet.http.HttpServletRequest;</span><br><span class="line">import javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Servlet implementation class Exist</span><br><span class="line"> */</span><br><span class="line">@WebServlet(&quot;/Exist&quot;)</span><br><span class="line">public class Exist extends HttpServlet &#123;</span><br><span class="line">	private static final long serialVersionUID = 1L;</span><br><span class="line">       </span><br><span class="line">    /**</span><br><span class="line">     * @see HttpServlet#HttpServlet()</span><br><span class="line">     */</span><br><span class="line">    public Exist() &#123;</span><br><span class="line">        super();</span><br><span class="line">        // TODO Auto-generated constructor stub</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">	 */</span><br><span class="line">	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(&quot;get&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)</span><br><span class="line">	 */</span><br><span class="line">	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">		System.out.println(&quot;post&quot;);</span><br><span class="line">		String username = request.getParameter(&quot;username&quot;);</span><br><span class="line">		List&lt;String&gt; 	userNames = Arrays.asList(&quot;AAA&quot;,&quot;BBB&quot;,&quot;CCC&quot;);</span><br><span class="line">		response.setCharacterEncoding(&quot;utf-8&quot;);</span><br><span class="line">		response.setContentType(&quot;text/html;charaset=utf-8&quot;);</span><br><span class="line">		if (userNames.contains(username)) &#123;</span><br><span class="line">			response.getWriter().print(&quot;改用户名以存在&quot;);</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">			response.getWriter().print(&quot;&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;请求已发送&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="使用jackson包去生成json"><a href="#使用jackson包去生成json" class="headerlink" title="使用jackson包去生成json"></a>使用jackson包去生成json</h2><ol>
+<li>导入jar包</li>
+<li>创建ObjectMappter 对象<ul>
+<li>ObjectMapper mapper = new ObjectMapper();</li>
+</ul>
+</li>
+<li>调用 mapper 的 writerValueAsString() 方法 把一个对象转为一个 Json 字符串</li>
+</ol>
+<h3 id="先写好一个class"><a href="#先写好一个class" class="headerlink" title="先写好一个class"></a>先写好一个class</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> String id;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> id;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">(String name, Stirng id)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.id = id;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getBrithday</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"2018.12.01"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getAddress</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"hubei-wuhan"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="写一个main类去调用上述Customer"><a href="#写一个main类去调用上述Customer" class="headerlink" title="写一个main类去调用上述Customer"></a>写一个main类去调用上述Customer</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> JsonGenerationException, JsonMappingException, IOE......</span>&#123;</span><br><span class="line">	ObjectMapper mapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">	</span><br><span class="line">	Customer customer = <span class="keyword">new</span> Customer(<span class="string">"Name"</span>, <span class="string">"1001"</span>);</span><br><span class="line">	String jsonStr = mapper.writeValueAsStirng(customer);</span><br><span class="line">	System.out.println(jsonStr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>注意</code></p>
+<ul>
+<li>JackSon 使用 getter 方法来定位Json 对象的属性</li>
+<li>自行尝试上述的代码，你会发现 没有定义为 string 的 address 和 birthday 也会出现在最后的json中</li>
+<li>因为 addrss 和 birthday 都 定义了 get 方法</li>
+<li>即 只要是定义了 get 方法的，其返回值都会被放入json对象中</li>
+<li>如果 getName() 修改 为 getCustName()，那么最后放入json的键的名字就是 “csunstName”</li>
+</ul>
+</li>
+<li><p>可以通过在CLASS中添加注解来使某些get方法不放入json对象中</p>
+<ul>
+<li>@JsonIgnore 放在 get 函数前面</li>
+</ul>
+</li>
+</ul>
+<h2 id="jQuery-block-ui"><a href="#jQuery-block-ui" class="headerlink" title="jQuery block ui"></a>jQuery block ui</h2><p>jQuery BlockUI 插件可以在不同锁定浏览器的同时，模拟同步模式下发起Ajax请求的行为<br>该插件激活时，会阻止用户在页面进行的操作，直到插件被关闭<br>BlockUI通过向DOM中添加元素实现其外观和组织用户交互的行为。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://malsup.github.io/min/jquery.blockUI.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="阻止页面交互"><a href="#阻止页面交互" class="headerlink" title="阻止页面交互"></a>阻止页面交互</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.blockUI();</span><br></pre></td></tr></table></figure>
+<h3 id="自定义消息阻塞UI"><a href="#自定义消息阻塞UI" class="headerlink" title="自定义消息阻塞UI"></a>自定义消息阻塞UI</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.blockUI(&#123;message:&apos;&lt;h1&gt;&lt;img src=&quot;busy.gif&quot; /&gt;Just a moment...&lt;/h1&gt;&apos;&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="自定义样式阻塞UI"><a href="#自定义样式阻塞UI" class="headerlink" title="自定义样式阻塞UI"></a>自定义样式阻塞UI</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.blockUI(&#123;css:&#123;backgroundColor: &apos;red&apos;; color:&apos;#fff&apos;&#125;&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="解除对页面的遮罩"><a href="#解除对页面的遮罩" class="headerlink" title="解除对页面的遮罩"></a>解除对页面的遮罩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$.unblockUI();</span><br></pre></td></tr></table></figure>
+<h3 id="使用缺省设置对所有的ajax请求都使用UI遮罩"><a href="#使用缺省设置对所有的ajax请求都使用UI遮罩" class="headerlink" title="使用缺省设置对所有的ajax请求都使用UI遮罩"></a>使用缺省设置对所有的ajax请求都使用UI遮罩</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);</span><br></pre></td></tr></table></figure>
+<h3 id="学习学习"><a href="#学习学习" class="headerlink" title="学习学习"></a>学习学习</h3><p><a href="好东西">http://bookshadow.com/weblog/2014/09/26/jquery-blockui-js-introduction/</a> </p>
+<h4 id="全局覆盖"><a href="#全局覆盖" class="headerlink" title="全局覆盖"></a>全局覆盖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// change message border</span><br><span class="line">$.blockUI.defaults.css.border = &apos;5px solid red&apos;;</span><br><span class="line"></span><br><span class="line">// make fadeOut effect shorter</span><br><span class="line">$.blockUI.defaults.fadeOut = 200;</span><br></pre></td></tr></table></figure>
+<h4 id="局部覆盖"><a href="#局部覆盖" class="headerlink" title="局部覆盖"></a>局部覆盖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// change message border</span><br><span class="line">$.blockUI(&#123; css: &#123; border = &apos;5px solid red&apos;&#125; &#125;);</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">// make fadeOut effect shorter</span><br><span class="line">$.unblockUI(&#123; fadeOut: 200 &#125;);</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">// use a different message</span><br><span class="line">$.blockUI(&#123; message: &apos;Hold on!&apos; &#125;);</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">// use a different message</span><br><span class="line">$(&apos;#myDiv&apos;).block(&#123; message: &apos;Processing...&apos; &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ul>
+<li>xmlHttp.response 和 xmlHttp.responseText 都是获取响应<ul>
+<li>responseText 获取的永远是以文本格式，字符串形式的响应体</li>
+<li>response 会 根据 responseType的变化而变化<ul>
+<li>xmlHttp.responseType = “json” 则 response 则为 json 格式</li>
+<li>通过代码告诉请求代理对象服务器端响应的是JSON对象 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="模板引擎的使用（这里用的是art-template）"><a href="#模板引擎的使用（这里用的是art-template）" class="headerlink" title="模板引擎的使用（这里用的是art-template）"></a>模板引擎的使用（这里用的是art-template）</h3><ul>
+<li>首先我们要选择模板引擎<ul>
+<li>市面上的模板引擎很多<ul>
+<li>art-template（国产）</li>
+<li>Handlebars（最火）</li>
+<li>ejs</li>
+<li>doT</li>
+<li>swig（不维护了）</li>
+<li>……</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>下载模板引擎JS文件</li>
+<li>引入到页面中<ul>
+<li>&lt;script src=”js/template-web.js”&gt;&lt;/script&gt;</li>
+</ul>
+</li>
+<li>准备一个模板</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;script id = <span class="string">"tmple"</span> type=<span class="string">"text/javascript"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="comment">// 如果 type 不为 text/javascript 那么 标签内部的内容不会作为 js语句 执行</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>准备一个数据</li>
+<li>通过模板引擎的JS文件提供的一个函数/方法 将模板和数据整合的到渲染结果HTML</li>
+<li>将渲染结果的HTML设置到某个元素的innderHTML中</li>
+</ul>
+<h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><ul>
+<li>跨域可以说Ajax没有一点关系，也可以说与Ajax有着绝对的联系</li>
+</ul>
+<h3 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h3><pre><code>同源策略是浏览器的一种安全策略
+所谓同源是指：域名，协议，端口 完全相同
+只有同源的地址才可以通过Ajax的方式请求
+不同源地址之间，默认不能相互进行Ajax请求
+不同源地址之间的请求我们称之为跨域请求
+</code></pre><p>不同源则报错：<font style="color:red">No ‘Access-Control-Allow-Origin’ header is present on the requested resource</font></p>
+<ul>
+<li>翻译过来就是 目标地址 不允许不同源的地址对其进行Ajax操作<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/04/Cocos2dx基础/" rel="next" title="Cocos2dx基础">
+                <i class="fa fa-chevron-left"></i> Cocos2dx基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/22/MyBatis/" rel="prev" title="MyBatis学习">
+                MyBatis学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">lc_love_myh</p>
+              <p class="site-description motion-element" itemprop="description">好好学习 天天向上</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Ajax"><span class="nav-number">1.</span> <span class="nav-text">什么是Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不用刷新整个页面就可以与服务器通讯的方法"><span class="nav-number">1.1.</span> <span class="nav-text">不用刷新整个页面就可以与服务器通讯的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax工具包"><span class="nav-number">1.2.</span> <span class="nav-text">Ajax工具包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax的缺陷"><span class="nav-number">1.3.</span> <span class="nav-text">Ajax的缺陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">2.</span> <span class="nav-text">XMLHttpRequest</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建XMLHttpRequest对象"><span class="nav-number">2.1.</span> <span class="nav-text">创建XMLHttpRequest对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">2.2.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#以下用于发送："><span class="nav-number">2.2.1.</span> <span class="nav-text">以下用于发送：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#以下用于请求："><span class="nav-number">2.2.2.</span> <span class="nav-text">以下用于请求：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个简单的案例"><span class="nav-number">2.3.</span> <span class="nav-text">一个简单的案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送请求"><span class="nav-number">2.4.</span> <span class="nav-text">发送请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#onreadystatechange"><span class="nav-number">2.4.1.</span> <span class="nav-text">onreadystatechange</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#open-methdo-url-asynch"><span class="nav-number">2.4.2.</span> <span class="nav-text">open(methdo, url, asynch)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#send-data"><span class="nav-number">2.4.3.</span> <span class="nav-text">send(data)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setRequestHeader-header-value"><span class="nav-number">2.4.4.</span> <span class="nav-text">setRequestHeader(header, value)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#post示例"><span class="nav-number">2.4.4.1.</span> <span class="nav-text">post示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接收响应"><span class="nav-number">2.5.</span> <span class="nav-text">接收响应</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#readyState"><span class="nav-number">2.5.1.</span> <span class="nav-text">readyState</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#status"><span class="nav-number">2.5.2.</span> <span class="nav-text">status</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#responseText"><span class="nav-number">2.5.3.</span> <span class="nav-text">responseText</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据格式"><span class="nav-number">3.</span> <span class="nav-text">数据格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解析HTML"><span class="nav-number">3.1.</span> <span class="nav-text">解析HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例如"><span class="nav-number">3.1.1.</span> <span class="nav-text">例如</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">3.1.2.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">3.1.3.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#XML"><span class="nav-number">3.2.</span> <span class="nav-text">XML</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点-1"><span class="nav-number">3.2.2.</span> <span class="nav-text">缺点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON"><span class="nav-number">3.3.</span> <span class="nav-text">JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串转为json对象"><span class="nav-number">3.3.1.</span> <span class="nav-text">字符串转为json对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#看实战学操作"><span class="nav-number">4.</span> <span class="nav-text">看实战学操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#发送post请求，判断账户名是否存在"><span class="nav-number">4.1.</span> <span class="nav-text">发送post请求，判断账户名是否存在</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSP的写法"><span class="nav-number">4.1.1.</span> <span class="nav-text">JSP的写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Servlet写法"><span class="nav-number">4.1.2.</span> <span class="nav-text">Servlet写法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应内容为XML"><span class="nav-number">4.2.</span> <span class="nav-text">响应内容为XML</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JQuery的Ajax"><span class="nav-number">5.</span> <span class="nav-text">JQuery的Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax-方法（底层接口）"><span class="nav-number">5.1.</span> <span class="nav-text">ajax 方法（底层接口）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么使用jQuery呢"><span class="nav-number">5.1.1.</span> <span class="nav-text">为什么使用jQuery呢</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#load方法"><span class="nav-number">5.2.</span> <span class="nav-text">load方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get和post-方法"><span class="nav-number">5.3.</span> <span class="nav-text">get和post 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax的全局事件"><span class="nav-number">5.4.</span> <span class="nav-text">Ajax的全局事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jQuery-Servlet实现-验证用户名是否存在"><span class="nav-number">5.5.</span> <span class="nav-text">jQuery + Servlet实现 验证用户名是否存在</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用jackson包去生成json"><span class="nav-number">6.</span> <span class="nav-text">使用jackson包去生成json</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先写好一个class"><span class="nav-number">6.1.</span> <span class="nav-text">先写好一个class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写一个main类去调用上述Customer"><span class="nav-number">6.2.</span> <span class="nav-text">写一个main类去调用上述Customer</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-block-ui"><span class="nav-number">7.</span> <span class="nav-text">jQuery block ui</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#阻止页面交互"><span class="nav-number">7.1.</span> <span class="nav-text">阻止页面交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义消息阻塞UI"><span class="nav-number">7.2.</span> <span class="nav-text">自定义消息阻塞UI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义样式阻塞UI"><span class="nav-number">7.3.</span> <span class="nav-text">自定义样式阻塞UI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解除对页面的遮罩"><span class="nav-number">7.4.</span> <span class="nav-text">解除对页面的遮罩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用缺省设置对所有的ajax请求都使用UI遮罩"><span class="nav-number">7.5.</span> <span class="nav-text">使用缺省设置对所有的ajax请求都使用UI遮罩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习学习"><span class="nav-number">7.6.</span> <span class="nav-text">学习学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#全局覆盖"><span class="nav-number">7.6.1.</span> <span class="nav-text">全局覆盖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部覆盖"><span class="nav-number">7.6.2.</span> <span class="nav-text">局部覆盖</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number">8.</span> <span class="nav-text">补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模板引擎的使用（这里用的是art-template）"><span class="nav-number">8.1.</span> <span class="nav-text">模板引擎的使用（这里用的是art-template）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域"><span class="nav-number">9.</span> <span class="nav-text">跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同源策略"><span class="nav-number">9.1.</span> <span class="nav-text">同源策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案"><span class="nav-number">9.2.</span> <span class="nav-text">解决方案</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lc_love_myh</span>
+
+  
+</div>
+
+
+  <div class="powered-by"></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info"></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<footer>
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+    <script>
+        var now = new Date(); 
+        function createtime() { 
+            var grt= new Date("09/25/2018 12:00:00");//此处修改你的建站时间或者网站上线时间 
+            now.setTime(now.getTime()+250); 
+            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+            document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+        } 
+    setInterval("createtime()",250);
+    </script>
+    <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
+      <div class="powered-by"></div>
+      <span class="post-count">全站博客共108k字</span>
+    </div>
+</footer>
+</html>
