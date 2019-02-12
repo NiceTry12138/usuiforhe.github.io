@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2018/01/26/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E6%9D%BF%E5%AD%90/</loc>
+        <lastmod>2019-02-12T05:37:45.004Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2017/11/04/Cocos2dx%E5%9F%BA%E7%A1%80/</loc>
+        <lastmod>2019-02-10T10:19:13.817Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2018/01/08/python%E7%88%AC%E8%99%AB/</loc>
         <lastmod>2019-02-08T10:44:07.184Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -33,14 +49,6 @@
     <url>
         <loc>http://yoursite.com/2017/12/22/C#/</loc>
         <lastmod>2019-02-07T07:05:33.737Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2017/11/04/Cocos2dx%E5%9F%BA%E7%A1%80/</loc>
-        <lastmod>2019-02-07T07:05:29.332Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -161,14 +169,6 @@
     <url>
         <loc>http://yoursite.com/2017/10/12/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8-%E5%98%A4%E5%98%A4%E5%98%A4/</loc>
         <lastmod>2019-02-07T07:04:12.868Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2018/01/26/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E6%9D%BF%E5%AD%90/</loc>
-        <lastmod>2019-02-07T07:04:08.522Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
