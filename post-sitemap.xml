@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://yoursite.com/2017/12/22/C#/</loc>
+        <lastmod>2019-02-17T15:49:43.926Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://yoursite.com/2018/01/26/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83%E6%9D%BF%E5%AD%90/</loc>
         <lastmod>2019-02-16T15:37:10.795Z</lastmod>
         <changefreq>weekly</changefreq>
