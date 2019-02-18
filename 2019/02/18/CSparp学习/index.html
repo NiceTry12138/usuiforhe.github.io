@@ -83,14 +83,14 @@
 
 <meta name="description" content="C数据类型输入，输出 输出  1Console.WriteLine();//输出  输入  1Console.ReadLine();//输入 整型 整型即整数  整型可以分为有符号和无符号整行   有符号整型  可以表示负数和正数   字节型    sbyte 短整型    short  整型        int 长整行    long   无符号整型  只能表示大于等于0的数   字节型">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C#学习">
-<meta property="og:url" content="http://yoursite.com/2017/12/22/C#/index.html">
+<meta property="og:title" content="&#39;C#学习&#39;">
+<meta property="og:url" content="http://yoursite.com/2019/02/18/CSparp学习/index.html">
 <meta property="og:site_name" content="lc_love_myh">
 <meta property="og:description" content="C数据类型输入，输出 输出  1Console.WriteLine();//输出  输入  1Console.ReadLine();//输入 整型 整型即整数  整型可以分为有符号和无符号整行   有符号整型  可以表示负数和正数   字节型    sbyte 短整型    short  整型        int 长整行    long   无符号整型  只能表示大于等于0的数   字节型">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-17T15:49:43.926Z">
+<meta property="og:updated_time" content="2019-02-18T10:50:16.213Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C#学习">
+<meta name="twitter:title" content="&#39;C#学习&#39;">
 <meta name="twitter:description" content="C数据类型输入，输出 输出  1Console.WriteLine();//输出  输入  1Console.ReadLine();//输入 整型 整型即整数  整型可以分为有符号和无符号整行   有符号整型  可以表示负数和正数   字节型    sbyte 短整型    short  整型        int 长整行    long   无符号整型  只能表示大于等于0的数   字节型">
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/22/C#/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/02/18/CSparp学习/"/>
 
 
 
@@ -143,7 +143,7 @@
       }
   </style>
 
-  <title>C#学习 | lc_love_myh</title>
+  <title>'C#学习' | lc_love_myh</title>
   
 
 
@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/22/C#/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/18/CSparp学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lc_love_myh">
@@ -336,7 +336,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">C#学习</h1>
+          <h1 class="post-title" itemprop="name headline">'C#学习'</h1>
         
 
         <div class="post-meta">
@@ -348,8 +348,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-22T19:14:38+08:00">
-                2017-12-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-18T18:47:48+08:00">
+                2019-02-18
               </time>
             
 
@@ -764,6 +764,120 @@
 <li>一个属性 至少要有一个访问器 get/set</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class Person&#123;</span><br><span class="line">    // 类体</span><br><span class="line">    // 特征</span><br><span class="line">    private string name;//类的字段，成员变量</span><br><span class="line">    private int age;</span><br><span class="line">    public int Age&#123;</span><br><span class="line">        set &#123;</span><br><span class="line">            if(value &lt;= 150)// value为传入的 参数</span><br><span class="line">                age = value;</span><br><span class="line">        &#125;</span><br><span class="line">        get &#123;</span><br><span class="line">            return age;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    public Person()&#123;</span><br><span class="line">        Console.WriteLine(&quot;无参构造&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public Person(int a)&#123; // 函数重载</span><br><span class="line">        this.age = a;</span><br><span class="line">    &#125;</span><br><span class="line">    public Person(string name_, int age_):this() // 这里this后面无参，所以先调用无参构造方法，再调用这个两个参数的构造方法</span><br><span class="line">    &#123;</span><br><span class="line">        this.age = age_;</span><br><span class="line">        this.name = name_;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static void Main(string[] args)&#123;</span><br><span class="line">    Person person = new Person();</span><br><span class="line">    person.Age = 10; // 赋值即调用set方法</span><br><span class="line">    Console.WriteLine(person.Age);//直接获得则为get</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><ul>
+<li>把多个具有相同字段的内容提取出来，形成一个新的类，这个类被称为父类</li>
+<li>子类继承父类</li>
+<li>子类拥有父类所有的属性和方法，不包括构造方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Hardware&#123;</span><br><span class="line">    string name;</span><br><span class="line">    int cost;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class  Cpu : HardWare&#123;</span><br><span class="line">    // Cpu 继承 HardWare 类</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>一个类只能有一个父类，C#是单继承</li>
+<li>C#所有的类都直接或间接继承自Object类</li>
+</ul>
+<h3 id="继承中的构造方法"><a href="#继承中的构造方法" class="headerlink" title="继承中的构造方法"></a>继承中的构造方法</h3><ul>
+<li>继承中，默认调用父类的无参构造方法，因此要么父类中要有无参，要么手动调用父类构造函数base()</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class Hardware&#123;</span><br><span class="line">    string name;</span><br><span class="line">    int cost;</span><br><span class="line">    HardWare(string name_, int cose_)&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    HardWare()&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class  Cpu : HardWare&#123;</span><br><span class="line">    // Cpu 继承 HardWare 类</span><br><span class="line">    public Cpu(string name_, int cost_):base(name_, cost_)&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="访问权限修饰符"><a href="#访问权限修饰符" class="headerlink" title="访问权限修饰符"></a>访问权限修饰符</h2><ul>
+<li>用于修饰属性，方法，类，修饰可以被访问的范围</li>
+<li>分为五种：<ul>
+<li>public<ul>
+<li>在整个解决方案中都生效</li>
+</ul>
+</li>
+<li>internal<ul>
+<li>默认类是internal的访问权限</li>
+<li>用于修饰字段，属性，类和方法</li>
+<li>可以在当前的整个项目中的任何位置都能访问</li>
+</ul>
+</li>
+<li>protected<ul>
+<li>用于修饰字段，属性，和方法</li>
+<li>可以在当前类中访问，可以在子类中访问</li>
+<li>甚至可以通过跨项目的继承子类中访问</li>
+</ul>
+</li>
+<li>private 私有权限<ul>
+<li>用于修饰字段，属性，和方法</li>
+<li>只能在当前类中访问</li>
+<li>无法在类外访问，无论是子类或者是实例化都不能直接访问</li>
+<li>只能在当前类中由方法来访问修改设置</li>
+</ul>
+</li>
+<li>protected internal<ul>
+<li>在当前类中生效</li>
+<li>在跨项目的子类中生效</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>访问权限：private &lt; protected &lt; internal &lt; protected internal &lt; public </li>
+<li>父类的访问权限不得低于子类的访问权限</li>
+<li>在public权限的类中，如果某个字段或者某个方法中使用到了非public权限的类型，程序会要求一定要将用到的这个类型改为public</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Point&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">public class Circle&#123;</span><br><span class="line">    public Point center; // 这里会报错，因为 Point 的访问权限低于Circle的访问权限</span><br><span class="line">    public void SetCenter(Point C)&#123;// 这里报错，因为Point权限低于Circle</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><ul>
+<li>向上转型<ul>
+<li>子类类型转为父类类型</li>
+<li>隐式转型，肯定成功</li>
+<li>父类的引用可以指向子类的对象</li>
+</ul>
+</li>
+<li>向下转型<ul>
+<li>父类类型转为子类类型</li>
+<li>可能失败</li>
+<li>需要强制类型转换 </li>
+<li><code>如果向下转型失败 则变为null</code></li>
+</ul>
+</li>
+<li>父类的引用可以指向子类的对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class Animal&#123;&#125;</span><br><span class="line">class Dog:Animal&#123;&#125;</span><br><span class="line">class Hashiqi:Dog&#123;&#125;</span><br><span class="line"></span><br><span class="line">public class Program&#123;</span><br><span class="line">    public static void Main(string[] args)&#123;</span><br><span class="line">        Dog d = new Dog();</span><br><span class="line">        </span><br><span class="line">        // 向上转型</span><br><span class="line">        // 隐式转型，肯定成功</span><br><span class="line">        Animal a = d;// 父类的引用指向子类的对象</span><br><span class="line">        </span><br><span class="line">        // 向下转型</span><br><span class="line">        Dog b = new Animal();// 这句话报错</span><br><span class="line">        Dog E = (Dog)new Animal();// 强制类型转换</span><br><span class="line">        Dog F = new Animal() as Dog;// as 仅用于引用数据类型，即基本数据类型不能使用as</span><br><span class="line">        // 如果转型失败，则为 其值 null 即 F = null</span><br><span class="line">        </span><br><span class="line">        Dog G = a as Dog;</span><br><span class="line">        // 这样一般不会转型失败</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在什么地方用呢<ul>
+<li>有的时候使用重载是很傻的选择</li>
+<li>传入一个线下转型的参数，我们再向上转型，转回去就可以不用重新写函数了</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class Animal&#123;&#125;</span><br><span class="line">class Dog : Animal&#123;&#125;</span><br><span class="line">class Cat : Animal&#123;&#125;</span><br><span class="line">class Elephant : Animal&#123;&#125;</span><br><span class="line"></span><br><span class="line">class Program&#123;</span><br><span class="line">    </span><br><span class="line">    public static void SetAnimal(Dog dog)&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void SetAnimal(Cat cat)&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void SetAnimal(Elephant elephant)&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    // 像上述使用一个重载，显得是很傻的，如果工程后面需要再加一个动物，那么又得写一个函数，代码利用率低</span><br><span class="line">    public static void SetAnimal(Animal animal)&#123;// 	如果我们需要传入一个动物的参数</span><br><span class="line">        // 传入一个线下转型的参数，我们再向上转型，转回去就可以不用重新写函数了</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    static void Main(string[] args)&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用is关键判断变量的类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Person&#123;</span><br><span class="line">&#125;</span><br><span class="line">class Program&#123;</span><br><span class="line">    static void Main(string[] args)&#123;</span><br><span class="line">        Person person = new Person();</span><br><span class="line">        if ( person is Person)&#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="方法的隐藏与重写"><a href="#方法的隐藏与重写" class="headerlink" title="方法的隐藏与重写"></a>方法的隐藏与重写</h2><h3 id="隐藏"><a href="#隐藏" class="headerlink" title="隐藏"></a>隐藏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Animal&#123;</span><br><span class="line">    public void show()&#123;</span><br><span class="line">        Console.WirteLine(&quot;animal show&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Cat:Animal&#123;</span><br><span class="line">    Console.WirteLine(&quot;cat show&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Program&#123;</span><br><span class="line">    public static void Mai(String[] args)&#123;</span><br><span class="line">        Animal c = new Cat();</span><br><span class="line">        c.show(); // 输出 animal show</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Cat类中，如果不考虑重载，能够重写一个show方法吗？<ul>
+<li>答案是可以的，其操作为“方法隐藏”，把从父类继承的方法隐藏了</li>
+<li>需要使用关键字new</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Cat:Animal&#123;</span><br><span class="line">    public new void show()&#123;</span><br><span class="line">        Console.WirteLine(&quot;cat show&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h3><ul>
+<li>需要关键字 override</li>
+<li><p>只能重写父类中virtual的函数</p>
+</li>
+<li><p>把父类中实现的方法丢掉，自己写</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Animal&#123;</span><br><span class="line">    public virtual void show()&#123;</span><br><span class="line">        Console.WirteLine(&quot;animal show&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Cat&#123;</span><br><span class="line">    public override void show()&#123;</span><br><span class="line">        Console.WirteLine(&quot;cat show&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void Main(String[] args)&#123;</span><br><span class="line">    Animal c = new Cat();</span><br><span class="line">    c.show(); // 输出cat show</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意上述两个输出并不一样，一个输出anima 一个 输出 cat</strong></p>
+<h1 id="枚举"><a href="#枚举" class="headerlink" title="# 枚举"></a># 枚举</h1><ul>
+<li>[访问权限控制符] enum 枚举名 { 值 }</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public enum Season &#123;</span><br><span class="line">    spring,summer,autumn,winter</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public static void Main(String[] args)&#123;</span><br><span class="line">    Season s = Season.autumn;</span><br><span class="line">    Concole.WirteLines(s);//输出utumn</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>枚举类型的值，从0开始，spring的值是0，summer的值是1</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public enum Season &#123;</span><br><span class="line">    spring = 3,summer,autumn,winter</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>手动修改 spring=3，那么summer=4，以此类推</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public enum Season : long&#123;</span><br><span class="line">    spring,summer,autumn,winter</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>上述方法，设置值为long型，默认是int</li>
+</ul>
 
       
     </div>
@@ -788,8 +902,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/22/MyBatis/" rel="next" title="MyBatis学习">
-                <i class="fa fa-chevron-left"></i> MyBatis学习
+              <a href="/2018/09/25/Git/" rel="next" title="Git">
+                <i class="fa fa-chevron-left"></i> Git
               </a>
             
           </div>
@@ -797,10 +911,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/23/Java基础学习/" rel="prev" title="Java基础学习">
-                Java基础学习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -921,7 +1031,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C"><span class="nav-number">1.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入，输出"><span class="nav-number">1.1.1.</span> <span class="nav-text">输入，输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整型"><span class="nav-number">1.1.2.</span> <span class="nav-text">整型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮点型"><span class="nav-number">1.1.3.</span> <span class="nav-text">浮点型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔型"><span class="nav-number">1.1.4.</span> <span class="nav-text">布尔型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符型"><span class="nav-number">1.1.5.</span> <span class="nav-text">字符型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标识符"><span class="nav-number">1.2.</span> <span class="nav-text">标识符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规则"><span class="nav-number">1.2.1.</span> <span class="nav-text">规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规范"><span class="nav-number">1.2.2.</span> <span class="nav-text">规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充"><span class="nav-number">1.2.3.</span> <span class="nav-text">补充</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量与常亮"><span class="nav-number">1.3.</span> <span class="nav-text">变量与常亮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码语法"><span class="nav-number">1.4.</span> <span class="nav-text">代码语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量声明"><span class="nav-number">1.4.1.</span> <span class="nav-text">变量声明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常量"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">常量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型转换"><span class="nav-number">1.5.</span> <span class="nav-text">数据类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动类型转换（隐式类型转换）"><span class="nav-number">1.5.1.</span> <span class="nav-text">自动类型转换（隐式类型转换）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强制类型转换（显式类型转换）"><span class="nav-number">1.5.2.</span> <span class="nav-text">强制类型转换（显式类型转换）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支语句"><span class="nav-number">1.6.</span> <span class="nav-text">分支语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关系运算符"><span class="nav-number">1.6.1.</span> <span class="nav-text">关系运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if语句"><span class="nav-number">1.6.2.</span> <span class="nav-text">if语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#switch-语句"><span class="nav-number">1.6.3.</span> <span class="nav-text">switch 语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环语句"><span class="nav-number">1.7.</span> <span class="nav-text">循环语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#while循环"><span class="nav-number">1.7.1.</span> <span class="nav-text">while循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环"><span class="nav-number">1.7.2.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#do-while循环"><span class="nav-number">1.7.3.</span> <span class="nav-text">do-while循环</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">1.8.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一维数组"><span class="nav-number">1.8.1.</span> <span class="nav-text">一维数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二维数组"><span class="nav-number">1.8.2.</span> <span class="nav-text">二维数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ref和out关键字"><span class="nav-number">1.9.</span> <span class="nav-text">ref和out关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ref和out的区别"><span class="nav-number">1.9.1.</span> <span class="nav-text">ref和out的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象"><span class="nav-number">2.</span> <span class="nav-text">面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类和对象"><span class="nav-number">2.1.</span> <span class="nav-text">类和对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的设计"><span class="nav-number">2.2.</span> <span class="nav-text">类的设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造方法"><span class="nav-number">2.3.</span> <span class="nav-text">构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态构造方法"><span class="nav-number">2.3.1.</span> <span class="nav-text">静态构造方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封装"><span class="nav-number">2.4.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性访问器"><span class="nav-number">2.5.</span> <span class="nav-text">属性访问器</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C"><span class="nav-number">1.</span> <span class="nav-text">C</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入，输出"><span class="nav-number">1.1.1.</span> <span class="nav-text">输入，输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整型"><span class="nav-number">1.1.2.</span> <span class="nav-text">整型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮点型"><span class="nav-number">1.1.3.</span> <span class="nav-text">浮点型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔型"><span class="nav-number">1.1.4.</span> <span class="nav-text">布尔型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符型"><span class="nav-number">1.1.5.</span> <span class="nav-text">字符型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标识符"><span class="nav-number">1.2.</span> <span class="nav-text">标识符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#规则"><span class="nav-number">1.2.1.</span> <span class="nav-text">规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#规范"><span class="nav-number">1.2.2.</span> <span class="nav-text">规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充"><span class="nav-number">1.2.3.</span> <span class="nav-text">补充</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量与常亮"><span class="nav-number">1.3.</span> <span class="nav-text">变量与常亮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码语法"><span class="nav-number">1.4.</span> <span class="nav-text">代码语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量声明"><span class="nav-number">1.4.1.</span> <span class="nav-text">变量声明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#变量"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常量"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">常量</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型转换"><span class="nav-number">1.5.</span> <span class="nav-text">数据类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动类型转换（隐式类型转换）"><span class="nav-number">1.5.1.</span> <span class="nav-text">自动类型转换（隐式类型转换）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强制类型转换（显式类型转换）"><span class="nav-number">1.5.2.</span> <span class="nav-text">强制类型转换（显式类型转换）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支语句"><span class="nav-number">1.6.</span> <span class="nav-text">分支语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关系运算符"><span class="nav-number">1.6.1.</span> <span class="nav-text">关系运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#if语句"><span class="nav-number">1.6.2.</span> <span class="nav-text">if语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#switch-语句"><span class="nav-number">1.6.3.</span> <span class="nav-text">switch 语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环语句"><span class="nav-number">1.7.</span> <span class="nav-text">循环语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#while循环"><span class="nav-number">1.7.1.</span> <span class="nav-text">while循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for循环"><span class="nav-number">1.7.2.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#do-while循环"><span class="nav-number">1.7.3.</span> <span class="nav-text">do-while循环</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">1.8.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一维数组"><span class="nav-number">1.8.1.</span> <span class="nav-text">一维数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二维数组"><span class="nav-number">1.8.2.</span> <span class="nav-text">二维数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ref和out关键字"><span class="nav-number">1.9.</span> <span class="nav-text">ref和out关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ref和out的区别"><span class="nav-number">1.9.1.</span> <span class="nav-text">ref和out的区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象"><span class="nav-number">2.</span> <span class="nav-text">面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类和对象"><span class="nav-number">2.1.</span> <span class="nav-text">类和对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的设计"><span class="nav-number">2.2.</span> <span class="nav-text">类的设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造方法"><span class="nav-number">2.3.</span> <span class="nav-text">构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态构造方法"><span class="nav-number">2.3.1.</span> <span class="nav-text">静态构造方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封装"><span class="nav-number">2.4.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性访问器"><span class="nav-number">2.5.</span> <span class="nav-text">属性访问器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">2.6.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#继承中的构造方法"><span class="nav-number">2.6.1.</span> <span class="nav-text">继承中的构造方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问权限修饰符"><span class="nav-number">2.7.</span> <span class="nav-text">访问权限修饰符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态"><span class="nav-number">2.8.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法的隐藏与重写"><span class="nav-number">2.9.</span> <span class="nav-text">方法的隐藏与重写</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#隐藏"><span class="nav-number">2.9.1.</span> <span class="nav-text">隐藏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重写"><span class="nav-number">2.9.2.</span> <span class="nav-text">重写</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#枚举"><span class="nav-number">3.</span> <span class="nav-text"># 枚举</span></a></li></ol></div>
             
 
           </div>
@@ -1477,7 +1587,7 @@
     </script>
     <div class="theme-info" style="float:left; margin: 0px 10px 0px 0px;">
       <div class="powered-by"></div>
-      <span class="post-count">全站博客共116.4k字</span>
+      <span class="post-count">全站博客共117.8k字</span>
     </div>
 </footer>
 </html>
