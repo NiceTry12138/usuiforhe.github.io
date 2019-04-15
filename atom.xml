@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-25T08:15:03.585Z</updated>
+  <updated>2019-03-18T14:33:16.384Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>思科命令</title>
+    <link href="http://yoursite.com/2019/03/18/%E6%80%9D%E7%A7%91%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2019/03/18/思科命令/</id>
+    <published>2019-03-18T13:43:37.000Z</published>
+    <updated>2019-03-18T14:33:16.384Z</updated>
+    
+    <content type="html"><![CDATA[<p>建立VLAN的命令格式：vlan&lt;vlan_ID&gt; name &lt;vlan_name&gt; 为端口分配VLAN的命令格式为：switchport access vlan&lt;vlan_num&gt; </p><p>配置交换机Catalyst 6500管理IP地址命令格式：Switch-6500&gt; (enable)set interface sc0&lt;ip_addr&gt;&lt;ip_mask&gt;&lt;ip_addr&gt;(broadcast address 广播地址)。<br>配置缺省路由命令格式为“Switch-6500&gt; (enable)Set ip route 0.0.0.0 ”。</p><p>路由器分组转发过程中，数据包中包含目的主机网络地址（IP地址）和下一跳路由物理地址（MAC地址），也就是说数据分组通过每一个路由器转发时，分组中目的MAC地址是变化的，但目的网络地址始终不变。</p><p>弹性分组环（RPR）中每一个节点都执行SRP公平算法，与FDDI一样使用双环结构。传统的FDDI环中，当源结点向目的结点成功发送一个数据帧之后，这个数据帧要由源结点从环中回收，而RPR环限制数据帧只在源结点与目的结点之间的光纤段上传输，当源结点成功发送一个数据帧之后，这个数据帧由目的结点从环中回收。RPR采用自愈环设计思路，能在50ms时间内，隔离出现故障的结点和光纤段，提供SDH级的快速保护和恢复。</p><p>提供用户访问Internet所需要的路由服务的是核心交换层。汇聚层的基本功能是：（1）汇聚接入层的用户流量，进行数据分组传输的汇聚、转发和交换。（2）根据接入层的用户流量，进行本地路由、过滤、流量均衡、QoS优先级管理，以及安全控制、IP地址转换、流量整形等处理。（3）根据处理结果把用户流量转发到核心交换层或本地进行路由处理。</p><p>无源光纤网PON，按照ITU标准可分为两部分：（1）OC3，155.520 Mbps 的对称业务。（2)上行OC3，155.520 Mbps，下行OC12,622.080 Mbps的不对称业务。</p><p>光纤传输信号可通过很长的距离，无需中继。例如T1线路的中继距离为1.7 km，典型的CATV网络要求在同轴电缆上每隔500 ~ 700 m加一个放大器，而光纤传输系统的中继距离可达100 km 以上。Cable Modom使计算机发出的数据信号于电缆传输的射频信号实现相互之间的转换，并将信道分为上行信道和下行信道。ASDL提供的非对称宽带特性，上行速率在64 kbps~640 kbps，下行速率在500 kbps~ 7 Mbps。802.11b定义了使用直序扩频技术，传输速率为1 Mbps、2 Mbps、</p><p>评价高性能存储技术的指标主要是I/O速度和磁盘存储容量。集群(Cluster)技术是向一组独立的计算机提供高速通信线路，组成一个共享数据存储空间的服务器系统，如果一台主机出现故障，它所运行的程序将转移到其他主机。因此集群计算机技术可以大大提高服务器的可靠性、可用性和容灾能力。热插拔功能允许用户在不切断电源的情况下，更换存在故障的硬盘、板卡等部件，从而提高系统应对突发事件的能力。服务器总体性能不仅仅取决于CPU数量，而且与CPU主频、系统内存、网络速度等都有关系。</p><p>全双工端口带宽的计算方法是：端口数×端口速率×2。即24×100mbps×2+2×1000mbps×2=8.8Gbps</p><p>如果系统高可靠性达到99.9%，那么每年的停机时间≤8.8小时;系统高可靠性达到99.99%,那么每年的停机时间≤53分钟;如果系统高可靠性达到99.999%,那么每年的停机时间≤5分钟。</p><p>：由IP地址块59.67.159.125/11可知，网络号为前11位，则子网掩码为前11位全1、后21位为0，即为11111111 11100000 00000000 00000000，点分十进制为255.224.0.0。</p><p>用IPV6地址表示需要注意：在使用零压缩法时，不能把一个位段内部的有效0也压缩掉；双冒号：：在一个地址中只能出现一次；在得到一个一个IPV6地址时，经常会遇到如何确定双冒号：：之间被压缩0的位数的问题；IPV6不支持子网掩码，它只支持前缀长度表示法。本题中D选项已经有8个位段，没有全0位段压缩，不应该使用双冒号：：。</p><p>外部网关协议是不同的自治系统的路由器之间交换路由信息的协议。一个BGP发言人与其他自治系统中的BGP发言人要交换路由信息就要先建立TCP连接，然后在此连接上交换BGP报文以建立BGP会话。BGP协议交换路由信息的结点数是以自治系统数为单位的，所以不会小于自治系统数。BGP4采用路由向量路由协议。</p><p>为了适应大规模的网络，并使更新过程收敛的很快，OSPF协议将一个自治系统划分为若干个更小的范围，每个范围叫做区域。每个区域有一个32位的区域标识符（点分十进制表示），在一个区域内的路由器数目不超过200个。划分区域的好处是将利用洪泛法交换链路状态信息的范围局限在每一个区域内，而不是整个自治系统，因此区域内部路由器只知道本区域的完整网络拓扑，而不知道其他区域的网络拓扑情况。</p><p>结点通过双绞线连接到一个集线器上，当其中一个结点发送数据的时候，任何一个结点都可以收到消息，所以链路中串接集线器可以监听该链路中的数据包。由于集线器工作在物理层，所以每次只能有一个结点能够发送数据，而其他的结点都处于接收数据的状态。连接到一个集线器的所有结点共享一个冲突域，这些结点执行CSMA/CD介质访问控制方法。</p><p>双绞线扭绞的目的是使对外的电磁辐射和遭受到外部的电磁干扰减少到最小。嵌入式安装插座是用来连接双绞线的，多介质信息插座用来连接铜缆和光纤。新建筑通常采用嵌入式（暗装）信息插座，现有建筑则采用表面安装（明装）的信息插座。建筑群布线子系统可以是架空布线、巷道布线、直埋布线、地下管道布线。综上可知，B项中描述错误。</p><p>交换机具有三种交换模式：快速转发直通式，交换机接收到帧的前14个字节时就立刻转发数据帧。碎片丢弃式，它缓存每个帧的前64个字节，检查冲突过滤碎片。存储转发式，转发之前将整个帧读取到内存里。</p><p>VLAN name用32个字符表示，可以是字母和数字。不给定名字的VLAN，系统自动按缺省的VLAN名（VLAN00×××）建立，“×××”是VLAN ID。题目中ID是999，因此缺省VLAN名是VLAN00999。</p><p>在全局配置模式下进入虚拟终端配置模式： Router (config)# line vty 0 15 Router (configline)#</p><p>全局配置模式： Router (config)#accesslist &lt;accesslist_num&gt;&lt;deny|permit&gt;&lt;ip_addr&gt;&lt;wildcard_mask&gt; log 配置应用接口： Router (config)#interface &lt;接口名&gt; Router (config-if)#ip accessgroup &lt;accesslist_num&gt;&lt;in|out&gt; 此外，IP标准访问控制列表对应的表号范围是：1~99、1300~1999；IP扩展访问控制列表对应的表号范围是：100~199、2000~2699；wildcard_mask为通配符，也即子网掩码的反码。 标准访问控制列表只能检查数据包的源地址，但是扩展访问控制列表可以检查数据包的源地址、目的地址和端口号。题目中要求是标准访问控制列表，所以C项错。B项中应该是子网掩码的反码，所以B错。D中kouter<config-if>应在kouter<config>下一层。</config></config-if></p><p>IEEE 802.11最初定义的三个物理层包括了两个扩频技术和一个红外传播规范，无线传输的频道定义在2.4GHz的ISM波段内。IEEE 802.11无线标准定义的传输速率是1Mbps和2Mbps，可以使用FHSS（跳频扩频）和DSSS（自序扩频）技术。为了解决“隐藏结点”问题，IEEE 802.11在MAC层上引入了一个新的RTS/CTS选项。综上所述，选项A错误。</p><p>IEEE 802.11b的运作模式分为点对点模式和基本模式。点对点模式是指无线网卡和无线网卡之间的通信方式。这种连接方式对于小型的网络来说是非常方便的，它最多可以允许256台PC连接。基本模式是指无线网络规模扩充或无线和有线网络并存时的通信方式，这也是IEEE 802.11b现在最普及的方式。接入点负责频段管理及漫游等指挥工作，一个接入点最多可连接1024台PC。综上所述，D选项错误。</p><p>第一次配置无线接入点一般采用本地配置方式，此时因为没有连接到DHCP服务器而无法获得IP地址，它的默认IP地址是10.0.0.1，并成为小型DHCP服务器可为覆盖范围内的PC以及连接到接入点的以太网端口的PC分配IP地址实现无线连接，此时不配置SSID或SSID配置为tsunami。在PC的浏览器中输入接入点的IP地址和密码后，出现接入点汇总状态页面。</p><p>动态更新允许DNS客户端在发生更改的任何时候，都能使用DNS服务器注册和动态地更新其资源记录，它减少了对区域记录进行手动管理的需要，适用于频繁改变位置并使用DHCP获取IP地址的DNS客户端。</p><p>“ipconfig /release”命令可以释放已获得的地址租约，使其IP Address和Subnet Mask均为0.0.0.0。</p><p>网站性能选项中，带宽限制选项限制该网站的可使用带宽，以控制该站点允许的流量。网站性能选项中，网站连接选项可设置客户端Web连接数量B中没有说明限制客户端的什么功能，而且并不是通过访问列表限制的，而是通过微调框。建立Web站点时，必须为每个站点指定一个主目录，也可以是虚拟的子目录，所以C错。设置Web站点时，只有设置了默认页面，访问时才会直接打开default.html等设置的默认页面。如果没有设置默认页面，访问站点时需要提供首页内容的文件名，所以D错。综上选项A正确。</p><p>网站性能选项中，带宽限制选项限制该网站的可使用带宽，以控制该站点允许的流量。网站性能选项中，网站连接选项可设置客户端Web连接数量B中没有说明限制客户端的什么功能，而且并不是通过访问列表限制的，而是通过微调框。建立Web站点时，必须为每个站点指定一个主目录，也可以是虚拟的子目录，所以C错。设置Web站点时，只有设置了默认页面，访问时才会直接打开default.html等设置的默认页面。如果没有设置默认页面，访问站点时需要提供首页内容的文件名，所以D错。综上选项A正确。</p><p>防火墙的访问模式有非特权模式、特权模式、配置模式和监视模式四种，其中监视模式下可以进行操作系统映像更新、口令恢复等操作。因此C选项符合要求。</p><p>可信计算机系统评估准则将计算机系统的安全可信度从低到高分为四类，共七个级别：D级，最小保护，该级的计算机系统除了物理上的安全设施外没有任何安全措施，任何人只要启动系统就可以访问系统的资源和数据；C1级，自主保护类，具有自主访问控制机制，用户登录时需要进行身份鉴别；C2级，自主保护类，具有审计和验证机制；B1级，强制安全保护类，引入强制访问控制机制，能够对主体和客体的安全标记进行管理；B2级，结构保护，要求计算机系统所有的对象都加标签，而且给设备分配单个或多个安全级别；B3级，具有硬件支持的</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;建立VLAN的命令格式：vlan&amp;lt;vlan_ID&amp;gt; name &amp;lt;vlan_name&amp;gt; 为端口分配VLAN的命令格式为：switchport access vlan&amp;lt;vlan_num&amp;gt; &lt;/p&gt;
+&lt;p&gt;配置交换机Catalyst 6500管
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Git</title>
@@ -420,27 +442,6 @@
       
       
         &lt;h2 id=&quot;软件系统体系结构&quot;&gt;&lt;a href=&quot;#软件系统体系结构&quot; class=&quot;headerlink&quot; title=&quot;软件系统体系结构&quot;&gt;&lt;/a&gt;软件系统体系结构&lt;/h2&gt;&lt;h3 id=&quot;B-S&quot;&gt;&lt;a href=&quot;#B-S&quot; class=&quot;headerlink&quot; ti
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>算法入门 嘤嘤嘤</title>
-    <link href="http://yoursite.com/2017/10/12/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8-%E5%98%A4%E5%98%A4%E5%98%A4/"/>
-    <id>http://yoursite.com/2017/10/12/算法入门-嘤嘤嘤/</id>
-    <published>2017-10-12T11:13:24.000Z</published>
-    <updated>2019-02-07T07:04:12.868Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="学习算法的建议"><a href="#学习算法的建议" class="headerlink" title="学习算法的建议"></a>学习算法的建议</h2><h3 id="必备条件"><a href="#必备条件" class="headerlink" title="必备条件"></a>必备条件</h3><pre><code>1. 数理基础，着力加强2. 兴趣爱好，能否持久的喜欢它3. 做事有系统，规范，着眼于大的方面</code></pre><h3 id="C-或Java"><a href="#C-或Java" class="headerlink" title="C++或Java"></a>C++或Java</h3><pre><code>熟练掌握C++或者Java，语言作为基础，即使算法能理解，也无法表示出来</code></pre><h3 id="数理基础"><a href="#数理基础" class="headerlink" title="数理基础"></a>数理基础</h3><pre><code>对于数学定理，公式推导等，要熟悉</code></pre><h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><pre><code>对于数据结构，吃透了能够受益终身。不要指望数据结构，这个东西方面太广，不要只去看你有什么没学，你更要看你学了什么</code></pre><h3 id="计算思维"><a href="#计算思维" class="headerlink" title="计算思维"></a>计算思维</h3><pre><code>思维方式在前人的基础上，形成自己的方式；同时学习一些套路，解题的套路，等等</code></pre><h2 id="计算几何"><a href="#计算几何" class="headerlink" title="计算几何"></a>计算几何</h2><pre><code>计算几何重于计算</code></pre><h3 id="凸包问题（计算几何的核心）"><a href="#凸包问题（计算几何的核心）" class="headerlink" title="凸包问题（计算几何的核心）"></a>凸包问题（计算几何的核心）</h3><h4 id="什么是凸包"><a href="#什么是凸包" class="headerlink" title="什么是凸包"></a>什么是凸包</h4><p><img src="https://i.imgur.com/phyPiVI.png" alt=""></p><pre><code>凸包就是这样的，由外部的点连成边能够包住所有的点 </code></pre><h4 id="颜料混合"><a href="#颜料混合" class="headerlink" title="颜料混合"></a>颜料混合</h4><pre><code>颜料混合问题能够帮助你了解凸包题目：    给你 x 颜料：红色 10%，绿色 35%    给你 y 颜料：红色 16%，绿色 20%问你能否组成    U 颜料：红色12%，绿色30%    V 颜料：红色13%，绿色22%如果再给你 Z 颜料：红色7%，绿色15%你能否组成 V 颜料呢？</code></pre><h4 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h4><pre><code>将每种颜料构成一个点，我们所拥有的点作为顶点，只要目标点在顶点围成的边界里面，那么就可以得到颜料</code></pre><p><img src="https://i.imgur.com/zDVl8uX.png" alt=""></p><pre><code>如果新生成的颜料正好在边上，那么我们称这个点凸相关，因为这个点对生成新的比例颜料毫无帮助</code></pre><h4 id="In-Triangle-Test-判断点是否在三角形内"><a href="#In-Triangle-Test-判断点是否在三角形内" class="headerlink" title="In-Triangle Test(判断点是否在三角形内)"></a>In-Triangle Test(判断点是否在三角形内)</h4><p><img src="https://i.imgur.com/QSoeHA5.png" alt=""></p><pre><code>只要点在直线 PQ，QR，RP 的左边，那么点就在三角形内部。计算几何中，一般以逆时针方向 bool InTriangle(P, Q, R, S){    bool a = ToLeft(P, Q, S);    bool b = ToLeft(Q, R, S);    bool c = ToLeft(Q, R, S);    return a == b &amp;&amp; b == c;}//因为不知道PQR的排列顺序，虽然图片上是逆时针，但是实际中可能是逆时针可能是顺时针，所以全为True和全为False都成立</code></pre><h4 id="转化的思想"><a href="#转化的思想" class="headerlink" title="转化的思想"></a>转化的思想</h4><pre><code>我们把现实生活转化为数学图形</code></pre><h3 id="凸包判断"><a href="#凸包判断" class="headerlink" title="凸包判断"></a>凸包判断</h3><p><img src="https://i.imgur.com/2Rzs3zD.png" alt=""></p><pre><code>每个点都有一条穿过它的直线，使得所有的点都落在这条直线的一侧那么，我们只需要先用前三个点围成一个三角形，再从第四个点判断是否在多边形内，在内部则不加，不在内部则定位新的顶点，如果新增加的顶点可以围住旧的顶点，那么就去除旧的顶点</code></pre><h2 id="InsertionSort"><a href="#InsertionSort" class="headerlink" title="InsertionSort"></a>InsertionSort</h2><h3 id="栈（Stack）"><a href="#栈（Stack）" class="headerlink" title="栈（Stack）"></a>栈（Stack）</h3><pre><code>last in,first out后进先出的数据结构</code></pre><h3 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h3><pre><code>出栈（pop）入栈（push）</code></pre><h3 id="InsertionSort（插入排序）"><a href="#InsertionSort（插入排序）" class="headerlink" title="InsertionSort（插入排序）"></a>InsertionSort（插入排序）</h3><pre><code>对于一串数字进行排序，所用的空间复杂度为O(1),且必须用栈进行排序。这里我们定义两个栈——L，R，和一个额外的变量int一开始，数据全部都在R里面，然后依次移动到L栈中：    当 R 中的要移动的数据(R.top()) T 比 L 中最后的数据(L.top())小的时候，将要移动的数据 T 存到 额外空间 int 中    再将 L 中的数据，依次出栈，入栈到R中，直到 L 栈中最后的数据(L.top())比 T 小的时候停止循环执行上述内容，直到 R 的内容为空的时候停止这里 用到 new 和 delete 方法，保证内存为O(1)比较 t 和 L.top()的大小关系的时候，需要判断 L 是否为空</code></pre><h2 id="Largest-Rectangle-in-a-Histogram-直方图中最大的矩形"><a href="#Largest-Rectangle-in-a-Histogram-直方图中最大的矩形" class="headerlink" title="Largest Rectangle in a Histogram(直方图中最大的矩形)"></a>Largest Rectangle in a Histogram(直方图中最大的矩形)</h2><p><img src="https://i.imgur.com/n02CYjq.png" alt=""></p><pre><code>在很多不规则的图形中，找到面积最大的矩形，然后裁剪出来</code></pre><p><img src="https://i.imgur.com/Je4FQqo.png" alt=""></p><pre><code>从某方面看，就是找某种意义上的极值点</code></pre><h3 id="分而治之"><a href="#分而治之" class="headerlink" title="分而治之"></a>分而治之</h3><pre><code>求出最低点K    maxRect(h,low,high)        k = findPoint(h,low,high);然后是分别查看最低点的左边和右边    maxRect(h, low, k);    maxRect(h, k+1, high);    H[k]*(hi-low);</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;学习算法的建议&quot;&gt;&lt;a href=&quot;#学习算法的建议&quot; class=&quot;headerlink&quot; title=&quot;学习算法的建议&quot;&gt;&lt;/a&gt;学习算法的建议&lt;/h2&gt;&lt;h3 id=&quot;必备条件&quot;&gt;&lt;a href=&quot;#必备条件&quot; class=&quot;headerlink&quot; titl
       
     
     </summary>
